@@ -1,0 +1,5 @@
+src/game_gop.js
+src/khung.html
+node_modules/
+.DS_Store
+Thumbs.db

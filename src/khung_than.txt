@@ -1,0 +1,110 @@
+<body>
+<canvas id="c"></canvas>
+<div id="dangTai"><div><b>SUPER KART RACING</b><span>Đang dựng đường đua…</span></div></div>
+
+<!-- SẢNH -->
+<div id="sanh" class="lop">
+  <div class="tieuDe"><h1>SUPER KART<br>RACING</h1><p>10 km · tới 500 km/h · 26 xe (6 xe máy) · 10 đường đua</p></div>
+  <div id="hoSo" class="bang bam">
+    <div class="hoSoDong"><span id="hsAvatar" class="avatar"></span><div><b id="hsTen"></b><small id="hsXe"></small></div><span class="xu">💰 <span id="hsXu">0</span></span></div>
+    <div id="hsHuy"></div>
+    <button id="nutLoaiXe" class="nutNho"></button>
+  </div>
+  <div id="menuChinh">
+    <button class="oMenu" data-m="duong">🏁<b>Đường đua</b><small id="mDuong"></small></button>
+    <button class="oMenu" data-m="thuthach">🎯<b>Thử thách</b><small id="mThuThach"></small></button>
+    <button class="oMenu" data-m="garage">🔧<b>Garage</b><small id="mGarage"></small></button>
+    <button class="oMenu" data-m="taydua">👤<b>Tay đua</b><small id="mTayDua"></small></button>
+    <button class="oMenu" data-m="nhiemvu">📜<b>Nhiệm vụ</b><small id="mNhiemVu"></small></button>
+    <button class="oMenu" data-m="thanhtich">🏆<b>Thành tích</b><small>Bảng cá nhân</small></button>
+    <button class="oMenu" data-m="caidat">⚙️<b>Cài đặt</b><small id="mCaiDat"></small></button>
+  </div>
+  <button id="nutDuaTiep" class="nutLon vang">▶ ĐUA: <span id="tenTiep"></span></button>
+</div>
+
+<!-- MỚI VÀO: CHỌN Ô TÔ HAY XE MÁY -->
+<div id="chonLoai" class="lop"><div class="giua"><div class="bang bam">
+  <h2 class="chu3d">Bạn muốn đua bằng xe gì?</h2>
+  <div class="haiLoai">
+    <button class="loaiThe" id="loaiOto"><span class="ic">🏎️</span><b>Ô TÔ ĐUA</b><small>Bốn bánh, bám đường, ôm cua chắc chắn · 20 mẫu xe</small></button>
+    <button class="loaiThe xm" id="loaiMoto"><span class="ic">🏍️</span><b>XE MÁY</b><small>Hai bánh, tăng tốc nhanh, nghiêng mình khi vào cua · 6 mẫu xe</small></button>
+  </div>
+  <p class="moTa">Đổi lại lúc nào cũng được ở sảnh (nút dưới tên bạn) hoặc trong Garage.</p>
+</div></div></div>
+
+<!-- MÀN HÌNH CON (đường đua, thử thách, garage, tay đua, nhiệm vụ, thành tích, cài đặt) -->
+<div id="man" class="lop"><div id="manKhung" class="bang bam">
+  <div id="manDau"><button id="manVe" class="nutVe" title="Về sảnh">◀ Về</button><h2 id="manTieuDe" class="chu3d"></h2><span class="xu">💰 <span id="manXu">0</span></span></div>
+  <div id="manND"></div>
+</div></div>
+
+<!-- TRONG CUỘC ĐUA -->
+<div id="hud" class="lop">
+  <div id="hTrai"><div id="hHang">4<small>/6</small></div><div class="oHud" id="hGio">0:00.00</div><div class="oHud" id="hXu">💰 0</div><div class="oHud" id="hMucTieu"></div></div>
+  <div id="tienDo"><div id="tdThanh"><i id="tdDa"></i><div id="tdCham"></div></div><div id="tdChu">0,0 / 10 km</div></div>
+  <div id="denXP"><div class="den"><i></i><i></i><i></i><i></i><i></i></div><b>ĐÈN XANH LÀ CHẠY</b></div>
+  <button id="nutDung" title="Tạm dừng (Esc)">⏸</button>
+  <div id="hPhai"><div id="kmLon"><small>KM</small><b id="kmSo">0</b><span>/10</span></div><div id="bangXH"></div></div>
+  <canvas id="banDo" width="240" height="240"></canvas>
+  <div id="oKyNang" title="Kỹ năng (phím E)"><span id="knIcon">?</span><small>KỸ NĂNG · E</small></div>
+  <div id="dongHo"><div id="hTocDo">0<small>km/h</small></div><div id="nitroTron"><i id="nitroVong"></i><span>🔥</span><small>NITRO</small></div><div id="driftKhung"><i></i><i></i><i></i></div></div>
+  <div id="combo"></div>
+  <div id="nguoc">⚠️ Đi ngược chiều! Quay lại hoặc bấm ĐẶT LẠI</div>
+  <div id="dem"></div>
+  <div id="camUng">
+    <div class="tNut" id="tTrai">◀</div><div class="tNut" id="tPhai">▶</div>
+    <div class="tNut" id="tGa">GA</div><div class="tNut" id="tPhanh">PHANH</div><div class="tNut" id="tDrift">DRIFT</div><div class="tNut" id="tNitro">🔥<br>NITRO</div><div class="tNut" id="tKyNang">❔</div><div class="tNut" id="tDat">↺<br>ĐẶT LẠI</div>
+  </div>
+</div>
+
+<!-- KẾT QUẢ -->
+<div id="ketQua" class="lop"><div class="giua"><div class="bang bam">
+  <h2 class="chu3d" id="kqTieuDe">Về đích!</h2>
+  <div id="kqHuy"></div>
+  <table id="kqBang"></table>
+  <div id="kqThuong"></div>
+  <div id="kqMoi"></div>
+  <div class="hangNutGiua"><button class="nutLon xam" id="kqSanh">🏠 Sảnh</button><button class="nutLon xanh" id="kqLai">🔁 Đua lại</button><button class="nutLon vang" id="kqTiep">▶ Đường tiếp</button></div>
+</div></div></div>
+
+<!-- TẠM DỪNG -->
+<div id="tamDung" class="lop"><div class="giua"><div class="bang bam" style="width:min(92vw,calc(var(--u)*48))">
+  <h2 class="chu3d">Tạm dừng</h2>
+  <div class="hangNutGiua cot"><button class="nutLon vang" id="tdTiep">▶ Chơi tiếp</button><button class="nutLon xanh" id="tdLai">🔁 Đua lại từ đầu</button><button class="nutLon xam" id="tdSanh">🏠 Về sảnh</button></div>
+  <div class="hangNutGiua"><button class="nutNho" id="tdAm">🔊 Âm thanh: Bật</button><button class="nutNho" id="tdCam">🎥 Camera: Gần</button></div>
+  <p class="moTa chiCham">👆 Đè ◀ ▶ để lái (trượt ngón qua lại để đổi hướng) · xe tự chạy ga · giữ <b>DRIFT</b> khi vào cua rồi thả ra để phóng · <b>NITRO</b> tăng tốc · nút cầu vồng: dùng kỹ năng · <b>ĐẶT LẠI</b> khi xe kẹt · tắt "Ga tự động" trong Cài đặt nếu muốn tự bấm GA</p>
+  <p class="moTa chiPhim">⌨️ ← → lái · ↑ ga · ↓ phanh/lùi · <b>Cách</b> giữ để drift · <b>Shift</b> hoặc <b>N</b> Nitro · <b>E</b> dùng kỹ năng (lấy từ hộp quà cầu vồng) · <b>R</b> đặt lại xe · <b>C</b> đổi camera · <b>Esc</b> tạm dừng</p>
+</div></div></div>
+
+<!-- CÁCH CHƠI (hiện ở cuộc đua đầu tiên) -->
+<div id="huongDan" class="lop"><div class="giua"><div class="bang bam" style="width:min(92vw,calc(var(--u)*70))">
+  <h2 class="chu3d">Cách chơi</h2>
+  <div class="hdLuoi chiPhim">
+    <div><b>← →</b><span>Lái trái, phải</span></div><div><b>↑ / ↓</b><span>Ga · Phanh, lùi</span></div>
+    <div><b>Cách</b><span>Giữ khi vào cua để drift, thả ra để phóng</span></div><div><b>Shift</b><span>Bật Nitro tăng tốc</span></div>
+    <div><b>E</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>R · Esc</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
+  </div>
+  <div class="hdLuoi chiCham">
+    <div><b>◀ ▶</b><span>Đè để lái, trượt ngón qua lại để đổi hướng</span></div><div><b>GA</b><span>Xe tự chạy ga sẵn, nút PHANH để chậm lại</span></div>
+    <div><b>DRIFT</b><span>Giữ khi vào cua, thả ra để phóng</span></div><div><b>🔥</b><span>NITRO tăng tốc</span></div>
+    <div><b>❔</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>↺ · ⏸</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
+  </div>
+  <p class="moTa">Mẹo: nhặt xu, bay qua dốc, drift lâu để được phóng mạnh hơn. Mỗi km chui hầm sang một khung cảnh mới!</p>
+  <button class="nutLon vang" id="hdXong">Đã hiểu, đua thôi! ▶</button>
+</div></div></div>
+
+<!-- NGHỈ MẮT -->
+<div id="nghiMat" class="lop"><div class="giua"><div class="bang bam" style="width:min(90vw,calc(var(--u)*52))">
+  <h2 class="chu3d">👀 Nghỉ mắt một chút nhé!</h2>
+  <p>Bạn đã chơi 15 phút rồi. Hãy nhìn ra xa thật xa, chớp mắt vài lần và vươn vai nhé.</p>
+  <div id="nmDem">20</div>
+  <button class="nutLon vang" id="nmXong" disabled>Chơi tiếp</button>
+</div></div></div>
+
+<div id="bao"></div>
+<div id="xoayLop"><div><div class="dt">📱</div>Hãy xoay ngang điện thoại<br>để chơi nhé!</div></div>
+
+<script>/*THREE_JS*/</script>
+<script>/*GAME_JS*/</script>
+</body>
+</html>
