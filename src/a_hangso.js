@@ -145,7 +145,7 @@ const DO_HOA = {
 };
 
 const LUU_MAC_DINH = {
-  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false, nvMo: ['speedy', 'luna', 'turbo', 'flash', 'robo', 'fox'],
+  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false, nvMo: ['speedy', 'luna', 'turbo', 'flash', 'robo', 'fox'], nvChuaXem: [],
   duong: {}, thuThach: {}, nhiemVu: {}, mocKm: 0, kyTich: {},
   tk: { km: 0, giay: 0, dua: 0, thang: 0, bucVinh: 0, boss: 0, vMax: 0, nhayXa: 0, nhay: 0, drift: 0, combo: 0, xuTong: 0, vuot: 0, qua: 0, thuThach: 0, thangKhongNitro: 0, tuong: 0 }
 };

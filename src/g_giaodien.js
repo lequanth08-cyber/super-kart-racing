@@ -31,7 +31,7 @@ addEventListener('keydown', (e) => {
   if (e.code === 'KeyE' && CUOC.tt === 'dua' && XE_DUA.length) dungKyNang(XE_DUA[0]);
   if (e.code === 'KeyQ' && CUOC.tt === 'dua' && XE_DUA.length) bamTuyetKy();
   if (e.code === 'Enter' && CUOC.tt === 'menu' && $('sanh').classList.contains('hien') && !$('nghiMat').classList.contains('hien')) moChonDua({ duong: duongTiep(), cheDo: 'nghiep' });
-  if (e.code === 'Enter' && CUOC.tt === 'menu' && $('chonDua').classList.contains('hien')) $('cdDua').click();
+  else if (e.code === 'Enter' && CUOC.tt === 'menu' && $('chonDua').classList.contains('hien')) $('cdDua').click();
 });
 addEventListener('keyup', (e) => { DV.phim[e.code] = false; });
 addEventListener('blur', () => { DV.nhaHet(); if (CUOC.tt === 'dua' || CUOC.tt === 'dem') tamDung(); });
@@ -96,7 +96,7 @@ function duongTiep() { let i = 0; for (let k = 0; k < DUONG.length; k++) if (duo
 // ---------- SẢNH ----------
 function vaoSanh() {
   huyBucVinh(); CUOC.tt = 'menu'; bacXe(); $('man').classList.remove('hien');
-  dungDuong(duongTiep()); capNhatKhuc(quanhS(-40), 99); dungXemTruoc(LUU.xeDang); hienLop(['sanh']); veSanh(); kiemTraNghiMat();
+  dungDuong(duongTiep()); capNhatKhuc(quanhS(-40), 99); dungXemTruoc(LUU.xeDang); hienLop(['sanh']); veSanh(); kiemTraNghiMat(); choMoKhoa();
 }
 DV.vaoSanh = vaoSanh;
 function veSanh() {
@@ -133,7 +133,7 @@ function veChonDua() {
   const n = nhanVatCua(CD.nv), x = xeCua(CD.xe), thuN = !nvMo(n), thuX = !LUU.xe.includes(x.id);
   $('cdTabNv').classList.toggle('bat', CD.tab === 'nv'); $('cdTabXe').classList.toggle('bat', CD.tab === 'xe');
   $('cdTin').innerHTML = '<b>' + n.ic + ' ' + n.ten + '</b> · ' + n.ky.ic + ' ' + n.ky.ten + ' (phím Q) · <b>' + (laMoto(x) ? '🏍️ ' : '🏎️ ') + x.ten + '</b> · ' + Math.round(V_GOC * x.vmax * 3.6) + ' km/h' +
-    (thuN || thuX ? '<br>🎟️ <b>Miễn phí</b> trong cuộc đua này: ' + [thuN ? n.ten + ' (chưa có trong bộ sưu tập)' : '', thuX ? x.ten + ' (chưa mua)' : ''].filter(Boolean).join(' và ') + ' — đua tốt sẽ mở khóa hẳn!' : '<br>✅ Chọn thoải mái, tất cả nhân vật và xe đều miễn phí khi bấm Đua.');
+    (thuN || thuX ? '<br>🎟️ <b>Miễn phí</b> trong cuộc đua này: ' + [thuN ? n.ten + ' (chưa mở khóa: ' + n.mo.mt + ', ' + tienDoMo(n).map(v => dinhDangSo(Math.floor(v))).join('/') + ')' : '', thuX ? x.ten + (x.mo ? ' (xe đặc biệt, nhận ở Garage khi đủ điều kiện)' : ' (mua ở Garage ' + dinhDangSo(x.gia) + ' xu)') : ''].filter(Boolean).join(' · ') + (thuX ? '<br><small>Xe dùng thử không ghi kỷ lục tốc độ.</small>' : '') : '<br>✅ Chọn thoải mái, tất cả nhân vật và xe đều miễn phí khi bấm Đua.');
   const g = $('cdLuoi'), cuon = g.scrollTop;
   if (CD.tab === 'nv') g.innerHTML = NHAN_VAT.map(c => '<button class="nvO cdO' + (nvMo(c) ? '' : ' khoa') + (c.id === CD.nv ? ' chon' : '') + '" data-nv="' + c.id + '"><span class="goc">' + (c.id === LUU.nhanVat ? '⭐' : nvMo(c) ? '' : '🎟️') + '</span><i style="background:' + hexCss(c.mau) + '">' + c.ic + '</i><span>' + c.ten + '</span><small>' + c.ky.ic + ' ' + c.ky.ten + '</small></button>').join('');
   else g.innerHTML = '<div class="cdLoc"><button class="nutNho' + (CD.loai === 'oto' ? ' bat' : '') + '" data-loai="oto">🏎️ Ô tô (' + XE.filter(z => !laMoto(z)).length + ')</button><button class="nutNho' + (CD.loai === 'moto' ? ' bat' : '') + '" data-loai="moto">🏍️ Xe máy (' + XE.filter(laMoto).length + ')</button></div>' +
@@ -232,9 +232,14 @@ function veManTayDua() {                // BỘ SƯU TẬP 30 NHÂN VẬT: bấm
 }
 // ---------- hiệu ứng mở khóa nhân vật mới ----------
 const HANG_MK = [];
-function hienMoKhoa(ds) { for (const n of ds) HANG_MK.push(n); if (!$('moKhoa').classList.contains('hien')) moTiepMK(); }
+let MK_DANG = null;
+function hienMoKhoa(ds) { for (const n of ds) if (n.id !== MK_DANG && !HANG_MK.includes(n)) HANG_MK.push(n); if (!$('moKhoa').classList.contains('hien')) moTiepMK(); }
+function choMoKhoa() {                  // nhân vật vừa mở nhưng chưa được xem hiệu ứng: hiện khi đang ở sảnh
+  const ds = LUU.nvChuaXem.map(nhanVatCua); if (ds.length) setTimeout(() => { if (CUOC.tt === 'menu' && !$('moKhoa').classList.contains('hien') && !$('chonDua').classList.contains('hien')) hienMoKhoa(ds); }, 800);
+}
 function moTiepMK() {
-  const el = $('moKhoa'), n = HANG_MK.shift(); if (!n) { el.classList.remove('hien'); return; }
+  const el = $('moKhoa'), n = HANG_MK.shift(); if (!n) { MK_DANG = null; el.classList.remove('hien'); return; }
+  MK_DANG = n.id; if (LUU.nvChuaXem.includes(n.id)) { LUU.nvChuaXem = LUU.nvChuaXem.filter(id => id !== n.id); luuLai(); }
   $('mkAva').textContent = n.ic; $('mkAva').style.background = hexCss(n.mau); $('mkTen').textContent = n.ten; $('mkHinh').textContent = n.hinh + ' · ' + n.caTinh;
   $('mkTieuSu').textContent = n.tieuSu; $('mkLoi').textContent = '✨ ' + n.loi;
   const mau = ['#ffd23a', '#ff5a8a', '#3af0ff', '#7aff7a', '#c05aff', '#ff9a2a'];
@@ -298,7 +303,7 @@ function batDauDua(o) {
 }
 $('hdXong').onclick = () => { LUU.daXemHD = true; luuLai(); tieng('chuyen'); CUOC.tt = 'dem'; hienLop(['hud']); };
 function tamDung() { if (CUOC.tt !== 'dua' && CUOC.tt !== 'dem') return; CUOC.tamTruoc = CUOC.tt; CUOC.tt = 'tamdung'; DV.nhaHet(); hienLop(['hud', 'tamDung']); }
-function tiepTuc() { if (CUOC.tt !== 'tamdung') return; CUOC.tt = CUOC.tamTruoc; hienLop(['hud']); }
+function tiepTuc() { if (CUOC.tt !== 'tamdung') return; if ($('huongDan').classList.contains('hien')) { LUU.daXemHD = true; luuLai(); } CUOC.tt = CUOC.tamTruoc; hienLop(['hud']); }
 $('nutDung').onclick = () => tamDung(); $('tdTiep').onclick = () => tiepTuc(); $('tdLai').onclick = () => batDauDua(cauHinhCuoi); $('tdSanh').onclick = () => thoatCuoc();
 $('tdAm').onclick = () => { doiAm(); }; $('tdCam').onclick = () => { doiCam(); };
 DV.hienKetQua = () => {
@@ -312,7 +317,7 @@ DV.hienKetQua = () => {
   const sau = DUONG[CUOC.duong + 1], coTiep = !t && sau && duongMo(CUOC.duong + 1);
   $('kqTiep').style.display = coTiep ? '' : 'none'; if (coTiep) $('kqTiep').textContent = '▶ ' + sau.ten;
   kiemTraNghiMat();
-  if (q.nvMoi && q.nvMoi.length) setTimeout(() => hienMoKhoa(q.nvMoi), 1300);
+  if (q.nvMoi && q.nvMoi.length) setTimeout(() => { if (CUOC.tt === 'ketqua') hienMoKhoa(q.nvMoi); }, 1300);   // đã rời màn kết quả thì để lần vào sảnh sau
 };
 $('kqLai').onclick = () => batDauDua(cauHinhCuoi); $('kqSanh').onclick = () => thoatCuoc(); $('kqTiep').onclick = () => batDauDua({ duong: CUOC.duong + 1, cheDo: 'nghiep', nvId: (cauHinhCuoi || {}).nvId, xeId: (cauHinhCuoi || {}).xeId });   // đường tiếp: giữ nguyên lựa chọn
 
@@ -515,7 +520,7 @@ function vongLap(now) {
 renderer.info.autoReset = false;
 tatAm = !!LUU.tat; $('tdAm').textContent = '🔊 Âm thanh: ' + (tatAm ? 'Tắt' : 'Bật'); $('tdCam').textContent = '🎥 Camera: ' + (LUU.camXa ? 'Xa' : 'Gần');
 apDoHoa(); vaoSanh();
-if (!/[?&](xem|man|bangnv|chon)=/.test(location.search)) { moChonLoai(); const moi = kiemTraMoNhanVat(); if (moi.length) { luuLai(); setTimeout(() => hienMoKhoa(moi), 900); } }
+if (!/[?&](xem|man|bangnv|chon)=/.test(location.search)) { moChonLoai(); if (kiemTraMoNhanVat().length) luuLai(); const cho = LUU.nvChuaXem.map(nhanVatCua); if (cho.length) setTimeout(() => hienMoKhoa(cho), 900); }
 { const m = location.search.match(/[?&]chon=(nv|xe)/); if (m) { const nm = location.search.match(/[?&]nv=([a-z]+)/), xm = location.search.match(/[?&]xe=(x[0-9]+)/); moChonDua({ duong: 0, cheDo: 'nghiep' }); if (nm) CD.nv = nm[1]; if (xm) CD.xe = xm[1]; CD.tab = m[1]; CD.loai = laMoto(xeCua(CD.xe)) ? 'moto' : 'oto'; dungXemTruoc(CD.xe, CD.nv); veChonDua(); } }   // xem thử màn chọn (?chon=nv&nv=dragon&xe=x26)
 { const m = location.search.match(/[?&]bangnv=(\d)/), u = location.search.match(/[?&]nua=(\d)/); if (m) dungBangNV(+m[1], u ? +u[1] : 0); }
 { const m = location.search.match(/[?&]mk=([a-z]+)/); if (m) setTimeout(() => hienMoKhoa([nhanVatCua(m[1])]), 1200); }   // xem thử hiệu ứng mở khóa (?mk=rong)      // mới vào game: hỏi chọn ô tô hay xe máy

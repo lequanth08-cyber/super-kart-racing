@@ -551,7 +551,7 @@ const DO_HOA = {
 };
 
 const LUU_MAC_DINH = {
-  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false, nvMo: ['speedy', 'luna', 'turbo', 'flash', 'robo', 'fox'],
+  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false, nvMo: ['speedy', 'luna', 'turbo', 'flash', 'robo', 'fox'], nvChuaXem: [],
   duong: {}, thuThach: {}, nhiemVu: {}, mocKm: 0, kyTich: {},
   tk: { km: 0, giay: 0, dua: 0, thang: 0, bucVinh: 0, boss: 0, vMax: 0, nhayXa: 0, nhay: 0, drift: 0, combo: 0, xuTong: 0, vuot: 0, qua: 0, thuThach: 0, thangKhongNitro: 0, tuong: 0 }
 };
@@ -602,7 +602,7 @@ const NHAN_VAT = [
   _nv({ id: 'fox', ic: '🦊', hinh: 'Chú cáo lanh lợi', ten: 'Fox', mau: 0xe8402a, phu: 0xffffff, xe: 9,
     tieuSu: 'Chú cáo tinh ranh nhất khu rừng, dính bẫy là biết ngay đường thoát thân.', caTinh: 'Láu lỉnh, nhanh trí', phongCach: 'Lách qua các xe, gặp rắc rối là xài ngay kỹ năng thoát thân',
     mt: 'Lanh lợi', loi: 'Tăng tốc +8%, ôm cua +5%', ga: 1.08, bam: 1.05,
-    ky: { ten: 'Fox Escape', ic: '🐾', mt: 'Thoát mọi hiệu ứng làm chậm, thêm khiên 4 giây và tăng tốc.', cd: 22, dung: 'cham' },
+    ky: { ten: 'Fox Escape', ic: '🐾', mt: 'Thoát mọi hiệu ứng làm chậm, thêm khiên (đỡ 1 chiêu, giữ 4 giây) và tăng tốc.', cd: 22, dung: 'cham' },
     ai: [0.98, 1.2, 1.1, 0.7, 0.4, 0.5, 0.6, 0.5, 1.02, 1.0, 'thang', 'cho', 0.8] }),
   // ---------- hàng 2 ----------
   _nv({ id: 'ninja', ic: '🗡️', hinh: 'Cậu bé ninja', ten: 'Ninja', mau: 0x23232f, phu: 0xffd23a, xe: 24,
@@ -627,7 +627,7 @@ const NHAN_VAT = [
     tieuSu: 'Phi hành gia nhỏ từng bay vào vũ trụ, quen với trọng lực nhẹ nên nhảy xa vô cùng.', caTinh: 'Ham khám phá, bình tĩnh', phongCach: 'Giữ nhịp đều, thích những đoạn đường dài có dốc nhảy',
     mt: 'Thám hiểm', loi: 'Tốc độ tối đa +3%, Nitro mạnh hơn 10%', vm: 1.03, nit: 1.1,
     mo: { mt: 'Đạt tốc độ 400 km/h', dk: (t) => [Math.min(400, t.vMax), 400] },
-    ky: { ten: 'Gravity Drive', ic: '⭐', mt: '7 giây trọng lực yếu: bay xa gấp đôi, kèm tăng tốc nhẹ.', cd: 30, dung: 'tang' },
+    ky: { ten: 'Gravity Drive', ic: '⭐', mt: '7 giây trọng lực yếu: nhảy cao, bay xa gấp 3 lần, kèm tăng tốc nhẹ.', cd: 30, dung: 'tang' },
     ai: [1.0, 1.05, 1.05, 0.8, 0.2, 0.3, 0.4, 0.4, 1.0, 0.9, 'thang', 'cho', 1.0] }),
   _nv({ id: 'captain', ic: '⚓', hinh: 'Thuyền trưởng hải tặc', ten: 'Captain', mau: 0xd82a2a, phu: 0xffd23a, xe: 1,
     tieuSu: 'Thuyền trưởng hải tặc biết mọi lối tắt, tấm bản đồ kho báu luôn giúp chú đi trước kẻ khác.', caTinh: 'Gan dạ, thích phiêu lưu', phongCach: 'Bám theo nhóm đầu, tụt lại là tìm đường tắt vượt lên',
@@ -652,7 +652,7 @@ const NHAN_VAT = [
     tieuSu: 'Cô bé tai mèo may mắn nhất lớp, đi tới đâu đồng xu rơi vào tay tới đó.', caTinh: 'Vui vẻ, hơi ham của', phongCach: 'Bẻ lái theo từng hàng xu, chấp nhận chạy chậm một chút',
     mt: 'May mắn', loi: 'Nam châm hút xu 5 m', hut: 5,
     mo: { mt: 'Nhặt tổng cộng 300 xu', dk: (t) => [t.xuTong, 300] },
-    ky: { ten: 'Lucky Coin', ic: '🍀', mt: 'Mưa xu: nhận ngay 25 xu, hút xu mạnh 10 giây và thêm Nitro.', cd: 26, dung: 'moi' },
+    ky: { ten: 'Lucky Coin', ic: '🍀', mt: 'Mưa xu: nhận ngay 10 xu, hút xu mạnh 10 giây và thêm Nitro.', cd: 26, dung: 'moi' },
     ai: [0.96, 1.05, 1.0, 0.5, 1.0, 0.2, 0.9, 0.3, 0.98, 0.5, 'thang', 'cho', 1.0] }),
   _nv({ id: 'bobo', ic: '🐻', hinh: 'Gấu nâu', ten: 'Bobo', mau: 0x3a7aff, phu: 0xffffff, xe: 4,
     tieuSu: 'Chú gấu nâu dễ thương, bánh xe lúc nào cũng bám đường như dính keo.', caTinh: 'Dễ thương, chắc tay', phongCach: 'Giữ làn đều đặn, vào cua chậm mà chắc',
@@ -713,7 +713,7 @@ const NHAN_VAT = [
     tieuSu: 'Chiến binh mạng với kính ngắm sáng xanh, phản xạ nhanh đến mức bật ngược mọi chiêu.', caTinh: 'Nhanh trí, tự tin', phongCach: 'Phản ứng cực nhanh, xài Nitro đúng lúc',
     mt: 'Phản xạ nhanh', loi: 'Tăng tốc +6%, trúng chiêu chỉ chậm 70% thời gian', ga: 1.06, chiu: 0.7,
     mo: { mt: 'Hoàn thành 5 thử thách', dk: (t) => [t.thuThach, 5] },
-    ky: { ten: 'Cyber Reflex', ic: '💠', mt: '8 giây bật ngược kỹ năng của đối thủ về phía họ, thêm Nitro.', cd: 30, dung: 'thu' },
+    ky: { ten: 'Cyber Reflex', ic: '💠', mt: '8 giây sẵn sàng bật ngược 1 chiêu của đối thủ về phía họ, thêm Nitro.', cd: 30, dung: 'thu' },
     ai: [1.01, 1.2, 1.15, 1.0, 0.3, 0.6, 0.3, 0.6, 1.02, 1.1, 'luc', 'cho', 0.8] }),
   // ---------- hàng 5 ----------
   _nv({ id: 'chef', ic: '🍭', hinh: 'Đầu bếp nhí', ten: 'Chef', mau: 0xf4f4f4, phu: 0xe83a3a, xe: 1,
@@ -757,7 +757,7 @@ const nvMo = (n) => !n.mo || (LUU.nvMo || []).includes(n.id);
 function tienDoMo(n) { try { const [a, b] = n.mo.dk(LUU.tk, LUU); return [Math.max(0, a || 0), b]; } catch (e) { return [0, 1]; } }
 function kiemTraMoNhanVat() {           // trả về các nhân vật vừa đủ điều kiện mở khóa (và ghi vào LUU)
   const moi = [];
-  for (const n of NHAN_VAT) { if (nvMo(n)) continue; const [a, b] = tienDoMo(n); if (a >= b) { LUU.nvMo.push(n.id); moi.push(n); } }
+  for (const n of NHAN_VAT) { if (nvMo(n)) continue; const [a, b] = tienDoMo(n); if (a >= b) { LUU.nvMo.push(n.id); LUU.nvChuaXem.push(n.id); moi.push(n); } }
   return moi;
 }
 
@@ -924,6 +924,7 @@ const LUU = (() => {
   if (!NHAN_VAT.some(n => n.id === o.nhanVat)) o.nhanVat = 'speedy';
   if (!Array.isArray(o.nvMo)) o.nvMo = NV_MO_SAN.slice(); o.nvMo = o.nvMo.filter(id => NHAN_VAT.some(n => n.id === id)); for (const id of NV_MO_SAN) if (!o.nvMo.includes(id)) o.nvMo.push(id);
   if (!o.nvMo.includes(o.nhanVat)) o.nvMo.push(o.nhanVat);
+  if (!Array.isArray(o.nvChuaXem)) o.nvChuaXem = []; o.nvChuaXem = o.nvChuaXem.filter(id => o.nvMo.includes(id) && NHAN_VAT.some(n => n.id === id));
   if (!DO_KHO[o.kho]) o.kho = 'vua';
   if (!DO_HOA[o.doHoa]) o.doHoa = CAM_UNG ? 'dep' : 'toida';
   return o;
@@ -2009,7 +2010,7 @@ function nhatHop(k) {                    // gọi khi xe chạm hộp
 }
 function trungChieu(j, giay, he, tu, chu) {   // xe j bị làm chậm. Có thể chặn bằng: ma, bật ngược (Cyber), khiên (Iron/Bubble Shield giữ khiên, khiên thường vỡ)
   if (j.xong || j.bMa > 0) return false;
-  if (j.bPhanXa > 0 && chu && chu !== j && !chu.xong) { j.bPhanXa = 0; bung(j, 0x3af0ff, 20, 8); if (suKien) suKien('phanxa', j, 0); return trungChieu(chu, giay, he, tu, null); }
+  if (j.bPhanXa > 0 && chu && chu !== j && !chu.xong) { j.bPhanXa = 0; bung(j, 0x3af0ff, 20, 8); if (suKien) suKien('phanxa', j, 0); trungChieu(chu, giay, he, tu, null); return 'phanxa'; }
   if (j.khienT > 0) {
     if (!(j.bSat > 0)) j.khienT = 0;
     if (j.nv && j.nv.id === 'ducky' && !(j.bSat > 0)) { tangToc(j, 1.6); bung(j, [0x6ad8ff, 0xffffff], 22, 8); }       // Bubble Shield: bong bóng vỡ thì bật tăng tốc
@@ -2023,7 +2024,7 @@ function dungKyNang(k) {
   if (id === 'mat') { const c = Math.cos(k.yaw), s = Math.sin(k.yaw); BAY.push({ loai: 'mat', chu: k, x: k.x - s * 4, z: k.z - c * 4, h: k.y, song: 25, mesh: null }); }
   else if (id === 'loc') { let muc = null, kc = 1e9; for (const j of XE_DUA) { const d = j.tot - k.tot; if (j !== k && !j.xong && d > 0 && d < 450 && d < kc) { kc = d; muc = j; } } BAY.push({ loai: 'loc', chu: k, muc, tot: k.tot + 3, d: k.d, v: ((k.nv && k.nv.locNhanh) || 1) * Math.max(70, k.vf + 30), song: 9, mesh: null }); }
   else if (id === 'sam') { let n = 0; for (const j of XE_DUA) if (j !== k && j.tot > k.tot && trungChieu(j, 2.0, 0.6, 'sam', k)) n++; if (suKien) suKien('sam2', k, n); }
-  else if (id === 'khien') k.khienT = 10 * ((k.nv && k.nv.khienX) || 1);
+  else if (id === 'khien') k.khienT = Math.max(k.khienT, 10 * ((k.nv && k.nv.khienX) || 1));
   if (suKien) suKien('dung', k, id);
 }
 const _vp = { x: 0, z: 0, h: 0, tx: 0, tz: 0, nx: 0, nz: 0, k: 0 };
@@ -2086,14 +2087,15 @@ const xeTruoc = (k, tam) => XE_DUA.filter(j => j !== k && !j.xong && j.tot - k.t
 const xeSau = (k, tam) => XE_DUA.filter(j => j !== k && !j.xong && k.tot - j.tot > 1 && k.tot - j.tot < tam);
 function datBay(k, lui, d, o) {          // đặt một bẫy trên đường: lui > 0 phía sau xe, lui < 0 phía trước (mét); d: lệch ngang. Chủ bẫy không bao giờ dính
   const g = diemTai(k.s - lui, {});
-  BAY.push(Object.assign({ loai: 'mat', chu: k, x: g.x + g.nx * d, z: g.z + g.nz * d, h: g.h, song: 22, mesh: null, chuMien: true, giay: 1.2, he: 0.5, mau: 0xffb21e, tu: 'mat' }, o || {}));
+  BAY.push(Object.assign({ loai: 'mat', chu: k, x: g.x + g.nx * d, z: g.z + g.nz * d, h: g.h + docNhay(quanhS(k.s - lui)), song: 22, mesh: null, chuMien: true, giay: 1.2, he: 0.5, mau: 0xffb21e, tu: 'mat' }, o || {}));
 }
 function nhayLen(k, vy) { k.vy = vy; k.y += 0.6; k.bay = true; k.tgBay = 0; k.xBay = k.x; k.zBay = k.z; k.drift = false; k.driftMoc = 0; }
-function nhayTien(k, m) {                // vọt thẳng lên trước m mét dọc đường (cùng làn), giữ nguyên tốc độ
+function nhayTien(k, m) {                // vọt thẳng lên trước m mét dọc đường (cùng làn), giữ nguyên tốc độ. Không bao giờ nhảy qua vạch đích (tránh thời gian về đích âm)
+  m = Math.min(m, DD.L - 3 - k.tot); if (m < 5) return false;
   const s0 = k.s, g = diemTai(s0 + m, {}), d = kep(k.d, -8, 8), yaw = Math.atan2(g.tx, g.tz), v = Math.max(25, k.vf);
   k.x = g.x + g.nx * d; k.z = g.z + g.nz * d; k.yaw = yaw; k.vx = Math.sin(yaw) * v; k.vz = Math.cos(yaw) * v; k.vf = v; k.vy = 0; k.bay = false; k.drift = false; k.driftMoc = 0;
   gan(k.x, k.z, -1, _gv); k.i = _gv.i; k.d = _gv.d; k.tx = _gv.tx; k.tz = _gv.tz;
-  let dS = _gv.s - s0; if (dS < -DD.L / 2) dS += DD.L; else if (dS > DD.L / 2) dS -= DD.L; k.tot += dS; k.sCu = k.s = _gv.s; k.y = k.gyCu = matDat(_gv.s, _gv.d, _gv.h);
+  let dS = _gv.s - s0; if (dS < -DD.L / 2) dS += DD.L; else if (dS > DD.L / 2) dS -= DD.L; k.tot += dS; k.sCu = k.s = _gv.s; k.y = k.gyCu = matDat(_gv.s, _gv.d, _gv.h); return true;
 }
 const _SW = ['x', 'z', 'y', 'yaw', 's', 'i', 'd', 'tot', 'sCu', 'gyCu'];
 function doiCho(k, j) {                  // đổi chỗ hai xe (mỗi xe giữ tốc độ của mình)
@@ -2126,7 +2128,7 @@ const TK_HAM = {
     bung(k, [0x7ae07a, 0xff9a2a, 0xffffff], 36, 12, 0.3); const P = XE_DUA[0]; if (Math.hypot(P.x - k.x, P.z - k.z) < 90) DV.rung = Math.max(DV.rung || 0, 0.5);
   },
   bunny(k) { k.bHop = 3; k.hopCho = 0; bung(k, [0xffffff, 0xff8ac8], 16, 6); },
-  mimi(k) { k.xu += 25; if (suKien) suKien('xu', k, 25); k.nitro = Math.min(NITRO_MAX, k.nitro + 40); datBuff(k, 'bXu', 10); bung(k, [0xffd23a, 0x3acb5a, 0xffffff], 30, 9, 2); },
+  mimi(k) { k.xu += 10; if (k.nguoi) tieng('xu', 6); k.nitro = Math.min(NITRO_MAX, k.nitro + 40); datBuff(k, 'bXu', 10); bung(k, [0xffd23a, 0x3acb5a, 0xffffff], 30, 9, 2); },
   bobo(k) { datBuff(k, 'bBam', 8); bung(k, [0xff7ab8, 0xffffff], 20, 6); },
   ducky(k) { k.khienT = Math.max(k.khienT, 10); bung(k, [0x6ad8ff, 0xffffff], 22, 7, 2); },
   rainbow(k) { tangToc(k, 3.5); for (let i = 1; i <= 6; i++) datBay(k, i * 7, k.d, { tu: 'cv', mau: MAU_CV[i - 1], giay: 0.9, he: 0.5, song: 18 }); bung(k, MAU_CV, 30, 9); },
@@ -2137,13 +2139,13 @@ const TK_HAM = {
   shadow(k) { datBuff(k, 'bMa', 5); tangToc(k, 1.5); bung(k, [0xc05aff, 0x3a1a5a], 26, 8); },
   alien(k) {
     const j = xeTruoc(k, 400)[0];
-    if (j) { if (trungChieu(j, 2.2, 0.25, 'ufo', k)) { j.vy = Math.max(j.vy, 16); j.y += 0.6; j.bay = true; j.tgBay = 0; j.xBay = j.x; j.zBay = j.z; } bung(j, [0x7aff7a, 0xffffff], 30, 6, 4); } else tangToc(k, 1.2);
+    if (j) { if (trungChieu(j, 2.2, 0.25, 'ufo', k) === true) { j.vy = Math.max(j.vy, 16); j.y += 0.6; j.bay = true; j.tgBay = 0; j.xBay = j.x; j.zBay = j.z; } bung(j, [0x7aff7a, 0xffffff], 30, 6, 4); } else tangToc(k, 1.2);
     bung(k, [0x7aff7a, 0xc05aff], 16, 6);
   },
   cyber(k) { datBuff(k, 'bPhanXa', 8); k.nitro = Math.min(NITRO_MAX, k.nitro + 35); bung(k, [0x3af0ff, 0x2a8aff], 24, 8); },
   chef(k) { tangToc(k, 1.5); for (let i = 0; i < 3; i++) datBay(k, -(40 + i * 28), kep((i - 1) * 4, -9, 9), { tu: 'keo', mau: [0xff5ab0, 0x5ad8ff, 0xffe14a][i], giay: 1.4, he: 0.5, song: 25 }); bung(k, [0xff5ab0, 0xffe14a, 0xffffff], 24, 8); },
   police(k) { for (const j of xeTruoc(k, 250)) { trungChieu(j, 1.6, 0.45, 'coi', k); bung(j, [0xff3a3a, 0x3a8aff], 10, 5); } tangToc(k, 1.5); bung(k, [0xff3a3a, 0x3a8aff], 26, 8); },
-  builder(k) { for (const o of VAT) if (!o.da && o.s > k.s && o.s < k.s + 400) { o.da = true; o.hoi = 40; o.vx = o.vz = 0; } k.chamT = 0; k.xoayT = 0; tangToc(k, 1.5); bung(k, [0xffc83a, 0xffffff], 26, 8); },
+  builder(k) { for (const o of VAT) if (!o.da && o.s > k.s && o.s < k.s + 400) { o.da = true; o.hoi = 9; o.oy = 0; o.vx = o.vz = 0; } k.chamT = 0; k.xoayT = 0; tangToc(k, 1.5); bung(k, [0xffc83a, 0xffffff], 26, 8); },
   magic(k) { const j = xeTruoc(k, 500)[0]; if (j) doiCho(k, j); else { bung(k, 0xc05aff, 16, 6); nhayTien(k, 80); bung(k, 0xffd23a, 16, 6); } },
   shark(k) { lucTien(k, 30); tangToc(k, 1.6); datBuff(k, 'bMord', 2.5); bung(k, [0x6ad8ff, 0xffffff], 28, 9); },
   skelly(k) {
@@ -2338,7 +2340,7 @@ function batDauCuoc(o) {               // o: { duong, cheDo: 'nghiep'|'tudo'|'th
   const t = o.thuThach || null, idx = t ? t.duong : o.duong, p = DUONG[idx];
   CUOC.duong = idx; CUOC.cheDo = o.cheDo; CUOC.thuThach = t; CUOC.kho = t && t.loai === 'doi' ? 'kho' : LUU.kho; CUOC.heAI = p.ai; CUOC.soLo = !!(t && t.loai === 'gio');
   dungDuong(idx); bacXe();
-  const nv = nhanVatCua(o.nvId || LUU.nhanVat), x = xeCua(o.xeId || LUU.xeDang), m = mauXeNguoi(x);
+  const nv = nhanVatCua(o.nvId || LUU.nhanVat), x = xeCua(o.xeId || LUU.xeDang), m = mauXeNguoi(x); CUOC.thuXe = !LUU.xe.includes(x.id);   // xe dùng thử: đua miễn phí nhưng không ghi kỷ lục
   XE_DUA.push(taoXeDua({ ten: 'BẠN', id: 'nguoi', nguoi: true, nv, xe: x, mau: m, phu: x.phu, tt: { vmax: x.vmax * (nv.vm || 1), ga: x.ga * nv.ga, bam: x.bam * nv.bam, nit: x.nit * nv.nit, driftNhanh: nv.driftNhanh || 1 }, hut: nv.hut, ben: nv.ben, gio: nv.gio }));
   const doiThu = [];
   if (t && t.loai === 'doi') { let c = BOSS[t.muc] ? Object.assign({ laBoss: true }, BOSS[t.muc]) : nhanVatCua(t.muc); if (c.id === nv.id) c = Object.assign({}, c, { ten: c.ten + ' Bóng Tối', mau: 0x15151c }); doiThu.push(c); }
@@ -2444,16 +2446,17 @@ function ketThucCuoc() {
   const k = XE_DUA[0], p = DD.p, hang = k.hang, tk = LUU.tk, tt = ttDuong(p.id), t = CUOC.thuThach, kq = { hang, tg: k.tgXong, xuNhat: k.xu, thuong: 0, moi: [], nhiemVu: [], thuThachOK: null, huy: null, kyLuc: false };
   // thống kê cá nhân
   tk.km += CUOC.chayM / 1000; tk.giay += CUOC.giay; tk.dua++; tk.nhay += k.nhay; tk.drift += k.driftQuang; tk.xuTong += k.xu; tk.tuong += k.chamTuong;
-  tk.vMax = Math.max(tk.vMax, Math.round(k.vMax)); tk.nhayXa = Math.max(tk.nhayXa, Math.round(k.nhayXa)); tk.combo = Math.max(tk.combo, k.comboMax);
+  if (!CUOC.thuXe) { tk.vMax = Math.max(tk.vMax, Math.round(k.vMax)); tk.nhayXa = Math.max(tk.nhayXa, Math.round(k.nhayXa)); }   // xe dùng thử không tính kỷ lục tốc độ, bay xa
+  tk.combo = Math.max(tk.combo, k.comboMax);
   const nhieuXe = XE_DUA.length > 1;
   if (nhieuXe && hang === 1) { tk.thang++; if (!k.dungNitro) tk.thangKhongNitro++; }
-  if (nhieuXe && hang <= 3) tk.bucVinh++;
+  if (XE_DUA.length >= 4 && hang <= 3) tk.bucVinh++;                     // lên bục chỉ tính ở cuộc đua nhiều xe, không tính tay đôi
   const coBoss = XE_DUA.find(j => j.boss);
   if (coBoss && hang < coBoss.hang) { tk.boss++; if (!LUU.kyTich['thang_' + coBoss.boss.id]) { LUU.kyTich['thang_' + coBoss.boss.id] = true; kq.moi.push('👑 Đánh bại Boss ' + coBoss.boss.ten + '!'); } }
   // kết quả theo chế độ
   if (CUOC.cheDo !== 'thuthach') {
     kq.thuong = XU_HANG[hang - 1] || 0; tt.dua++;
-    if (tt.tot == null || k.tgXong < tt.tot) { kq.kyLuc = tt.tot != null; tt.tot = k.tgXong; }
+    if (!CUOC.thuXe && (tt.tot == null || k.tgXong < tt.tot)) { kq.kyLuc = tt.tot != null; tt.tot = k.tgXong; }
     if (tt.hang == null || hang < tt.hang) tt.hang = hang;
     kq.huy = hang === 1 ? 'vang' : hang === 2 ? 'bac' : hang === 3 ? 'dong' : null;
     if (hang === 1) {                    // thắng: mở đường kế tiếp và mở thử thách của đường này
@@ -2518,7 +2521,7 @@ addEventListener('keydown', (e) => {
   if (e.code === 'KeyE' && CUOC.tt === 'dua' && XE_DUA.length) dungKyNang(XE_DUA[0]);
   if (e.code === 'KeyQ' && CUOC.tt === 'dua' && XE_DUA.length) bamTuyetKy();
   if (e.code === 'Enter' && CUOC.tt === 'menu' && $('sanh').classList.contains('hien') && !$('nghiMat').classList.contains('hien')) moChonDua({ duong: duongTiep(), cheDo: 'nghiep' });
-  if (e.code === 'Enter' && CUOC.tt === 'menu' && $('chonDua').classList.contains('hien')) $('cdDua').click();
+  else if (e.code === 'Enter' && CUOC.tt === 'menu' && $('chonDua').classList.contains('hien')) $('cdDua').click();
 });
 addEventListener('keyup', (e) => { DV.phim[e.code] = false; });
 addEventListener('blur', () => { DV.nhaHet(); if (CUOC.tt === 'dua' || CUOC.tt === 'dem') tamDung(); });
@@ -2583,7 +2586,7 @@ function duongTiep() { let i = 0; for (let k = 0; k < DUONG.length; k++) if (duo
 // ---------- SẢNH ----------
 function vaoSanh() {
   huyBucVinh(); CUOC.tt = 'menu'; bacXe(); $('man').classList.remove('hien');
-  dungDuong(duongTiep()); capNhatKhuc(quanhS(-40), 99); dungXemTruoc(LUU.xeDang); hienLop(['sanh']); veSanh(); kiemTraNghiMat();
+  dungDuong(duongTiep()); capNhatKhuc(quanhS(-40), 99); dungXemTruoc(LUU.xeDang); hienLop(['sanh']); veSanh(); kiemTraNghiMat(); choMoKhoa();
 }
 DV.vaoSanh = vaoSanh;
 function veSanh() {
@@ -2620,7 +2623,7 @@ function veChonDua() {
   const n = nhanVatCua(CD.nv), x = xeCua(CD.xe), thuN = !nvMo(n), thuX = !LUU.xe.includes(x.id);
   $('cdTabNv').classList.toggle('bat', CD.tab === 'nv'); $('cdTabXe').classList.toggle('bat', CD.tab === 'xe');
   $('cdTin').innerHTML = '<b>' + n.ic + ' ' + n.ten + '</b> · ' + n.ky.ic + ' ' + n.ky.ten + ' (phím Q) · <b>' + (laMoto(x) ? '🏍️ ' : '🏎️ ') + x.ten + '</b> · ' + Math.round(V_GOC * x.vmax * 3.6) + ' km/h' +
-    (thuN || thuX ? '<br>🎟️ <b>Miễn phí</b> trong cuộc đua này: ' + [thuN ? n.ten + ' (chưa có trong bộ sưu tập)' : '', thuX ? x.ten + ' (chưa mua)' : ''].filter(Boolean).join(' và ') + ' — đua tốt sẽ mở khóa hẳn!' : '<br>✅ Chọn thoải mái, tất cả nhân vật và xe đều miễn phí khi bấm Đua.');
+    (thuN || thuX ? '<br>🎟️ <b>Miễn phí</b> trong cuộc đua này: ' + [thuN ? n.ten + ' (chưa mở khóa: ' + n.mo.mt + ', ' + tienDoMo(n).map(v => dinhDangSo(Math.floor(v))).join('/') + ')' : '', thuX ? x.ten + (x.mo ? ' (xe đặc biệt, nhận ở Garage khi đủ điều kiện)' : ' (mua ở Garage ' + dinhDangSo(x.gia) + ' xu)') : ''].filter(Boolean).join(' · ') + (thuX ? '<br><small>Xe dùng thử không ghi kỷ lục tốc độ.</small>' : '') : '<br>✅ Chọn thoải mái, tất cả nhân vật và xe đều miễn phí khi bấm Đua.');
   const g = $('cdLuoi'), cuon = g.scrollTop;
   if (CD.tab === 'nv') g.innerHTML = NHAN_VAT.map(c => '<button class="nvO cdO' + (nvMo(c) ? '' : ' khoa') + (c.id === CD.nv ? ' chon' : '') + '" data-nv="' + c.id + '"><span class="goc">' + (c.id === LUU.nhanVat ? '⭐' : nvMo(c) ? '' : '🎟️') + '</span><i style="background:' + hexCss(c.mau) + '">' + c.ic + '</i><span>' + c.ten + '</span><small>' + c.ky.ic + ' ' + c.ky.ten + '</small></button>').join('');
   else g.innerHTML = '<div class="cdLoc"><button class="nutNho' + (CD.loai === 'oto' ? ' bat' : '') + '" data-loai="oto">🏎️ Ô tô (' + XE.filter(z => !laMoto(z)).length + ')</button><button class="nutNho' + (CD.loai === 'moto' ? ' bat' : '') + '" data-loai="moto">🏍️ Xe máy (' + XE.filter(laMoto).length + ')</button></div>' +
@@ -2719,9 +2722,14 @@ function veManTayDua() {                // BỘ SƯU TẬP 30 NHÂN VẬT: bấm
 }
 // ---------- hiệu ứng mở khóa nhân vật mới ----------
 const HANG_MK = [];
-function hienMoKhoa(ds) { for (const n of ds) HANG_MK.push(n); if (!$('moKhoa').classList.contains('hien')) moTiepMK(); }
+let MK_DANG = null;
+function hienMoKhoa(ds) { for (const n of ds) if (n.id !== MK_DANG && !HANG_MK.includes(n)) HANG_MK.push(n); if (!$('moKhoa').classList.contains('hien')) moTiepMK(); }
+function choMoKhoa() {                  // nhân vật vừa mở nhưng chưa được xem hiệu ứng: hiện khi đang ở sảnh
+  const ds = LUU.nvChuaXem.map(nhanVatCua); if (ds.length) setTimeout(() => { if (CUOC.tt === 'menu' && !$('moKhoa').classList.contains('hien') && !$('chonDua').classList.contains('hien')) hienMoKhoa(ds); }, 800);
+}
 function moTiepMK() {
-  const el = $('moKhoa'), n = HANG_MK.shift(); if (!n) { el.classList.remove('hien'); return; }
+  const el = $('moKhoa'), n = HANG_MK.shift(); if (!n) { MK_DANG = null; el.classList.remove('hien'); return; }
+  MK_DANG = n.id; if (LUU.nvChuaXem.includes(n.id)) { LUU.nvChuaXem = LUU.nvChuaXem.filter(id => id !== n.id); luuLai(); }
   $('mkAva').textContent = n.ic; $('mkAva').style.background = hexCss(n.mau); $('mkTen').textContent = n.ten; $('mkHinh').textContent = n.hinh + ' · ' + n.caTinh;
   $('mkTieuSu').textContent = n.tieuSu; $('mkLoi').textContent = '✨ ' + n.loi;
   const mau = ['#ffd23a', '#ff5a8a', '#3af0ff', '#7aff7a', '#c05aff', '#ff9a2a'];
@@ -2785,7 +2793,7 @@ function batDauDua(o) {
 }
 $('hdXong').onclick = () => { LUU.daXemHD = true; luuLai(); tieng('chuyen'); CUOC.tt = 'dem'; hienLop(['hud']); };
 function tamDung() { if (CUOC.tt !== 'dua' && CUOC.tt !== 'dem') return; CUOC.tamTruoc = CUOC.tt; CUOC.tt = 'tamdung'; DV.nhaHet(); hienLop(['hud', 'tamDung']); }
-function tiepTuc() { if (CUOC.tt !== 'tamdung') return; CUOC.tt = CUOC.tamTruoc; hienLop(['hud']); }
+function tiepTuc() { if (CUOC.tt !== 'tamdung') return; if ($('huongDan').classList.contains('hien')) { LUU.daXemHD = true; luuLai(); } CUOC.tt = CUOC.tamTruoc; hienLop(['hud']); }
 $('nutDung').onclick = () => tamDung(); $('tdTiep').onclick = () => tiepTuc(); $('tdLai').onclick = () => batDauDua(cauHinhCuoi); $('tdSanh').onclick = () => thoatCuoc();
 $('tdAm').onclick = () => { doiAm(); }; $('tdCam').onclick = () => { doiCam(); };
 DV.hienKetQua = () => {
@@ -2799,7 +2807,7 @@ DV.hienKetQua = () => {
   const sau = DUONG[CUOC.duong + 1], coTiep = !t && sau && duongMo(CUOC.duong + 1);
   $('kqTiep').style.display = coTiep ? '' : 'none'; if (coTiep) $('kqTiep').textContent = '▶ ' + sau.ten;
   kiemTraNghiMat();
-  if (q.nvMoi && q.nvMoi.length) setTimeout(() => hienMoKhoa(q.nvMoi), 1300);
+  if (q.nvMoi && q.nvMoi.length) setTimeout(() => { if (CUOC.tt === 'ketqua') hienMoKhoa(q.nvMoi); }, 1300);   // đã rời màn kết quả thì để lần vào sảnh sau
 };
 $('kqLai').onclick = () => batDauDua(cauHinhCuoi); $('kqSanh').onclick = () => thoatCuoc(); $('kqTiep').onclick = () => batDauDua({ duong: CUOC.duong + 1, cheDo: 'nghiep', nvId: (cauHinhCuoi || {}).nvId, xeId: (cauHinhCuoi || {}).xeId });   // đường tiếp: giữ nguyên lựa chọn
 
@@ -3002,7 +3010,7 @@ function vongLap(now) {
 renderer.info.autoReset = false;
 tatAm = !!LUU.tat; $('tdAm').textContent = '🔊 Âm thanh: ' + (tatAm ? 'Tắt' : 'Bật'); $('tdCam').textContent = '🎥 Camera: ' + (LUU.camXa ? 'Xa' : 'Gần');
 apDoHoa(); vaoSanh();
-if (!/[?&](xem|man|bangnv|chon)=/.test(location.search)) { moChonLoai(); const moi = kiemTraMoNhanVat(); if (moi.length) { luuLai(); setTimeout(() => hienMoKhoa(moi), 900); } }
+if (!/[?&](xem|man|bangnv|chon)=/.test(location.search)) { moChonLoai(); if (kiemTraMoNhanVat().length) luuLai(); const cho = LUU.nvChuaXem.map(nhanVatCua); if (cho.length) setTimeout(() => hienMoKhoa(cho), 900); }
 { const m = location.search.match(/[?&]chon=(nv|xe)/); if (m) { const nm = location.search.match(/[?&]nv=([a-z]+)/), xm = location.search.match(/[?&]xe=(x[0-9]+)/); moChonDua({ duong: 0, cheDo: 'nghiep' }); if (nm) CD.nv = nm[1]; if (xm) CD.xe = xm[1]; CD.tab = m[1]; CD.loai = laMoto(xeCua(CD.xe)) ? 'moto' : 'oto'; dungXemTruoc(CD.xe, CD.nv); veChonDua(); } }   // xem thử màn chọn (?chon=nv&nv=dragon&xe=x26)
 { const m = location.search.match(/[?&]bangnv=(\d)/), u = location.search.match(/[?&]nua=(\d)/); if (m) dungBangNV(+m[1], u ? +u[1] : 0); }
 { const m = location.search.match(/[?&]mk=([a-z]+)/); if (m) setTimeout(() => hienMoKhoa([nhanVatCua(m[1])]), 1200); }   // xem thử hiệu ứng mở khóa (?mk=rong)      // mới vào game: hỏi chọn ô tô hay xe máy

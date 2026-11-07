@@ -20,7 +20,7 @@ function nhatHop(k) {                    // gọi khi xe chạm hộp
 }
 function trungChieu(j, giay, he, tu, chu) {   // xe j bị làm chậm. Có thể chặn bằng: ma, bật ngược (Cyber), khiên (Iron/Bubble Shield giữ khiên, khiên thường vỡ)
   if (j.xong || j.bMa > 0) return false;
-  if (j.bPhanXa > 0 && chu && chu !== j && !chu.xong) { j.bPhanXa = 0; bung(j, 0x3af0ff, 20, 8); if (suKien) suKien('phanxa', j, 0); return trungChieu(chu, giay, he, tu, null); }
+  if (j.bPhanXa > 0 && chu && chu !== j && !chu.xong) { j.bPhanXa = 0; bung(j, 0x3af0ff, 20, 8); if (suKien) suKien('phanxa', j, 0); trungChieu(chu, giay, he, tu, null); return 'phanxa'; }
   if (j.khienT > 0) {
     if (!(j.bSat > 0)) j.khienT = 0;
     if (j.nv && j.nv.id === 'ducky' && !(j.bSat > 0)) { tangToc(j, 1.6); bung(j, [0x6ad8ff, 0xffffff], 22, 8); }       // Bubble Shield: bong bóng vỡ thì bật tăng tốc
@@ -34,7 +34,7 @@ function dungKyNang(k) {
   if (id === 'mat') { const c = Math.cos(k.yaw), s = Math.sin(k.yaw); BAY.push({ loai: 'mat', chu: k, x: k.x - s * 4, z: k.z - c * 4, h: k.y, song: 25, mesh: null }); }
   else if (id === 'loc') { let muc = null, kc = 1e9; for (const j of XE_DUA) { const d = j.tot - k.tot; if (j !== k && !j.xong && d > 0 && d < 450 && d < kc) { kc = d; muc = j; } } BAY.push({ loai: 'loc', chu: k, muc, tot: k.tot + 3, d: k.d, v: ((k.nv && k.nv.locNhanh) || 1) * Math.max(70, k.vf + 30), song: 9, mesh: null }); }
   else if (id === 'sam') { let n = 0; for (const j of XE_DUA) if (j !== k && j.tot > k.tot && trungChieu(j, 2.0, 0.6, 'sam', k)) n++; if (suKien) suKien('sam2', k, n); }
-  else if (id === 'khien') k.khienT = 10 * ((k.nv && k.nv.khienX) || 1);
+  else if (id === 'khien') k.khienT = Math.max(k.khienT, 10 * ((k.nv && k.nv.khienX) || 1));
   if (suKien) suKien('dung', k, id);
 }
 const _vp = { x: 0, z: 0, h: 0, tx: 0, tz: 0, nx: 0, nz: 0, k: 0 };

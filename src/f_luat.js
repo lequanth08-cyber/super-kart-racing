@@ -29,7 +29,7 @@ function batDauCuoc(o) {               // o: { duong, cheDo: 'nghiep'|'tudo'|'th
   const t = o.thuThach || null, idx = t ? t.duong : o.duong, p = DUONG[idx];
   CUOC.duong = idx; CUOC.cheDo = o.cheDo; CUOC.thuThach = t; CUOC.kho = t && t.loai === 'doi' ? 'kho' : LUU.kho; CUOC.heAI = p.ai; CUOC.soLo = !!(t && t.loai === 'gio');
   dungDuong(idx); bacXe();
-  const nv = nhanVatCua(o.nvId || LUU.nhanVat), x = xeCua(o.xeId || LUU.xeDang), m = mauXeNguoi(x);
+  const nv = nhanVatCua(o.nvId || LUU.nhanVat), x = xeCua(o.xeId || LUU.xeDang), m = mauXeNguoi(x); CUOC.thuXe = !LUU.xe.includes(x.id);   // xe dùng thử: đua miễn phí nhưng không ghi kỷ lục
   XE_DUA.push(taoXeDua({ ten: 'BẠN', id: 'nguoi', nguoi: true, nv, xe: x, mau: m, phu: x.phu, tt: { vmax: x.vmax * (nv.vm || 1), ga: x.ga * nv.ga, bam: x.bam * nv.bam, nit: x.nit * nv.nit, driftNhanh: nv.driftNhanh || 1 }, hut: nv.hut, ben: nv.ben, gio: nv.gio }));
   const doiThu = [];
   if (t && t.loai === 'doi') { let c = BOSS[t.muc] ? Object.assign({ laBoss: true }, BOSS[t.muc]) : nhanVatCua(t.muc); if (c.id === nv.id) c = Object.assign({}, c, { ten: c.ten + ' Bóng Tối', mau: 0x15151c }); doiThu.push(c); }
@@ -135,16 +135,17 @@ function ketThucCuoc() {
   const k = XE_DUA[0], p = DD.p, hang = k.hang, tk = LUU.tk, tt = ttDuong(p.id), t = CUOC.thuThach, kq = { hang, tg: k.tgXong, xuNhat: k.xu, thuong: 0, moi: [], nhiemVu: [], thuThachOK: null, huy: null, kyLuc: false };
   // thống kê cá nhân
   tk.km += CUOC.chayM / 1000; tk.giay += CUOC.giay; tk.dua++; tk.nhay += k.nhay; tk.drift += k.driftQuang; tk.xuTong += k.xu; tk.tuong += k.chamTuong;
-  tk.vMax = Math.max(tk.vMax, Math.round(k.vMax)); tk.nhayXa = Math.max(tk.nhayXa, Math.round(k.nhayXa)); tk.combo = Math.max(tk.combo, k.comboMax);
+  if (!CUOC.thuXe) { tk.vMax = Math.max(tk.vMax, Math.round(k.vMax)); tk.nhayXa = Math.max(tk.nhayXa, Math.round(k.nhayXa)); }   // xe dùng thử không tính kỷ lục tốc độ, bay xa
+  tk.combo = Math.max(tk.combo, k.comboMax);
   const nhieuXe = XE_DUA.length > 1;
   if (nhieuXe && hang === 1) { tk.thang++; if (!k.dungNitro) tk.thangKhongNitro++; }
-  if (nhieuXe && hang <= 3) tk.bucVinh++;
+  if (XE_DUA.length >= 4 && hang <= 3) tk.bucVinh++;                     // lên bục chỉ tính ở cuộc đua nhiều xe, không tính tay đôi
   const coBoss = XE_DUA.find(j => j.boss);
   if (coBoss && hang < coBoss.hang) { tk.boss++; if (!LUU.kyTich['thang_' + coBoss.boss.id]) { LUU.kyTich['thang_' + coBoss.boss.id] = true; kq.moi.push('👑 Đánh bại Boss ' + coBoss.boss.ten + '!'); } }
   // kết quả theo chế độ
   if (CUOC.cheDo !== 'thuthach') {
     kq.thuong = XU_HANG[hang - 1] || 0; tt.dua++;
-    if (tt.tot == null || k.tgXong < tt.tot) { kq.kyLuc = tt.tot != null; tt.tot = k.tgXong; }
+    if (!CUOC.thuXe && (tt.tot == null || k.tgXong < tt.tot)) { kq.kyLuc = tt.tot != null; tt.tot = k.tgXong; }
     if (tt.hang == null || hang < tt.hang) tt.hang = hang;
     kq.huy = hang === 1 ? 'vang' : hang === 2 ? 'bac' : hang === 3 ? 'dong' : null;
     if (hang === 1) {                    // thắng: mở đường kế tiếp và mở thử thách của đường này

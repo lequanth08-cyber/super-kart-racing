@@ -17,14 +17,15 @@ const xeTruoc = (k, tam) => XE_DUA.filter(j => j !== k && !j.xong && j.tot - k.t
 const xeSau = (k, tam) => XE_DUA.filter(j => j !== k && !j.xong && k.tot - j.tot > 1 && k.tot - j.tot < tam);
 function datBay(k, lui, d, o) {          // đặt một bẫy trên đường: lui > 0 phía sau xe, lui < 0 phía trước (mét); d: lệch ngang. Chủ bẫy không bao giờ dính
   const g = diemTai(k.s - lui, {});
-  BAY.push(Object.assign({ loai: 'mat', chu: k, x: g.x + g.nx * d, z: g.z + g.nz * d, h: g.h, song: 22, mesh: null, chuMien: true, giay: 1.2, he: 0.5, mau: 0xffb21e, tu: 'mat' }, o || {}));
+  BAY.push(Object.assign({ loai: 'mat', chu: k, x: g.x + g.nx * d, z: g.z + g.nz * d, h: g.h + docNhay(quanhS(k.s - lui)), song: 22, mesh: null, chuMien: true, giay: 1.2, he: 0.5, mau: 0xffb21e, tu: 'mat' }, o || {}));
 }
 function nhayLen(k, vy) { k.vy = vy; k.y += 0.6; k.bay = true; k.tgBay = 0; k.xBay = k.x; k.zBay = k.z; k.drift = false; k.driftMoc = 0; }
-function nhayTien(k, m) {                // vọt thẳng lên trước m mét dọc đường (cùng làn), giữ nguyên tốc độ
+function nhayTien(k, m) {                // vọt thẳng lên trước m mét dọc đường (cùng làn), giữ nguyên tốc độ. Không bao giờ nhảy qua vạch đích (tránh thời gian về đích âm)
+  m = Math.min(m, DD.L - 3 - k.tot); if (m < 5) return false;
   const s0 = k.s, g = diemTai(s0 + m, {}), d = kep(k.d, -8, 8), yaw = Math.atan2(g.tx, g.tz), v = Math.max(25, k.vf);
   k.x = g.x + g.nx * d; k.z = g.z + g.nz * d; k.yaw = yaw; k.vx = Math.sin(yaw) * v; k.vz = Math.cos(yaw) * v; k.vf = v; k.vy = 0; k.bay = false; k.drift = false; k.driftMoc = 0;
   gan(k.x, k.z, -1, _gv); k.i = _gv.i; k.d = _gv.d; k.tx = _gv.tx; k.tz = _gv.tz;
-  let dS = _gv.s - s0; if (dS < -DD.L / 2) dS += DD.L; else if (dS > DD.L / 2) dS -= DD.L; k.tot += dS; k.sCu = k.s = _gv.s; k.y = k.gyCu = matDat(_gv.s, _gv.d, _gv.h);
+  let dS = _gv.s - s0; if (dS < -DD.L / 2) dS += DD.L; else if (dS > DD.L / 2) dS -= DD.L; k.tot += dS; k.sCu = k.s = _gv.s; k.y = k.gyCu = matDat(_gv.s, _gv.d, _gv.h); return true;
 }
 const _SW = ['x', 'z', 'y', 'yaw', 's', 'i', 'd', 'tot', 'sCu', 'gyCu'];
 function doiCho(k, j) {                  // đổi chỗ hai xe (mỗi xe giữ tốc độ của mình)
@@ -57,7 +58,7 @@ const TK_HAM = {
     bung(k, [0x7ae07a, 0xff9a2a, 0xffffff], 36, 12, 0.3); const P = XE_DUA[0]; if (Math.hypot(P.x - k.x, P.z - k.z) < 90) DV.rung = Math.max(DV.rung || 0, 0.5);
   },
   bunny(k) { k.bHop = 3; k.hopCho = 0; bung(k, [0xffffff, 0xff8ac8], 16, 6); },
-  mimi(k) { k.xu += 25; if (suKien) suKien('xu', k, 25); k.nitro = Math.min(NITRO_MAX, k.nitro + 40); datBuff(k, 'bXu', 10); bung(k, [0xffd23a, 0x3acb5a, 0xffffff], 30, 9, 2); },
+  mimi(k) { k.xu += 10; if (k.nguoi) tieng('xu', 6); k.nitro = Math.min(NITRO_MAX, k.nitro + 40); datBuff(k, 'bXu', 10); bung(k, [0xffd23a, 0x3acb5a, 0xffffff], 30, 9, 2); },
   bobo(k) { datBuff(k, 'bBam', 8); bung(k, [0xff7ab8, 0xffffff], 20, 6); },
   ducky(k) { k.khienT = Math.max(k.khienT, 10); bung(k, [0x6ad8ff, 0xffffff], 22, 7, 2); },
   rainbow(k) { tangToc(k, 3.5); for (let i = 1; i <= 6; i++) datBay(k, i * 7, k.d, { tu: 'cv', mau: MAU_CV[i - 1], giay: 0.9, he: 0.5, song: 18 }); bung(k, MAU_CV, 30, 9); },
@@ -68,13 +69,13 @@ const TK_HAM = {
   shadow(k) { datBuff(k, 'bMa', 5); tangToc(k, 1.5); bung(k, [0xc05aff, 0x3a1a5a], 26, 8); },
   alien(k) {
     const j = xeTruoc(k, 400)[0];
-    if (j) { if (trungChieu(j, 2.2, 0.25, 'ufo', k)) { j.vy = Math.max(j.vy, 16); j.y += 0.6; j.bay = true; j.tgBay = 0; j.xBay = j.x; j.zBay = j.z; } bung(j, [0x7aff7a, 0xffffff], 30, 6, 4); } else tangToc(k, 1.2);
+    if (j) { if (trungChieu(j, 2.2, 0.25, 'ufo', k) === true) { j.vy = Math.max(j.vy, 16); j.y += 0.6; j.bay = true; j.tgBay = 0; j.xBay = j.x; j.zBay = j.z; } bung(j, [0x7aff7a, 0xffffff], 30, 6, 4); } else tangToc(k, 1.2);
     bung(k, [0x7aff7a, 0xc05aff], 16, 6);
   },
   cyber(k) { datBuff(k, 'bPhanXa', 8); k.nitro = Math.min(NITRO_MAX, k.nitro + 35); bung(k, [0x3af0ff, 0x2a8aff], 24, 8); },
   chef(k) { tangToc(k, 1.5); for (let i = 0; i < 3; i++) datBay(k, -(40 + i * 28), kep((i - 1) * 4, -9, 9), { tu: 'keo', mau: [0xff5ab0, 0x5ad8ff, 0xffe14a][i], giay: 1.4, he: 0.5, song: 25 }); bung(k, [0xff5ab0, 0xffe14a, 0xffffff], 24, 8); },
   police(k) { for (const j of xeTruoc(k, 250)) { trungChieu(j, 1.6, 0.45, 'coi', k); bung(j, [0xff3a3a, 0x3a8aff], 10, 5); } tangToc(k, 1.5); bung(k, [0xff3a3a, 0x3a8aff], 26, 8); },
-  builder(k) { for (const o of VAT) if (!o.da && o.s > k.s && o.s < k.s + 400) { o.da = true; o.hoi = 40; o.vx = o.vz = 0; } k.chamT = 0; k.xoayT = 0; tangToc(k, 1.5); bung(k, [0xffc83a, 0xffffff], 26, 8); },
+  builder(k) { for (const o of VAT) if (!o.da && o.s > k.s && o.s < k.s + 400) { o.da = true; o.hoi = 9; o.oy = 0; o.vx = o.vz = 0; } k.chamT = 0; k.xoayT = 0; tangToc(k, 1.5); bung(k, [0xffc83a, 0xffffff], 26, 8); },
   magic(k) { const j = xeTruoc(k, 500)[0]; if (j) doiCho(k, j); else { bung(k, 0xc05aff, 16, 6); nhayTien(k, 80); bung(k, 0xffd23a, 16, 6); } },
   shark(k) { lucTien(k, 30); tangToc(k, 1.6); datBuff(k, 'bMord', 2.5); bung(k, [0x6ad8ff, 0xffffff], 28, 9); },
   skelly(k) {

@@ -161,6 +161,7 @@ const LUU = (() => {
   if (!NHAN_VAT.some(n => n.id === o.nhanVat)) o.nhanVat = 'speedy';
   if (!Array.isArray(o.nvMo)) o.nvMo = NV_MO_SAN.slice(); o.nvMo = o.nvMo.filter(id => NHAN_VAT.some(n => n.id === id)); for (const id of NV_MO_SAN) if (!o.nvMo.includes(id)) o.nvMo.push(id);
   if (!o.nvMo.includes(o.nhanVat)) o.nvMo.push(o.nhanVat);
+  if (!Array.isArray(o.nvChuaXem)) o.nvChuaXem = []; o.nvChuaXem = o.nvChuaXem.filter(id => o.nvMo.includes(id) && NHAN_VAT.some(n => n.id === id));
   if (!DO_KHO[o.kho]) o.kho = 'vua';
   if (!DO_HOA[o.doHoa]) o.doHoa = CAM_UNG ? 'dep' : 'toida';
   return o;

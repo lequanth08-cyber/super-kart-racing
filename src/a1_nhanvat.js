@@ -44,7 +44,7 @@ const NHAN_VAT = [
   _nv({ id: 'fox', ic: '🦊', hinh: 'Chú cáo lanh lợi', ten: 'Fox', mau: 0xe8402a, phu: 0xffffff, xe: 9,
     tieuSu: 'Chú cáo tinh ranh nhất khu rừng, dính bẫy là biết ngay đường thoát thân.', caTinh: 'Láu lỉnh, nhanh trí', phongCach: 'Lách qua các xe, gặp rắc rối là xài ngay kỹ năng thoát thân',
     mt: 'Lanh lợi', loi: 'Tăng tốc +8%, ôm cua +5%', ga: 1.08, bam: 1.05,
-    ky: { ten: 'Fox Escape', ic: '🐾', mt: 'Thoát mọi hiệu ứng làm chậm, thêm khiên 4 giây và tăng tốc.', cd: 22, dung: 'cham' },
+    ky: { ten: 'Fox Escape', ic: '🐾', mt: 'Thoát mọi hiệu ứng làm chậm, thêm khiên (đỡ 1 chiêu, giữ 4 giây) và tăng tốc.', cd: 22, dung: 'cham' },
     ai: [0.98, 1.2, 1.1, 0.7, 0.4, 0.5, 0.6, 0.5, 1.02, 1.0, 'thang', 'cho', 0.8] }),
   // ---------- hàng 2 ----------
   _nv({ id: 'ninja', ic: '🗡️', hinh: 'Cậu bé ninja', ten: 'Ninja', mau: 0x23232f, phu: 0xffd23a, xe: 24,
@@ -69,7 +69,7 @@ const NHAN_VAT = [
     tieuSu: 'Phi hành gia nhỏ từng bay vào vũ trụ, quen với trọng lực nhẹ nên nhảy xa vô cùng.', caTinh: 'Ham khám phá, bình tĩnh', phongCach: 'Giữ nhịp đều, thích những đoạn đường dài có dốc nhảy',
     mt: 'Thám hiểm', loi: 'Tốc độ tối đa +3%, Nitro mạnh hơn 10%', vm: 1.03, nit: 1.1,
     mo: { mt: 'Đạt tốc độ 400 km/h', dk: (t) => [Math.min(400, t.vMax), 400] },
-    ky: { ten: 'Gravity Drive', ic: '⭐', mt: '7 giây trọng lực yếu: bay xa gấp đôi, kèm tăng tốc nhẹ.', cd: 30, dung: 'tang' },
+    ky: { ten: 'Gravity Drive', ic: '⭐', mt: '7 giây trọng lực yếu: nhảy cao, bay xa gấp 3 lần, kèm tăng tốc nhẹ.', cd: 30, dung: 'tang' },
     ai: [1.0, 1.05, 1.05, 0.8, 0.2, 0.3, 0.4, 0.4, 1.0, 0.9, 'thang', 'cho', 1.0] }),
   _nv({ id: 'captain', ic: '⚓', hinh: 'Thuyền trưởng hải tặc', ten: 'Captain', mau: 0xd82a2a, phu: 0xffd23a, xe: 1,
     tieuSu: 'Thuyền trưởng hải tặc biết mọi lối tắt, tấm bản đồ kho báu luôn giúp chú đi trước kẻ khác.', caTinh: 'Gan dạ, thích phiêu lưu', phongCach: 'Bám theo nhóm đầu, tụt lại là tìm đường tắt vượt lên',
@@ -94,7 +94,7 @@ const NHAN_VAT = [
     tieuSu: 'Cô bé tai mèo may mắn nhất lớp, đi tới đâu đồng xu rơi vào tay tới đó.', caTinh: 'Vui vẻ, hơi ham của', phongCach: 'Bẻ lái theo từng hàng xu, chấp nhận chạy chậm một chút',
     mt: 'May mắn', loi: 'Nam châm hút xu 5 m', hut: 5,
     mo: { mt: 'Nhặt tổng cộng 300 xu', dk: (t) => [t.xuTong, 300] },
-    ky: { ten: 'Lucky Coin', ic: '🍀', mt: 'Mưa xu: nhận ngay 25 xu, hút xu mạnh 10 giây và thêm Nitro.', cd: 26, dung: 'moi' },
+    ky: { ten: 'Lucky Coin', ic: '🍀', mt: 'Mưa xu: nhận ngay 10 xu, hút xu mạnh 10 giây và thêm Nitro.', cd: 26, dung: 'moi' },
     ai: [0.96, 1.05, 1.0, 0.5, 1.0, 0.2, 0.9, 0.3, 0.98, 0.5, 'thang', 'cho', 1.0] }),
   _nv({ id: 'bobo', ic: '🐻', hinh: 'Gấu nâu', ten: 'Bobo', mau: 0x3a7aff, phu: 0xffffff, xe: 4,
     tieuSu: 'Chú gấu nâu dễ thương, bánh xe lúc nào cũng bám đường như dính keo.', caTinh: 'Dễ thương, chắc tay', phongCach: 'Giữ làn đều đặn, vào cua chậm mà chắc',
@@ -155,7 +155,7 @@ const NHAN_VAT = [
     tieuSu: 'Chiến binh mạng với kính ngắm sáng xanh, phản xạ nhanh đến mức bật ngược mọi chiêu.', caTinh: 'Nhanh trí, tự tin', phongCach: 'Phản ứng cực nhanh, xài Nitro đúng lúc',
     mt: 'Phản xạ nhanh', loi: 'Tăng tốc +6%, trúng chiêu chỉ chậm 70% thời gian', ga: 1.06, chiu: 0.7,
     mo: { mt: 'Hoàn thành 5 thử thách', dk: (t) => [t.thuThach, 5] },
-    ky: { ten: 'Cyber Reflex', ic: '💠', mt: '8 giây bật ngược kỹ năng của đối thủ về phía họ, thêm Nitro.', cd: 30, dung: 'thu' },
+    ky: { ten: 'Cyber Reflex', ic: '💠', mt: '8 giây sẵn sàng bật ngược 1 chiêu của đối thủ về phía họ, thêm Nitro.', cd: 30, dung: 'thu' },
     ai: [1.01, 1.2, 1.15, 1.0, 0.3, 0.6, 0.3, 0.6, 1.02, 1.1, 'luc', 'cho', 0.8] }),
   // ---------- hàng 5 ----------
   _nv({ id: 'chef', ic: '🍭', hinh: 'Đầu bếp nhí', ten: 'Chef', mau: 0xf4f4f4, phu: 0xe83a3a, xe: 1,
@@ -199,6 +199,6 @@ const nvMo = (n) => !n.mo || (LUU.nvMo || []).includes(n.id);
 function tienDoMo(n) { try { const [a, b] = n.mo.dk(LUU.tk, LUU); return [Math.max(0, a || 0), b]; } catch (e) { return [0, 1]; } }
 function kiemTraMoNhanVat() {           // trả về các nhân vật vừa đủ điều kiện mở khóa (và ghi vào LUU)
   const moi = [];
-  for (const n of NHAN_VAT) { if (nvMo(n)) continue; const [a, b] = tienDoMo(n); if (a >= b) { LUU.nvMo.push(n.id); moi.push(n); } }
+  for (const n of NHAN_VAT) { if (nvMo(n)) continue; const [a, b] = tienDoMo(n); if (a >= b) { LUU.nvMo.push(n.id); LUU.nvChuaXem.push(n.id); moi.push(n); } }
   return moi;
 }
