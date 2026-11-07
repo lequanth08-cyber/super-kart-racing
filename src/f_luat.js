@@ -3,6 +3,7 @@
 const CUOC = { tt: 'menu', duong: 0, cheDo: 'nghiep', thuThach: null, kho: LUU.kho, heAI: 1, soLo: false, giay: 0, chay: false, demT: 0, dem: 4,
   nguoiXong: false, slowT: 0, xepHang: [], ketQua: null, tamTruoc: 'dua', gioChoi: 0, thu: false, hangCu: 0, mocDaQua: 0, quaMoi: [], chayM: 0 };
 let tichLuy = 0;
+const SO_DOI_THU = 6;                  // mỗi cuộc đua: bạn + 6 máy
 const nhanVatCua = (id) => NHAN_VAT.find(n => n.id === id) || NHAN_VAT[0];
 const xeCua = (id) => XE.find(x => x.id === id) || XE[0];
 const mauXeNguoi = (x) => MAU_XE[(LUU.mau[x.id] != null ? LUU.mau[x.id] : x.mau) % MAU_XE.length];
@@ -28,17 +29,22 @@ function batDauCuoc(o) {               // o: { duong, cheDo: 'nghiep'|'tudo'|'th
   const t = o.thuThach || null, idx = t ? t.duong : o.duong, p = DUONG[idx];
   CUOC.duong = idx; CUOC.cheDo = o.cheDo; CUOC.thuThach = t; CUOC.kho = t && t.loai === 'doi' ? 'kho' : LUU.kho; CUOC.heAI = p.ai; CUOC.soLo = !!(t && t.loai === 'gio');
   dungDuong(idx); bacXe();
-  const nv = nhanVatCua(LUU.nhanVat), x = xeCua(LUU.xeDang), m = mauXeNguoi(x);
-  XE_DUA.push(taoXeDua({ ten: 'BẠN', id: 'nguoi', nguoi: true, nv, xe: x, mau: m, phu: x.phu, tt: { vmax: x.vmax, ga: x.ga * nv.ga, bam: x.bam * nv.bam, nit: x.nit * nv.nit, driftNhanh: nv.id === 'ninja' ? 1.3 : 1 }, hut: nv.hut, ben: nv.ben, gio: nv.gio }));
+  const nv = nhanVatCua(o.nvId || LUU.nhanVat), x = xeCua(o.xeId || LUU.xeDang), m = mauXeNguoi(x);
+  XE_DUA.push(taoXeDua({ ten: 'BẠN', id: 'nguoi', nguoi: true, nv, xe: x, mau: m, phu: x.phu, tt: { vmax: x.vmax * (nv.vm || 1), ga: x.ga * nv.ga, bam: x.bam * nv.bam, nit: x.nit * nv.nit, driftNhanh: nv.driftNhanh || 1 }, hut: nv.hut, ben: nv.ben, gio: nv.gio }));
   const doiThu = [];
-  if (t && t.loai === 'doi') doiThu.push(BOSS[t.muc] ? Object.assign({ laBoss: true }, BOSS[t.muc]) : nhanVatCua(t.muc));
-  else if (!CUOC.soLo) { for (const n of NHAN_VAT) if (n.id !== nv.id) doiThu.push(n); if (p.boss && !t) doiThu.push(Object.assign({ laBoss: true }, BOSS[p.boss])); }
-  for (const c of doiThu) XE_DUA.push(taoXeDua({ ten: c.ten, id: c.id, nv: c, boss: c.laBoss ? c : null, xe: XE[c.xe], mau: c.mau, phu: c.phu, tt: { vmax: 1.12, ga: c.aga, bam: c.abam, nit: 1.1 }, hut: c.hut || 0, ai: taoAI(c) }));
+  if (t && t.loai === 'doi') { let c = BOSS[t.muc] ? Object.assign({ laBoss: true }, BOSS[t.muc]) : nhanVatCua(t.muc); if (c.id === nv.id) c = Object.assign({}, c, { ten: c.ten + ' Bóng Tối', mau: 0x15151c }); doiThu.push(c); }
+  else if (!CUOC.soLo) {                 // 6 đối thủ máy rút ngẫu nhiên từ 30 nhân vật, không ai trùng nhau, không trùng bạn; đường có Boss thì Boss là 1 trong 6
+    const bossId = p.boss && !t && p.boss !== nv.id ? p.boss : null, kho = NHAN_VAT.filter(n => n.id !== nv.id && n.id !== bossId);
+    for (let i = kho.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [kho[i], kho[j]] = [kho[j], kho[i]]; }
+    if (bossId) doiThu.push(Object.assign({ laBoss: true }, BOSS[bossId]));
+    for (const n of kho) { if (doiThu.length >= SO_DOI_THU) break; doiThu.push(n); }
+  }
+  for (const c of doiThu) XE_DUA.push(taoXeDua({ ten: c.ten, id: c.id, nv: c, boss: c.laBoss ? c : null, xe: XE[c.xe], mau: c.mau, phu: c.phu, tt: { vmax: 1.12, ga: c.aga, bam: c.abam, nit: 1.1, driftNhanh: c.driftNhanh || 1 }, hut: c.hut || 0, ben: c.ben || 0, gio: c.gio || 0, ai: taoAI(c) }));
   const choNguoi = XE_DUA.length > 3 ? 3 : XE_DUA.length - 1, conLai = [];     // người chơi xuất phát thứ 4 (tay đôi: thứ 2), máy chia các chỗ còn lại
   for (let n = 0; n < XE_DUA.length; n++) if (n !== choNguoi) conLai.push(n);
   for (let i = conLai.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [conLai[i], conLai[j]] = [conLai[j], conLai[i]]; }
   const slot = [choNguoi].concat(conLai);
-  XE_DUA.forEach((k, i) => { const l = luoiXuatPhat(slot[i]); datXe(k, l.x, l.z, l.yaw, l.tot); k.hang = slot[i] + 1; });
+  XE_DUA.forEach((k, i) => { const l = luoiXuatPhat(slot[i]); datXe(k, l.x, l.z, l.yaw, l.tot); k.hang = slot[i] + 1; k.tkCho = k.nv && k.nv.ky ? k.nv.ky.cd * 0.35 : 0; });
   for (const qa of QUA) qa.on = !ttDuong(p.id).qua[qa.so];
   for (const c of XU) { c.on = true; c.hoi = 0; }                                  // đua lại cùng đường: xu mọc đủ, chướng ngại về chỗ cũ
   for (const v of VAT) { v.da = false; v.hoi = 0; v.oy = 0; v.ang = 0; v.vx = v.vz = 0; const g = diemTai(v.s); v.x = g.x + g.nx * v.d; v.z = g.z + g.nz * v.d; v.h = g.h; }
@@ -51,7 +57,7 @@ function tinhXepHang() {
   CUOC.xepHang = XE_DUA.slice().sort((a, b) => a.xong && b.xong ? a.tgXong - b.tgXong : a.xong ? -1 : b.xong ? 1 : b.tot - a.tot);
   CUOC.xepHang.forEach((k, i) => { k.hang = i + 1; });
 }
-function dieuKhienNguoi(k) { const d = k.dk, I = DV.nhap(); d.lai = I.lai; d.nitro = I.nitro; d.drift = I.drift; d.phanh = I.phanh; d.ga = I.phanh ? 0 : I.ga; }
+function dieuKhienNguoi(k) { const d = k.dk, I = DV.nhap(); d.lai = I.lai; d.nitro = I.nitro; d.drift = I.drift; d.phanh = I.phanh; d.ga = I.phanh ? 0 : I.ga; if (k.bTuLai > 0) d.lai = kep(d.lai * 0.3 + laiTuDong(k) * 0.7, -1, 1); }   // Auto Balance: xe tự giữ đường
 function capNhatMotBuoc(dt) {
   const chay = CUOC.chay;
   for (const k of XE_DUA) {
@@ -61,7 +67,7 @@ function capNhatMotBuoc(dt) {
     const sCu = k.tot; buocXe(k, dt);
     if (k.nguoi && chay && !k.xong) CUOC.chayM += Math.max(0, k.tot - sCu);
   }
-  vaChamXe(); capNhatKyNang(dt);
+  vaChamXe(); capNhatKyNang(dt); capNhatTuyetKy(dt);
   for (const k of XE_DUA) {
     xuLyVatPham(k, dt);
     if (k.gio > 0) for (const j of XE_DUA) { if (j === k) continue; const dT = j.tot - k.tot; if (dT > 4 && dT < 30 && Math.abs(j.d - k.d) < 3) { k.gioT = 0.25; break; } }
@@ -87,7 +93,9 @@ function suKienDua(ten, k, tham) {
   else if (ten === 'xung') { if (nguoi) { tieng('xung'); DV.rung = 0.2; } }
   else if (ten === 'nitro') { if (nguoi) tieng('nitro'); }
   else if (ten === 'hop') { if (nguoi) { tieng('qua'); if (DV.bao) DV.bao(KY_NANG[k.kyNang].icon + ' ' + KY_NANG[k.kyNang].ten + (CAM_UNG ? ' — bấm nút kỹ năng' : ' — bấm E'), 1600); } for (let i = 0; i < 14; i++) hat(k.x, k.y + 2, k.z, ngauNhien(-6, 6), ngauNhien(2, 7), ngauNhien(-6, 6), [0xff3a3a, 0xffe03a, 0x3aa8ff, 0x4acb5a, 0xb05aff][i % 5], 0.6, 0.9, 0.1, true, 1); }
-  else if (ten === 'trung') { if (nguoi) { tieng('va'); rung(120); DV.rung = 0.4; if (DV.bao) DV.bao(tham === 'mat' ? '🍯 Dính mật ong!' : tham === 'loc' ? '🌀 Trúng lốc xoáy!' : '⚡ Bị sét đánh!', 1200); } }
+  else if (ten === 'trung') { if (nguoi) { tieng('va'); rung(120); DV.rung = 0.4; if (DV.bao) DV.bao(TEN_TRUNG[tham] || '⚡ Bị sét đánh!', 1200); } }
+  else if (ten === 'tuyetky') { if (nguoi) { tieng('xung'); setTimeout(() => tieng('huy'), 160); DV.bao(tham.ic + ' ' + tham.ten + '!', 1300); DV.rung = Math.max(DV.rung || 0, 0.25); } }
+  else if (ten === 'phanxa') { if (nguoi) { tieng('huy'); if (DV.bao) DV.bao('💠 Phản xạ! Chiêu bật ngược về đối thủ', 1300); } }
   else if (ten === 'khienVo') { if (nguoi) { tieng('non'); if (DV.bao) DV.bao('🛡️ Khiên đã đỡ đòn!', 1000); } }
   else if (ten === 'sam2') { tieng('sam'); for (const j of XE_DUA) if (j.chamT > 1.9) for (let i = 0; i < 12; i++) hat(j.x, j.y + 8 - i * 0.6, j.z, ngauNhien(-1, 1), -4, ngauNhien(-1, 1), 0xbfe8ff, 0.35, 1.4, 0.4, true, 1); }
   else if (ten === 'dung') { if (nguoi) tieng(tham === 'khien' ? 'huy' : 'xung'); }
@@ -160,6 +168,7 @@ function ketThucCuoc() {
   LUU.xu += k.xu + kq.thuong;
   // nhiệm vụ dài hạn
   for (const n of NHIEM_VU) { if (LUU.nhiemVu[n.id]) continue; const [a, b] = n.dk(tk, LUU); if (a >= b) { LUU.nhiemVu[n.id] = true; LUU.xu += n.thuong; kq.nhiemVu.push(n.ten + ' (+' + n.thuong + ' xu)'); } }
+  kq.nvMoi = kiemTraMoNhanVat(); for (const n of kq.nvMoi) kq.moi.push('🔓 Mở khóa nhân vật mới: ' + n.ic + ' ' + n.ten + ' (' + n.hinh + ')');
   for (const x of XE) if (x.mo && !LUU.xe.includes(x.id) && xeMoDuoc(x) && !LUU.kyTich['bao_' + x.id]) { LUU.kyTich['bao_' + x.id] = true; kq.moi.push('🚗 Xe đặc biệt ' + x.ten + ' đã mở! Vào Garage để nhận miễn phí'); }
   luuLai(); CUOC.ketQua = kq;
   tieng(hang === 1 || kq.thuThachOK ? 'thang' : 'dich'); if (kq.nhiemVu.length || kq.huy) setTimeout(() => tieng('huy'), 900);

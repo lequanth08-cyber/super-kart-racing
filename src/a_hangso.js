@@ -44,17 +44,7 @@ const DO_KHO = {
   kho: { ten: 'Khó',        v: 1.06, sai: 0.2, phanUng: 0.12, nitro: 1.0, hung: 0.9,  keo: 0.02, mt: 'Máy chạy sát giới hạn và rất lì.' }
 };
 
-// ----- 6 tay đua. Bạn chọn một người, 5 người còn lại là đối thủ máy.
-// Khi bạn lái: ga/bam/nit = hệ số cộng thêm; hut = xu tự bay tới trong bán kính này; ben = mất ít tốc độ khi va chạm; gio = chạy nép sau xe khác được hút gió.
-// Khi máy lái: v/aga/abam/anitro/axu/hung/sai là tính cách.
-const NHAN_VAT = [
-  { id: 'speedy', hinh: 'Cáo Đỏ', ten: 'Speedy', mau: 0xff4a2a, phu: 0xffd23a, mt: 'Tăng tốc rất nhanh', loi: 'Tăng tốc +20%', ga: 1.2, bam: 1, nit: 1, hut: 0, ben: 0, gio: 0, xe: 2, v: 0.97, aga: 1.45, abam: 1.0, anitro: 0.6, axu: 0.2, hung: 0.4, sai: 1.0 },
-  { id: 'ninja', hinh: 'Mèo Ninja', ten: 'Ninja', mau: 0x5a2aa8, phu: 0x2a2a3a, mt: 'Lái xe khéo, ôm cua tốt', loi: 'Bám cua +18%, drift tích nhanh hơn', ga: 1, bam: 1.18, nit: 1, hut: 0, ben: 0, gio: 0, xe: 24, v: 0.97, aga: 1.0, abam: 1.4, anitro: 0.5, axu: 0.2, hung: 0.3, sai: 0.6 },
-  { id: 'turbo', hinh: 'Rô-bốt', ten: 'Turbo', mau: 0x2a7aff, phu: 0xff8a2a, mt: 'Sử dụng Nitro thường xuyên', loi: 'Nitro dùng lâu hơn 25%', ga: 1, bam: 1, nit: 1.25, hut: 0, ben: 0, gio: 0, xe: 6, v: 1.0, aga: 1.05, abam: 1.0, anitro: 1.6, axu: 0.2, hung: 0.4, sai: 1.0 },
-  { id: 'lucky', hinh: 'Gấu Nâu', ten: 'Lucky', mau: 0x3acb5a, phu: 0xffd23a, mt: 'Thích nhặt xu', loi: 'Nam châm hút xu trong 7 m', ga: 1, bam: 1, nit: 1, hut: 7, ben: 0, gio: 0, xe: 7, v: 0.96, aga: 1.05, abam: 1.0, anitro: 0.5, axu: 1.0, hung: 0.2, sai: 1.0 },
-  { id: 'rocky', hinh: 'Tê Giác', ten: 'Rocky', mau: 0x9a8a78, phu: 0x5a4a3a, mt: 'Lái xe ổn định', loi: 'Va chạm mất ít tốc độ hơn 50%', ga: 1, bam: 1.05, nit: 1, hut: 0, ben: 0.5, gio: 0, xe: 8, v: 0.99, aga: 1.0, abam: 1.1, anitro: 0.5, axu: 0.2, hung: 0.2, sai: 0.3 },
-  { id: 'shadow', hinh: 'Dơi Đêm', ten: 'Shadow', mau: 0x23232f, phu: 0xff3a4a, mt: 'Khó vượt, cạnh tranh quyết liệt', loi: 'Nép sau xe khác được hút gió +8%', ga: 1, bam: 1, nit: 1, hut: 0, ben: 0, gio: 0.08, xe: 25, v: 1.0, aga: 1.1, abam: 1.05, anitro: 0.8, axu: 0.2, hung: 1.0, sai: 0.8 }
-];
+// NHAN_VAT (30 nhân vật) nằm ở a1_nhanvat.js
 // ----- 2 Boss. Boss mạnh hơn, có tuyệt chiêu "Sóng Sấm" làm chậm xe phía sau gần nó (có cảnh báo trước 1 giây).
 const BOSS = {
   bangvuong: { id: 'bangvuong', hinh: 'Vua Chim Cánh Cụt', ten: 'Băng Vương', mau: 0x7ad8ff, phu: 0xffffff, xe: 10, v: 1.06, aga: 1.3, abam: 1.25, anitro: 1.0, axu: 0.2, hung: 0.7, sai: 0.3, chieu: 22 },
@@ -155,7 +145,7 @@ const DO_HOA = {
 };
 
 const LUU_MAC_DINH = {
-  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false,
+  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false, nvMo: ['speedy', 'luna', 'turbo', 'flash', 'robo', 'fox'],
   duong: {}, thuThach: {}, nhiemVu: {}, mocKm: 0, kyTich: {},
   tk: { km: 0, giay: 0, dua: 0, thang: 0, bucVinh: 0, boss: 0, vMax: 0, nhayXa: 0, nhay: 0, drift: 0, combo: 0, xuTong: 0, vuot: 0, qua: 0, thuThach: 0, thangKhongNitro: 0, tuong: 0 }
 };

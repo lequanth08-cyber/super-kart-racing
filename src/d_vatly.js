@@ -37,12 +37,14 @@ function vMaxXe(k, nit) { return Math.min(V_TRAN, V_GOC * k.tt.vmax * k.heV * (n
 function buocXe(k, dt) {
   const dk = k.dk, T = k.tt, fx = Math.sin(k.yaw), fz = Math.cos(k.yaw), ux = fz, uz = -fx;
   let vf = k.vx * fx + k.vz * fz, vl = k.vx * ux + k.vz * uz;
+  for (const b of TK_BUFF) if (k[b] > 0) k[b] -= dt;                 // các trạng thái của kỹ năng độc quyền đếm ngược
+  if (k.bNitMien > 0 && !k.xong) { dk.nitro = true; k.nitro = Math.max(k.nitro, 10); }   // Mega Nitro: tự xả và không tốn bình
   const nit = dk.nitro && k.nitro > 0 && vf > 6 && !k.xong;
   if (nit && !k.nitDang && suKien) suKien('nitro', k, 0);
-  k.nitDang = nit; if (nit) { k.nitro = Math.max(0, k.nitro - NITRO_TIEU / T.nit * dt); k.dungNitro = true; }
+  k.nitDang = nit; if (nit) { if (!(k.bNitMien > 0)) k.nitro = Math.max(0, k.nitro - NITRO_TIEU / T.nit * dt); k.dungNitro = true; }
   if (k.xungT > 0) k.xungT -= dt; if (k.chamT > 0) k.chamT -= dt; if (k.gioT > 0) k.gioT -= dt; if (k.comboT > 0) { k.comboT -= dt; if (k.comboT <= 0) k.combo = 0; }
   const boost = nit || k.xungT > 0;
-  const vm = Math.min(V_TRAN, V_GOC * T.vmax * k.heV * (k.leCo ? LE_HE : 1) * (nit ? heNitro(k) : 1) * (k.xungT > 0 ? XUNG_V : 1) * (k.chamT > 0 ? k.chamHe : 1) * (k.gioT > 0 ? 1 + k.gio : 1));
+  const vm = Math.min(V_TRAN, V_GOC * T.vmax * k.heV * (k.leCo && !(k.bTuLai > 0) ? LE_HE : 1) * (nit ? heNitro(k) : 1) * (k.xungT > 0 ? XUNG_V : 1) * (k.chamT > 0 ? k.chamHe : 1) * (k.gioT > 0 ? 1 + k.gio : 1));
   if (!k.bay) {
     const ga = GA_GOC * T.ga * (boost ? NITRO_GA : 1);
     if (dk.phanh > 0.02) { if (vf > 0.5) vf = Math.max(0, vf - PHANH * dk.phanh * dt); else vf = Math.max(-LUI_MAX, vf - 16 * dk.phanh * dt); }
@@ -58,27 +60,27 @@ function buocXe(k, dt) {
     }
     let laiHieu = k.lai;
     if (k.drift) {
-      laiHieu = kep(k.driftHuong * 0.62 + k.lai * 0.55, -1.15, 1.15); k.driftT += dt * (T.driftNhanh || 1);
+      laiHieu = kep(k.driftHuong * 0.62 + k.lai * 0.55, -1.15, 1.15); k.driftT += dt * (T.driftNhanh || 1) * (k.bDrift > 0 ? 3 : 1);
       const m = k.driftT > DRIFT_MOC[2] ? 3 : k.driftT > DRIFT_MOC[1] ? 2 : k.driftT > DRIFT_MOC[0] ? 1 : 0;
       if (m > k.driftMoc) { k.driftMoc = m; if (suKien) suKien('moc', k, m); }
       k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_DRIFT * dt); k.driftQuang += vf * dt; vf -= 3 * dt;
     }
-    const quay = TOC_QUAY * T.bam * Math.min(1, Math.abs(vf) / 8) / (1 + (vf / V_QUAY) * (vf / V_QUAY)) * (k.drift ? 1.3 : 1);
+    const bamH = T.bam * (k.bBam > 0 ? 1.7 : 1), quay = TOC_QUAY * bamH * Math.min(1, Math.abs(vf) / 8) / (1 + (vf / V_QUAY) * (vf / V_QUAY)) * (k.drift ? 1.3 : 1);
     k.yaw -= laiHieu * quay * (vf >= 0 ? 1 : -1) * dt;
-    vl *= Math.exp(-BAM_GOC * T.bam * (k.drift ? 0.3 : 1) * dt);
+    vl *= Math.exp(-BAM_GOC * bamH * (k.drift ? 0.3 : 1) * dt);
   } else {                               // đang bay: chỉ chỉnh hướng một chút
     k.lai += (dk.lai - k.lai) * Math.min(1, dt * 6); k.yaw -= k.lai * 0.45 * dt; vf -= 1.2 * dt; vl *= Math.exp(-0.8 * dt); k.tgBay += dt;
     if (k.drift) { k.drift = false; k.driftMoc = 0; }
   }
   k.vx = fx * vf + ux * vl; k.vz = fz * vf + uz * vl; k.vf = vf;
-  k.x += k.vx * dt; k.z += k.vz * dt; k.vy -= TRONG_LUC * dt; k.y += k.vy * dt;
+  k.x += k.vx * dt; k.z += k.vz * dt; k.vy -= TRONG_LUC * (k.bTrongLuc > 0 ? 0.3 : 1) * dt; k.y += k.vy * dt;
   // vị trí trên đường, rào chắn
   let o = gan(k.x, k.z, k.i, _gv);
   const lim = RONG_DUONG + RONG_LE - BAN_KINH_XE * 0.5;
   if (Math.abs(o.d) > lim) {
     const sg = o.d > 0 ? 1 : -1, dx = Math.abs(o.d) - lim; k.x -= o.nx * sg * dx; k.z -= o.nz * sg * dx;
     const vn = (k.vx * o.nx + k.vz * o.nz) * sg;
-    if (vn > 0) { const mat = 1 - 0.12 * (1 - k.ben); k.vx -= o.nx * sg * vn * 1.3; k.vz -= o.nz * sg * vn * 1.3; k.vx *= mat; k.vz *= mat; if (vn > 3 && k.vaT <= 0) { k.vaT = 0.3; k.chamTuong++; if (suKien) suKien('tuong', k, vn); } }
+    if (vn > 0) { const mat = 1 - 0.12 * (1 - benCua(k)); k.vx -= o.nx * sg * vn * 1.3; k.vz -= o.nz * sg * vn * 1.3; k.vx *= mat; k.vz *= mat; if (vn > 3 && k.vaT <= 0) { k.vaT = 0.3; k.chamTuong++; if (suKien) suKien('tuong', k, vn); } }
     k.yaw += gocChenh(Math.atan2(o.tx, o.tz), k.yaw) * Math.min(1, 2.5 * dt);    // tự nắn theo đường để không dính rào
     o = gan(k.x, k.z, o.i, _gv);
   }
@@ -89,7 +91,8 @@ function buocXe(k, dt) {
   if (k.y <= gy) {
     if (k.bay) {
       k.bay = false; const xa = Math.hypot(k.x - k.xBay, k.z - k.zBay);
-      if (k.tgBay > 0.45) { k.nhay++; if (xa > k.nhayXa) k.nhayXa = xa; if (k.tgBay > 0.7) k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_BAY); if (suKien) suKien('dap', k, xa); }
+      if (k.thuongDap > 0) { k.xungT = Math.max(k.xungT, k.thuongDap); k.thuongDap = 0; }     // đáp xuống được thưởng tăng tốc (Tiger Jump, Bunny Hop)
+      if (k.tgBay > 0.45) { k.nhay++; if (xa > k.nhayXa) k.nhayXa = xa; if (k.tgBay > 0.7) k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_BAY * ((k.nv && k.nv.nitBay) || 1)); if (suKien) suKien('dap', k, xa); }
     }
     k.vy = kep((gy - k.gyCu) / dt, -60, 60); k.y = gy;
   } else if (!k.bay && k.y - gy > 0.45) { k.bay = true; k.tgBay = 0; k.xBay = k.x; k.zBay = k.z; }
@@ -102,12 +105,13 @@ function vaChamXe() {
   const n = XE_DUA.length, tong = BAN_KINH_XE * 2;
   for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) {
     const A = XE_DUA[a], B = XE_DUA[b], dx = B.x - A.x, dz = B.z - A.z; if (Math.abs(dx) > tong || Math.abs(dz) > tong || Math.abs(A.y - B.y) > 2) continue;
+    if (A.bMa > 0 || B.bMa > 0) continue;          // chế độ ma: xuyên qua xe khác
     let d = Math.hypot(dx, dz); if (d >= tong) continue; if (d < 0.001) { A.x -= 0.05; d = 0.05; }
     const nx = dx / d, nz = dz / d, ov = tong - d;
     A.x -= nx * ov / 2; A.z -= nz * ov / 2; B.x += nx * ov / 2; B.z += nz * ov / 2;
     const rv = (B.vx - A.vx) * nx + (B.vz - A.vz) * nz;
     if (rv < 0) {
-      const j = Math.min(14, -(1 + 0.3) * rv / 2), ma = 1 - Math.min(0.05, -rv * 0.004) * (1 - A.ben), mb = 1 - Math.min(0.05, -rv * 0.004) * (1 - B.ben);
+      const j = Math.min(14, -(1 + 0.3) * rv / 2), ma = 1 - Math.min(0.05, -rv * 0.004) * (1 - benCua(A)), mb = 1 - Math.min(0.05, -rv * 0.004) * (1 - benCua(B));
       A.vx -= nx * j; A.vz -= nz * j; B.vx += nx * j; B.vz += nz * j; A.vx *= ma; A.vz *= ma; B.vx *= mb; B.vz *= mb;
       if (-rv > 4 && A.vaT <= 0 && B.vaT <= 0) { A.vaT = B.vaT = 0.3; if (suKien) suKien('va', A.nguoi ? A : B, -rv); }
     }
@@ -116,22 +120,22 @@ function vaChamXe() {
 function heXu(combo) { for (const [tu, nhan] of COMBO_BAC) if (combo >= tu) return nhan; return 1; }
 function xuLyVatPham(k, dt) {
   if (k.xong) return;                    // đã về đích: không nhặt gì nữa (máy vẫn chạy tiếp sau màn kết quả)
-  const rX = 3.4 + (k.hut || 0), ra = timDau(XU, k.s - rX - 2), rb = timDau(XU, k.s + rX + 2);
+  const rX = 3.4 + (k.hut || 0) + (k.bXu > 0 ? 14 : 0), ra = timDau(XU, k.s - rX - 2), rb = timDau(XU, k.s + rX + 2);
   for (let i = ra; i < rb; i++) {
     const c = XU[i]; if (!c.on) continue; const dx = k.x - c.x, dz = k.z - c.z, dy = k.y + 1 - c.h;
     if (dx * dx + dz * dz + dy * dy < rX * rX) {
       c.on = false; k.combo = k.comboT > 0 ? k.combo + 1 : 1; k.comboT = COMBO_GIAY; if (k.combo > k.comboMax) k.comboMax = k.combo;
-      const n = heXu(k.combo); k.xu += n; k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_XU); if (suKien) suKien('xu', k, n);
+      const n = Math.round(heXu(k.combo) * ((k.nv && k.nv.xuX) || 1) * (k.bXuX > 0 ? 3 : 1)); k.xu += n; k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_XU); if (suKien) suKien('xu', k, n);
     }
   }
   const va = timDau(VAT, k.s - 6), vb = timDau(VAT, k.s + 6);
   for (let i = va; i < vb; i++) {
-    const v = VAT[i]; if (v.da || k.y > v.h + 3.5) continue; const dx = k.x - v.x, dz = k.z - v.z, r = v.r + BAN_KINH_XE * 0.7, d2 = dx * dx + dz * dz;
+    const v = VAT[i]; if (v.da || k.bMa > 0 || k.y > v.h + 3.5) continue; const dx = k.x - v.x, dz = k.z - v.z, r = v.r + BAN_KINH_XE * 0.7, d2 = dx * dx + dz * dz;
     if (d2 >= r * r) continue; const d = Math.sqrt(d2) || 0.01;
     if (v.loai === 'thung') {
       const nx = dx / d, nz = dz / d; k.x += nx * (r - d); k.z += nz * (r - d);
-      const vn = k.vx * nx + k.vz * nz; if (vn < 0) { const m = 1 - 0.45 * (1 - k.ben); k.vx -= nx * vn * 1.4; k.vz -= nz * vn * 1.4; k.vx *= m; k.vz *= m; if (-vn > 3 && k.vaT <= 0) { k.vaT = 0.3; if (suKien) suKien('va', k, -vn); } }
-    } else { v.da = true; v.hoi = 5.5; v.oy = 0; v.vx = -dx / d * (8 + Math.abs(k.vf) * 0.25); v.vz = -dz / d * (8 + Math.abs(k.vf) * 0.25); const m = 1 - 0.08 * (1 - k.ben); k.vx *= m; k.vz *= m; if (suKien) suKien('non', k, 0); }
+      const vn = k.vx * nx + k.vz * nz; if (vn < 0) { const m = 1 - 0.45 * (1 - benCua(k)); k.vx -= nx * vn * 1.4; k.vz -= nz * vn * 1.4; k.vx *= m; k.vz *= m; if (-vn > 3 && k.vaT <= 0) { k.vaT = 0.3; if (suKien) suKien('va', k, -vn); } }
+    } else { v.da = true; v.hoi = 5.5; v.oy = 0; v.vx = -dx / d * (8 + Math.abs(k.vf) * 0.25); v.vz = -dz / d * (8 + Math.abs(k.vf) * 0.25); const m = 1 - 0.08 * (1 - benCua(k)); k.vx *= m; k.vz *= m; if (suKien) suKien('non', k, 0); }
   }
   for (const p of XUNG) { const ds = quanhS(p.s - k.s); if ((ds < 5 || ds > DD.L - 5) && Math.abs(p.d - k.d) < p.r && !k.bay && k.xungT < XUNG_GIAY * 0.6) { k.xungT = XUNG_GIAY; if (suKien) suKien('xung', k, 0); } }
   { const ha = timDau(HOP, k.s - 5), hb = timDau(HOP, k.s + 5); for (let i = ha; i < hb; i++) { const h = HOP[i]; if (!h.on) continue; const dx = k.x - h.x, dz = k.z - h.z, dy = k.y + 1 - h.h; if (dx * dx + dz * dz + dy * dy < 9) { h.on = false; h.hoi = HOP_HOI; nhatHop(k); } } }
@@ -150,8 +154,9 @@ function capNhatXeMesh(k, dt, t) {
   if (u.muiTen) { u.muiTen.position.y = (u.moto ? 4.3 : 3.4) + Math.sin(t * 5) * 0.2; u.muiTen.rotation.y = t * 3; }
   if (u.haoQuang) u.haoQuang.rotation.z = t * 1.5;
   if (k.xoayT > 0) { k.xoayT = Math.max(0, k.xoayT - dt); m.rotation.y += (1 - k.xoayT / 0.9) * Math.PI * 2; }      // trúng chiêu: xoay một vòng
-  if (k.khienT > 0 && !u.khien) { u.khien = new THREE.Mesh(new THREE.SphereGeometry(3.2, 20, 14), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.6, 1.6, 2.4), transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false })); u.khien.position.y = 1.4; m.add(u.khien); }
-  if (u.khien) { u.khien.visible = k.khienT > 0; u.khien.scale.setScalar(1 + Math.sin(t * 6) * 0.04); }
+  if ((k.khienT > 0 || k.bPhanXa > 0) && !u.khien) { u.khien = new THREE.Mesh(new THREE.SphereGeometry(3.2, 20, 14), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.6, 1.6, 2.4), transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false })); u.khien.position.y = 1.4; m.add(u.khien); }
+  capNhatMa(k);
+  if (u.khien) { u.khien.visible = k.khienT > 0 || k.bPhanXa > 0; u.khien.scale.setScalar(1 + Math.sin(t * 6) * 0.04); }
   if (k.chamT > 0 && Math.random() < dt * 20) hat(k.x + ngauNhien(-1.5, 1.5), k.y + 2.6, k.z + ngauNhien(-1.5, 1.5), 0, 1.5, 0, 0xffe14a, 0.5, 0.6, 0.2, true, 1);   // sao chóng mặt
 }
 const VET = { mesh: null, n: 900, i: 0 };       // vệt lốp in trên đường khi drift, phanh gấp, đáp đất

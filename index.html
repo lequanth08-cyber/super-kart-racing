@@ -183,6 +183,51 @@ body.camung #oKyNang{display:none}
 .hdLuoi b{flex:none;min-width:calc(var(--u)*6);text-align:center;background:#ffd23a;color:#2a1a00;border-radius:calc(var(--u)*.5);padding:calc(var(--u)*.2) calc(var(--u)*.5);font-size:max(12px,calc(var(--u)*1.4))}
 .hdLuoi span{font-size:max(11px,calc(var(--u)*1.3))}
 body.camung .hdLuoi.chiCham{display:grid}
+.nvCt{background:rgba(255,255,255,.07);border-radius:calc(var(--u)*1);padding:calc(var(--u)*.9);display:flex;flex-direction:column;gap:calc(var(--u)*.45)}
+.nvDau{display:flex;align-items:center;gap:calc(var(--u)*.9)} .nvDau b{display:block;font-size:max(17px,calc(var(--u)*2.4));font-style:italic} .nvDau small{color:#cfdcff}
+.nvAva{flex:none;width:calc(var(--u)*7);height:calc(var(--u)*7);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:calc(var(--u)*4.2);border:calc(var(--u)*.3) solid #fff;box-shadow:0 0 calc(var(--u)*1.2) rgba(255,255,255,.35)}
+.nvCt.khoa .nvAva{filter:grayscale(1) brightness(.6)}
+.nvTs{font-style:italic;color:#eef4ff;font-size:max(12px,calc(var(--u)*1.35));margin:0}
+.nvDong{display:grid;grid-template-columns:auto 1fr;gap:calc(var(--u)*.25) calc(var(--u)*.8);font-size:max(11px,calc(var(--u)*1.25))} .nvDong span{color:#a9c4ff} .nvDong em{font-style:normal;color:#ffe9a0;font-weight:800}
+.nvKhoa{background:rgba(0,0,0,.25);border:1px dashed rgba(255,255,255,.45);border-radius:calc(var(--u)*.7);padding:calc(var(--u)*.5) calc(var(--u)*.7);font-size:max(12px,calc(var(--u)*1.3))} .nvKhoa .thanh{margin-top:calc(var(--u)*.4)}
+.nvLuoi{display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(var(--u)*8.4),1fr));gap:calc(var(--u)*.6);margin-top:calc(var(--u)*.8)}
+.nvO{position:relative;display:flex;flex-direction:column;align-items:center;gap:2px;padding:calc(var(--u)*.5) 2px;border-radius:calc(var(--u)*.9);background:rgba(255,255,255,.06);border:calc(var(--u)*.2) solid transparent;color:#fff;font-weight:800;font-size:max(10px,calc(var(--u)*1.1));cursor:pointer;font-family:inherit;min-width:0}
+.nvO i{width:calc(var(--u)*5);height:calc(var(--u)*5);min-width:34px;min-height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:max(20px,calc(var(--u)*3));border:2px solid rgba(255,255,255,.8)}
+.nvO span{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nvO.khoa i{filter:grayscale(1) brightness(.5)} .nvO.khoa{color:#8a9ac0} .nvO.chon{border-color:var(--vang);background:rgba(255,210,58,.15)} .nvO .goc{position:absolute;top:1px;right:3px;font-size:.95em}
+#moKhoa{z-index:45} #moKhoa .giua{background:rgba(6,14,40,.75);overflow:hidden}
+.mkTia{position:absolute;left:50%;top:50%;width:160vmax;height:160vmax;margin:-80vmax 0 0 -80vmax;background:repeating-conic-gradient(rgba(255,210,58,.2) 0 10deg,transparent 10deg 20deg);animation:mkXoay 9s linear infinite;pointer-events:none}
+@keyframes mkXoay{to{transform:rotate(360deg)}}
+.mkThe{position:relative;width:min(88vw,calc(var(--u)*56));max-height:calc(100% - var(--u)*3);overflow-y:auto;text-align:center;animation:mkNay .7s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes mkNay{0%{transform:scale(.2) rotate(-8deg);opacity:0}100%{transform:none;opacity:1}}
+.mkTieuDe{font-weight:900;font-style:italic;color:#ffd23a;font-size:max(18px,calc(var(--u)*3));letter-spacing:.04em;text-shadow:0 3px 0 #12305a;animation:mkNhap .8s ease-in-out infinite alternate}
+@keyframes mkNhap{to{transform:scale(1.07)}}
+.mkAva{width:calc(var(--u)*15);height:calc(var(--u)*15);margin:calc(var(--u)*.8) auto;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:calc(var(--u)*9);border:calc(var(--u)*.5) solid #fff;animation:mkSang 1.1s ease-in-out infinite alternate}
+@keyframes mkSang{from{box-shadow:0 0 calc(var(--u)*1) rgba(255,230,120,.6);transform:scale(1)}to{box-shadow:0 0 calc(var(--u)*5) rgba(255,230,120,1);transform:scale(1.06)}}
+#mkTen{display:block;font-size:max(22px,calc(var(--u)*4));font-style:italic} #mkHinh{display:block;color:#cfdcff} #mkLoi{color:#ffe9a0;font-weight:800;margin-bottom:calc(var(--u)*.6)}
+#mkPhao{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+#mkPhao i{position:absolute;top:-4vh;width:calc(var(--u)*1);height:calc(var(--u)*1.6);border-radius:2px;animation:mkRoi linear infinite}
+@keyframes mkRoi{to{transform:translateY(112vh) rotate(720deg)}}
+@media (max-height:460px){.mkAva{width:calc(var(--u)*10);height:calc(var(--u)*10);font-size:calc(var(--u)*6);margin:4px auto} .mkThe p{display:none}}
+#oTK{position:absolute;right:calc(var(--ph) + var(--u)*26.5);bottom:calc(var(--du) + var(--u)*8);width:calc(var(--u)*9.5);height:calc(var(--u)*9.5);border-radius:50%;border:calc(var(--u)*.35) solid #fff;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:auto;cursor:pointer;background:rgba(255,255,255,.14)}
+#oTK::before{content:"";position:absolute;inset:calc(var(--u)*.6);border-radius:50%;background:rgba(10,14,40,.82)}
+#oTK span{position:relative;font-size:calc(var(--u)*3.6);line-height:1} #oTK small{position:relative;font-weight:900;font-size:max(8px,calc(var(--u)*.85));letter-spacing:.03em;white-space:nowrap}
+#oTK.san{animation:nhay .6s ease-in-out infinite alternate;border-color:#ffd23a}
+body.camung #oTK{display:none}
+#tTK{right:calc(var(--ph) + var(--u)*27.5);bottom:calc(var(--du) + var(--u)*21);width:calc(var(--u)*10);height:calc(var(--u)*10);font-size:calc(var(--u)*4.2);background:rgba(13,27,69,.55)}
+#tTK.giu{border-color:#ffd23a;box-shadow:0 0 calc(var(--u)*1.4) #ffd23a}
+.nvBanner{margin:0 0 calc(var(--u)*.6);padding:calc(var(--u)*.45) calc(var(--u)*.8);text-align:center;font-weight:900;font-style:italic;letter-spacing:.03em;font-size:max(12px,calc(var(--u)*1.7));color:#12305a;background:linear-gradient(180deg,#ffd23a,#ff9a1a);border-radius:calc(var(--u)*.8);border:calc(var(--u)*.2) solid #fff}
+.nvKy{background:rgba(255,210,58,.12);border:1px solid rgba(255,210,58,.55);border-radius:calc(var(--u)*.7);padding:calc(var(--u)*.45) calc(var(--u)*.7);font-size:max(12px,calc(var(--u)*1.3))} .nvKy b{color:#ffd23a;font-size:max(14px,calc(var(--u)*1.7));font-style:italic} .nvKy small{display:block;color:#cfdcff}
+.nvLuoi{grid-template-columns:repeat(6,1fr)!important} .nvO small{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:max(8px,calc(var(--u)*.85));color:#a9c4ff;font-weight:700} .nvO.khoa small{color:#6a7aa0}
+#cdKhung{position:absolute;right:var(--ph);top:calc(var(--tn) + var(--u)*1);bottom:calc(var(--du) + var(--u)*1);width:min(calc(100vw - var(--tr) - var(--ph)),calc(var(--u)*58));display:flex;flex-direction:column;gap:calc(var(--u)*.6)}
+.cdDau{display:flex;align-items:center;gap:calc(var(--u)*.8)} .cdDau h2{flex:1;margin:0;font-size:max(18px,calc(var(--u)*2.8))}
+.cdTab{display:flex;gap:calc(var(--u)*.6)} .cdTab .nutNho{flex:1}
+#cdTin{background:rgba(255,255,255,.07);border-radius:calc(var(--u)*.8);padding:calc(var(--u)*.5) calc(var(--u)*.8);font-size:max(11px,calc(var(--u)*1.25));line-height:1.35}
+#cdLuoi{flex:1;min-height:0;overflow-y:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(calc(var(--u)*9.6),1fr));gap:calc(var(--u)*.6);align-content:start;touch-action:pan-y}
+.cdLoc{grid-column:1/-1;display:flex;gap:calc(var(--u)*.6)} .cdLoc .nutNho{flex:1}
+.cdO small{max-width:100%}
+#cdDua{flex:none} #cdLuoi .nvO.khoa i{filter:none} #cdLuoi .nvO.khoa{color:#fff;opacity:.92}
+@media (max-height:460px){#cdTin{font-size:10px;padding:3px 8px} .cdDau h2{font-size:16px} .cdTab .nutNho,.cdLoc .nutNho{padding-top:2px;padding-bottom:2px}}
 #camUng{display:none}
 body.camung #camUng{display:block}
 .tNut{position:absolute;border-radius:50%;border:calc(var(--u)*.35) solid rgba(255,255,255,.9);background:rgba(13,27,69,.55);font-weight:900;display:flex;align-items:center;justify-content:center;text-align:center;font-size:calc(var(--u)*2.1);line-height:1.05;pointer-events:auto;touch-action:none}
@@ -229,7 +274,7 @@ body.camung #camUng{display:block}
 
 <!-- SẢNH -->
 <div id="sanh" class="lop">
-  <div class="tieuDe"><h1>SUPER KART<br>RACING</h1><p>10 km · tới 500 km/h · 26 xe (6 xe máy) · 10 đường đua</p></div>
+  <div class="tieuDe"><h1>SUPER KART<br>RACING</h1><p>10 km · tới 500 km/h · 30 nhân vật · 30 kỹ năng độc quyền · 26 xe</p></div>
   <div id="hoSo" class="bang bam">
     <div class="hoSoDong"><span id="hsAvatar" class="avatar"></span><div><b id="hsTen"></b><small id="hsXe"></small></div><span class="xu">💰 <span id="hsXu">0</span></span></div>
     <div id="hsHuy"></div>
@@ -239,7 +284,7 @@ body.camung #camUng{display:block}
     <button class="oMenu" data-m="duong">🏁<b>Đường đua</b><small id="mDuong"></small></button>
     <button class="oMenu" data-m="thuthach">🎯<b>Thử thách</b><small id="mThuThach"></small></button>
     <button class="oMenu" data-m="garage">🔧<b>Garage</b><small id="mGarage"></small></button>
-    <button class="oMenu" data-m="taydua">👤<b>Tay đua</b><small id="mTayDua"></small></button>
+    <button class="oMenu" data-m="taydua">🐾<b>Nhân vật</b><small id="mTayDua"></small></button>
     <button class="oMenu" data-m="nhiemvu">📜<b>Nhiệm vụ</b><small id="mNhiemVu"></small></button>
     <button class="oMenu" data-m="thanhtich">🏆<b>Thành tích</b><small>Bảng cá nhân</small></button>
     <button class="oMenu" data-m="caidat">⚙️<b>Cài đặt</b><small id="mCaiDat"></small></button>
@@ -272,13 +317,14 @@ body.camung #camUng{display:block}
   <div id="hPhai"><div id="kmLon"><small>KM</small><b id="kmSo">0</b><span>/10</span></div><div id="bangXH"></div></div>
   <canvas id="banDo" width="240" height="240"></canvas>
   <div id="oKyNang" title="Kỹ năng (phím E)"><span id="knIcon">?</span><small>KỸ NĂNG · E</small></div>
+  <div id="oTK" title="Kỹ năng độc quyền của nhân vật (phím Q)"><span id="tkIcon">⚡</span><small id="tkTen"></small></div>
   <div id="dongHo"><div id="hTocDo">0<small>km/h</small></div><div id="nitroTron"><i id="nitroVong"></i><span>🔥</span><small>NITRO</small></div><div id="driftKhung"><i></i><i></i><i></i></div></div>
   <div id="combo"></div>
   <div id="nguoc">⚠️ Đi ngược chiều! Quay lại hoặc bấm ĐẶT LẠI</div>
   <div id="dem"></div>
   <div id="camUng">
     <div class="tNut" id="tTrai">◀</div><div class="tNut" id="tPhai">▶</div>
-    <div class="tNut" id="tGa">GA</div><div class="tNut" id="tPhanh">PHANH</div><div class="tNut" id="tDrift">DRIFT</div><div class="tNut" id="tNitro">🔥<br>NITRO</div><div class="tNut" id="tKyNang">❔</div><div class="tNut" id="tDat">↺<br>ĐẶT LẠI</div>
+    <div class="tNut" id="tGa">GA</div><div class="tNut" id="tPhanh">PHANH</div><div class="tNut" id="tDrift">DRIFT</div><div class="tNut" id="tNitro">🔥<br>NITRO</div><div class="tNut" id="tKyNang">❔</div><div class="tNut" id="tTK"><span id="tTKic">⚡</span></div><div class="tNut" id="tDat">↺<br>ĐẶT LẠI</div>
   </div>
 </div>
 
@@ -298,7 +344,7 @@ body.camung #camUng{display:block}
   <div class="hangNutGiua cot"><button class="nutLon vang" id="tdTiep">▶ Chơi tiếp</button><button class="nutLon xanh" id="tdLai">🔁 Đua lại từ đầu</button><button class="nutLon xam" id="tdSanh">🏠 Về sảnh</button></div>
   <div class="hangNutGiua"><button class="nutNho" id="tdAm">🔊 Âm thanh: Bật</button><button class="nutNho" id="tdCam">🎥 Camera: Gần</button></div>
   <p class="moTa chiCham">👆 Đè ◀ ▶ để lái (trượt ngón qua lại để đổi hướng) · xe tự chạy ga · giữ <b>DRIFT</b> khi vào cua rồi thả ra để phóng · <b>NITRO</b> tăng tốc · nút cầu vồng: dùng kỹ năng · <b>ĐẶT LẠI</b> khi xe kẹt · tắt "Ga tự động" trong Cài đặt nếu muốn tự bấm GA</p>
-  <p class="moTa chiPhim">⌨️ ← → lái · ↑ ga · ↓ phanh/lùi · <b>Cách</b> giữ để drift · <b>Shift</b> hoặc <b>N</b> Nitro · <b>E</b> dùng kỹ năng (lấy từ hộp quà cầu vồng) · <b>R</b> đặt lại xe · <b>C</b> đổi camera · <b>Esc</b> tạm dừng</p>
+  <p class="moTa chiPhim">⌨️ ← → lái · ↑ ga · ↓ phanh/lùi · <b>Cách</b> giữ để drift · <b>Shift</b> hoặc <b>N</b> Nitro · <b>E</b> dùng kỹ năng (lấy từ hộp quà cầu vồng) · <b>Q</b> kỹ năng độc quyền của nhân vật (có hồi chiêu) · <b>R</b> đặt lại xe · <b>C</b> đổi camera · <b>Esc</b> tạm dừng</p>
 </div></div></div>
 
 <!-- CÁCH CHƠI (hiện ở cuộc đua đầu tiên) -->
@@ -307,16 +353,38 @@ body.camung #camUng{display:block}
   <div class="hdLuoi chiPhim">
     <div><b>← →</b><span>Lái trái, phải</span></div><div><b>↑ / ↓</b><span>Ga · Phanh, lùi</span></div>
     <div><b>Cách</b><span>Giữ khi vào cua để drift, thả ra để phóng</span></div><div><b>Shift</b><span>Bật Nitro tăng tốc</span></div>
-    <div><b>E</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>R · Esc</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
+    <div><b>E</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>Q</b><span>Kỹ năng độc quyền của nhân vật (có hồi chiêu)</span></div><div><b>R · Esc</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
   </div>
   <div class="hdLuoi chiCham">
     <div><b>◀ ▶</b><span>Đè để lái, trượt ngón qua lại để đổi hướng</span></div><div><b>GA</b><span>Xe tự chạy ga sẵn, nút PHANH để chậm lại</span></div>
     <div><b>DRIFT</b><span>Giữ khi vào cua, thả ra để phóng</span></div><div><b>🔥</b><span>NITRO tăng tốc</span></div>
-    <div><b>❔</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>↺ · ⏸</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
+    <div><b>❔</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>⚡</b><span>Kỹ năng độc quyền của nhân vật (nút có biểu tượng riêng, có hồi chiêu)</span></div><div><b>↺ · ⏸</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
   </div>
   <p class="moTa">Mẹo: nhặt xu, bay qua dốc, drift lâu để được phóng mạnh hơn. Mỗi km chui hầm sang một khung cảnh mới!</p>
   <button class="nutLon vang" id="hdXong">Đã hiểu, đua thôi! ▶</button>
 </div></div></div>
+
+<!-- CHỌN NHÂN VẬT VÀ XE TRƯỚC KHI ĐUA (hiện khi bấm Đua) -->
+<div id="chonDua" class="lop"><div id="cdKhung" class="bang bam">
+  <div class="cdDau"><button id="cdVe" class="nutVe" title="Về sảnh">◀ Về</button><h2 class="chu3d">Chọn nhân vật &amp; xe</h2></div>
+  <div class="cdTab"><button id="cdTabNv" class="nutNho bat">🐾 Nhân vật (30)</button><button id="cdTabXe" class="nutNho">🏎️ Xe (26)</button></div>
+  <div id="cdTin"></div>
+  <div id="cdLuoi"></div>
+  <button id="cdDua" class="nutLon vang">▶ BẮT ĐẦU ĐUA</button>
+</div></div>
+
+<!-- MỞ KHÓA NHÂN VẬT MỚI -->
+<div id="moKhoa" class="lop"><div class="giua">
+  <div class="mkTia"></div><div id="mkPhao"></div>
+  <div class="bang bam mkThe">
+    <div class="mkTieuDe">🔓 MỞ KHÓA NHÂN VẬT MỚI!</div>
+    <div class="mkAva" id="mkAva"></div>
+    <b id="mkTen"></b><small id="mkHinh"></small>
+    <p id="mkTieuSu" class="moTa"></p>
+    <div id="mkLoi"></div>
+    <div class="hangNutGiua"><button class="nutLon xanh" id="mkChon">⭐ Chọn làm đại diện</button><button class="nutLon vang" id="mkOk">Tuyệt vời!</button></div>
+  </div>
+</div></div>
 
 <!-- NGHỈ MẮT -->
 <div id="nghiMat" class="lop"><div class="giua"><div class="bang bam" style="width:min(90vw,calc(var(--u)*52))">
@@ -382,17 +450,7 @@ const DO_KHO = {
   kho: { ten: 'Khó',        v: 1.06, sai: 0.2, phanUng: 0.12, nitro: 1.0, hung: 0.9,  keo: 0.02, mt: 'Máy chạy sát giới hạn và rất lì.' }
 };
 
-// ----- 6 tay đua. Bạn chọn một người, 5 người còn lại là đối thủ máy.
-// Khi bạn lái: ga/bam/nit = hệ số cộng thêm; hut = xu tự bay tới trong bán kính này; ben = mất ít tốc độ khi va chạm; gio = chạy nép sau xe khác được hút gió.
-// Khi máy lái: v/aga/abam/anitro/axu/hung/sai là tính cách.
-const NHAN_VAT = [
-  { id: 'speedy', hinh: 'Cáo Đỏ', ten: 'Speedy', mau: 0xff4a2a, phu: 0xffd23a, mt: 'Tăng tốc rất nhanh', loi: 'Tăng tốc +20%', ga: 1.2, bam: 1, nit: 1, hut: 0, ben: 0, gio: 0, xe: 2, v: 0.97, aga: 1.45, abam: 1.0, anitro: 0.6, axu: 0.2, hung: 0.4, sai: 1.0 },
-  { id: 'ninja', hinh: 'Mèo Ninja', ten: 'Ninja', mau: 0x5a2aa8, phu: 0x2a2a3a, mt: 'Lái xe khéo, ôm cua tốt', loi: 'Bám cua +18%, drift tích nhanh hơn', ga: 1, bam: 1.18, nit: 1, hut: 0, ben: 0, gio: 0, xe: 24, v: 0.97, aga: 1.0, abam: 1.4, anitro: 0.5, axu: 0.2, hung: 0.3, sai: 0.6 },
-  { id: 'turbo', hinh: 'Rô-bốt', ten: 'Turbo', mau: 0x2a7aff, phu: 0xff8a2a, mt: 'Sử dụng Nitro thường xuyên', loi: 'Nitro dùng lâu hơn 25%', ga: 1, bam: 1, nit: 1.25, hut: 0, ben: 0, gio: 0, xe: 6, v: 1.0, aga: 1.05, abam: 1.0, anitro: 1.6, axu: 0.2, hung: 0.4, sai: 1.0 },
-  { id: 'lucky', hinh: 'Gấu Nâu', ten: 'Lucky', mau: 0x3acb5a, phu: 0xffd23a, mt: 'Thích nhặt xu', loi: 'Nam châm hút xu trong 7 m', ga: 1, bam: 1, nit: 1, hut: 7, ben: 0, gio: 0, xe: 7, v: 0.96, aga: 1.05, abam: 1.0, anitro: 0.5, axu: 1.0, hung: 0.2, sai: 1.0 },
-  { id: 'rocky', hinh: 'Tê Giác', ten: 'Rocky', mau: 0x9a8a78, phu: 0x5a4a3a, mt: 'Lái xe ổn định', loi: 'Va chạm mất ít tốc độ hơn 50%', ga: 1, bam: 1.05, nit: 1, hut: 0, ben: 0.5, gio: 0, xe: 8, v: 0.99, aga: 1.0, abam: 1.1, anitro: 0.5, axu: 0.2, hung: 0.2, sai: 0.3 },
-  { id: 'shadow', hinh: 'Dơi Đêm', ten: 'Shadow', mau: 0x23232f, phu: 0xff3a4a, mt: 'Khó vượt, cạnh tranh quyết liệt', loi: 'Nép sau xe khác được hút gió +8%', ga: 1, bam: 1, nit: 1, hut: 0, ben: 0, gio: 0.08, xe: 25, v: 1.0, aga: 1.1, abam: 1.05, anitro: 0.8, axu: 0.2, hung: 1.0, sai: 0.8 }
-];
+// NHAN_VAT (30 nhân vật) nằm ở a1_nhanvat.js
 // ----- 2 Boss. Boss mạnh hơn, có tuyệt chiêu "Sóng Sấm" làm chậm xe phía sau gần nó (có cảnh báo trước 1 giây).
 const BOSS = {
   bangvuong: { id: 'bangvuong', hinh: 'Vua Chim Cánh Cụt', ten: 'Băng Vương', mau: 0x7ad8ff, phu: 0xffffff, xe: 10, v: 1.06, aga: 1.3, abam: 1.25, anitro: 1.0, axu: 0.2, hung: 0.7, sai: 0.3, chieu: 22 },
@@ -493,10 +551,215 @@ const DO_HOA = {
 };
 
 const LUU_MAC_DINH = {
-  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false,
+  xu: 0, xe: ['x01'], xeDang: 'x01', mau: {}, nhanVat: 'speedy', kho: 'vua', doHoa: null, gaTuDong: null, tat: false, camXa: false, daXemHD: false, nvMo: ['speedy', 'luna', 'turbo', 'flash', 'robo', 'fox'],
   duong: {}, thuThach: {}, nhiemVu: {}, mocKm: 0, kyTich: {},
   tk: { km: 0, giay: 0, dua: 0, thang: 0, bucVinh: 0, boss: 0, vMax: 0, nhayXa: 0, nhay: 0, drift: 0, combo: 0, xuTong: 0, vuot: 0, qua: 0, thuThach: 0, thangKhongNitro: 0, tuong: 0 }
 };
+
+// ===================== 30 NHÂN VẬT ĐẶC BIỆT · 30 KỸ NĂNG ĐỘC QUYỀN =====================
+// Thứ tự và tên theo bảng nhân vật: 5 hàng × 6 người. Mỗi người có:
+//   ic (biểu tượng), hinh (là ai), ten, mau/phu (màu xe và áo), xe (xe riêng khi máy lái, chỉ số trong XE),
+//   tieuSu / caTinh / phongCach (chữ ở bộ sưu tập), loi (lợi thế nhỏ khi BẠN chọn), ky (kỹ năng độc quyền: bấm Q).
+// Chỉ số lợi thế (nhân với chỉ số xe): ga, bam, nit · vm tốc độ tối đa · hut nam châm xu (m) · ben bớt mất tốc khi va · gio hút gió sau xe khác
+//   chiu: trúng chiêu chỉ chậm bằng bấy nhiêu thời gian · nitBay: Nitro thêm khi bay · xuX: xu nhặt được nhân lên · driftNhanh
+// Tính cách khi máy lái (ai: [v, aga, abam, anitro, axu, hung, sai, drift, lieu, om, nitroKieu, kyKieu, kyCho]):
+//   v tốc độ · aga/abam tăng tốc/bám · anitro hay xài Nitro · axu ham xu · hung chèn ép · sai mắc lỗi · drift thích drift (0..1)
+//   lieu phanh muộn (>1 liều) · om ôm cua trong · nitroKieu 'thang' (đoạn thẳng) | 'luc' (lúc nào cũng xài) | 'cuoi' (để dành nước rút)
+//   kyKieu 'ngay' (có hộp là xài) | 'cho' (đợi thời cơ) · kyCho nhân thời gian chờ trước khi xài hộp quà
+// ky.dung: lúc nào máy tự xài kỹ năng — tang (đoạn thẳng) | cua (sắp vào cua) | cham (đang bị làm chậm) | thu (có xe áp sát phía sau)
+//   gap (đang tụt hạng) | gan (xe quanh mình) | tan (có xe phía trước) | vat (có chướng ngại phía trước) | moi (sẵn sàng là xài)
+// mo: điều kiện mở khóa { mt, dk(tk, LUU) → [đang có, cần] }. Không có mo là mở sẵn (hàng đầu tiên).
+const NV_MO_SAN = ['speedy', 'luna', 'turbo', 'flash', 'robo', 'fox'];
+const _AI = ['v', 'aga', 'abam', 'anitro', 'axu', 'hung', 'sai', 'drift', 'lieu', 'om', 'nitroKieu', 'kyKieu', 'kyCho'];
+const _nv = (o) => { _AI.forEach((k, i) => { o[k] = o.ai[i]; }); delete o.ai; o.ga = o.ga || 1; o.bam = o.bam || 1; o.nit = o.nit || 1; o.hut = o.hut || 0; o.ben = o.ben || 0; o.gio = o.gio || 0; return o; };
+const NHAN_VAT = [
+  // ---------- hàng 1 (mở sẵn) ----------
+  _nv({ id: 'speedy', ic: '🏎️', hinh: 'Cậu bé băng đô đỏ', ten: 'Speedy', mau: 0xe03a3a, phu: 0xffffff, xe: 2,
+    tieuSu: 'Cậu bé giao bánh mì nhanh nhất phố, cứ buộc băng đô đỏ là lao đi như tia chớp.', caTinh: 'Hăng hái, nóng vội', phongCach: 'Đạp ga sớm, bứt tốc ngay khi ra khỏi cua',
+    mt: 'Tăng tốc rất nhanh', loi: 'Tăng tốc +15%', ga: 1.15,
+    ky: { ten: 'Lightning Boost', ic: '⚡', mt: 'Tăng tốc cực mạnh trong 3 giây.', cd: 24, dung: 'tang' },
+    ai: [0.97, 1.45, 1.0, 0.6, 0.2, 0.4, 1.0, 0.35, 1.0, 0.9, 'thang', 'ngay', 0.6] }),
+  _nv({ id: 'luna', ic: '🌙', hinh: 'Cô bé tai nghe hồng', ten: 'Luna', mau: 0xff7ab8, phu: 0x2a1a4a, xe: 7,
+    tieuSu: 'Cô bé thích ngắm trăng, đeo tai nghe hồng và drift mượt như đang nhảy múa dưới ánh trăng.', caTinh: 'Mơ mộng, nhẹ nhàng', phongCach: 'Drift dài và mượt qua mọi khúc cua',
+    mt: 'Drift như nhảy múa', loi: 'Drift tích nhanh hơn 20%, bám cua +10%', bam: 1.1, driftNhanh: 1.2,
+    ky: { ten: 'Moon Drift', ic: '🌙', mt: '7 giây tích tia lửa drift nhanh gấp 3 lần, tặng thêm Nitro.', cd: 26, dung: 'cua' },
+    ai: [0.98, 1.1, 1.3, 0.6, 0.4, 0.3, 0.6, 0.85, 1.0, 1.1, 'thang', 'cho', 1.0] }),
+  _nv({ id: 'turbo', ic: '🔥', hinh: 'Cậu bé tóc xanh', ten: 'Turbo', mau: 0x2a7aff, phu: 0xffffff, xe: 6,
+    tieuSu: 'Mê động cơ từ bé, Turbo tự chế được bình Nitro mạnh nhất khu phố.', caTinh: 'Nhiệt huyết, thích tốc độ', phongCach: 'Xài Nitro liên tục, hễ đầy bình là phóng',
+    mt: 'Sử dụng Nitro thường xuyên', loi: 'Nitro dùng lâu hơn 20%', nit: 1.2,
+    ky: { ten: 'Mega Nitro', ic: '🔥', mt: 'Đổ đầy bình Nitro và xài không tốn trong 5 giây.', cd: 30, dung: 'tang' },
+    ai: [1.0, 1.05, 1.0, 1.6, 0.2, 0.4, 1.0, 0.3, 1.0, 0.8, 'luc', 'ngay', 0.8] }),
+  _nv({ id: 'flash', ic: '⚡', hinh: 'Cậu bé đeo kính bay', ten: 'Flash', mau: 0xffc83a, phu: 0x15151c, xe: 0,
+    tieuSu: 'Cặp kính bay luôn đội trên trán, Flash chạy nhanh đến mức bạn bè chưa kịp chớp mắt đã thấy cậu ở vạch đích.', caTinh: 'Nhanh nhảu, liều lĩnh', phongCach: 'Luôn chạy sát tốc độ tối đa, vào cua hơi liều',
+    mt: 'Tốc độ tối đa cao', loi: 'Tốc độ tối đa +3%', vm: 1.03,
+    ky: { ten: 'Flash Dash', ic: '⚡', mt: 'Lao vọt như chớp, xuyên qua mọi thứ trong 1,5 giây.', cd: 20, dung: 'tang' },
+    ai: [1.02, 1.3, 0.95, 0.8, 0.2, 0.5, 0.8, 0.25, 1.05, 0.8, 'luc', 'ngay', 0.5] }),
+  _nv({ id: 'robo', ic: '🤖', hinh: 'Người máy trắng', ten: 'Robo', mau: 0xf0f4ff, phu: 0x3a8aff, xe: 3,
+    tieuSu: 'Người máy lắp ráp bằng tình yêu với tốc độ, cảm biến giữ thăng bằng giúp Robo hiếm khi mất lái.', caTinh: 'Chính xác, điềm tĩnh', phongCach: 'Giữ đường đua chuẩn như máy tính, rất ít khi mắc lỗi',
+    mt: 'Lái xe chính xác', loi: 'Va chạm mất ít tốc độ hơn 40%', ben: 0.4,
+    ky: { ten: 'Auto Balance', ic: '⚙️', mt: '7 giây xe tự lái theo đường, không mất tốc khi chạm rào hay ra lề.', cd: 28, dung: 'cua' },
+    ai: [1.0, 1.0, 1.2, 0.7, 0.3, 0.2, 0.1, 0.5, 1.0, 1.2, 'thang', 'cho', 1.2] }),
+  _nv({ id: 'fox', ic: '🦊', hinh: 'Chú cáo lanh lợi', ten: 'Fox', mau: 0xe8402a, phu: 0xffffff, xe: 9,
+    tieuSu: 'Chú cáo tinh ranh nhất khu rừng, dính bẫy là biết ngay đường thoát thân.', caTinh: 'Láu lỉnh, nhanh trí', phongCach: 'Lách qua các xe, gặp rắc rối là xài ngay kỹ năng thoát thân',
+    mt: 'Lanh lợi', loi: 'Tăng tốc +8%, ôm cua +5%', ga: 1.08, bam: 1.05,
+    ky: { ten: 'Fox Escape', ic: '🐾', mt: 'Thoát mọi hiệu ứng làm chậm, thêm khiên 4 giây và tăng tốc.', cd: 22, dung: 'cham' },
+    ai: [0.98, 1.2, 1.1, 0.7, 0.4, 0.5, 0.6, 0.5, 1.02, 1.0, 'thang', 'cho', 0.8] }),
+  // ---------- hàng 2 ----------
+  _nv({ id: 'ninja', ic: '🗡️', hinh: 'Cậu bé ninja', ten: 'Ninja', mau: 0x23232f, phu: 0xffd23a, xe: 24,
+    tieuSu: 'Cậu bé ninja bịt mặt, drift sát mép cua trong bóng tối mà không để lại dấu vết.', caTinh: 'Điềm tĩnh, kín đáo', phongCach: 'Drift sát mép trong từng khúc cua, hiếm khi chạm rào',
+    mt: 'Bóng đêm', loi: 'Bám cua +15%, drift tích nhanh hơn 30%', bam: 1.15, driftNhanh: 1.3,
+    mo: { mt: 'Drift tổng cộng 2 km', dk: (t) => [Math.floor(t.drift), 2000] },
+    ky: { ten: 'Shadow Drift', ic: '✦', mt: 'Thả 2 bom khói làm chậm người đuổi, drift nhanh gấp 3 lần trong 5 giây.', cd: 24, dung: 'thu' },
+    ai: [0.97, 1.0, 1.4, 0.5, 0.2, 0.3, 0.6, 0.95, 1.02, 1.25, 'thang', 'cho', 1.2] }),
+  _nv({ id: 'panda', ic: '🐼', hinh: 'Gấu trúc áo giáp', ten: 'Panda', mau: 0x3acb5a, phu: 0x15151c, xe: 16,
+    tieuSu: 'Chú gấu trúc hiền lành mặc bộ giáp sắt, ai húc vào cũng chẳng hề hấn gì.', caTinh: 'Hiền lành, chịu đựng giỏi', phongCach: 'Chạy giữa đường, không né ai, ai chèn cũng không sợ',
+    mt: 'Chắc chắn', loi: 'Va chạm mất ít tốc độ hơn 40%, trúng chiêu chỉ chậm 60% thời gian', ben: 0.4, chiu: 0.6,
+    mo: { mt: 'Lên bục (top 3) 5 lần', dk: (t) => [t.bucVinh, 5] },
+    ky: { ten: 'Iron Shield', ic: '🛡️', mt: 'Khiên sắt 12 giây: không bị làm chậm, va chạm không mất tốc.', cd: 32, dung: 'thu' },
+    ai: [0.98, 1.0, 1.1, 0.5, 0.3, 0.3, 0.5, 0.25, 0.97, 0.5, 'cuoi', 'cho', 1.5] }),
+  _nv({ id: 'tiger', ic: '🐯', hinh: 'Hổ vằn', ten: 'Tiger', mau: 0xff8a1a, phu: 0x15151c, xe: 12,
+    tieuSu: 'Chúa tể sân đua, Tiger bật nhảy qua dốc xa như hổ vồ mồi.', caTinh: 'Mạnh mẽ, thích làm thủ lĩnh', phongCach: 'Săn từng xe phía trước, vượt bằng cú bứt tốc dứt khoát',
+    mt: 'Thợ săn đường đua', loi: 'Tăng tốc +10%, hút gió +5%', ga: 1.1, gio: 0.05,
+    mo: { mt: 'Vượt tổng cộng 50 xe', dk: (t) => [t.vuot, 50] },
+    ky: { ten: 'Tiger Jump', ic: '🐾', mt: 'Bật nhảy cực cao, đáp xuống được tăng tốc.', cd: 22, dung: 'tang' },
+    ai: [1.0, 1.3, 1.05, 0.9, 0.2, 0.9, 0.6, 0.5, 1.03, 1.0, 'luc', 'ngay', 0.6] }),
+  _nv({ id: 'cosmo', ic: '🚀', hinh: 'Phi hành gia nhí', ten: 'Cosmo', mau: 0xe8f0ff, phu: 0x2a7aff, xe: 14,
+    tieuSu: 'Phi hành gia nhỏ từng bay vào vũ trụ, quen với trọng lực nhẹ nên nhảy xa vô cùng.', caTinh: 'Ham khám phá, bình tĩnh', phongCach: 'Giữ nhịp đều, thích những đoạn đường dài có dốc nhảy',
+    mt: 'Thám hiểm', loi: 'Tốc độ tối đa +3%, Nitro mạnh hơn 10%', vm: 1.03, nit: 1.1,
+    mo: { mt: 'Đạt tốc độ 400 km/h', dk: (t) => [Math.min(400, t.vMax), 400] },
+    ky: { ten: 'Gravity Drive', ic: '⭐', mt: '7 giây trọng lực yếu: bay xa gấp đôi, kèm tăng tốc nhẹ.', cd: 30, dung: 'tang' },
+    ai: [1.0, 1.05, 1.05, 0.8, 0.2, 0.3, 0.4, 0.4, 1.0, 0.9, 'thang', 'cho', 1.0] }),
+  _nv({ id: 'captain', ic: '⚓', hinh: 'Thuyền trưởng hải tặc', ten: 'Captain', mau: 0xd82a2a, phu: 0xffd23a, xe: 1,
+    tieuSu: 'Thuyền trưởng hải tặc biết mọi lối tắt, tấm bản đồ kho báu luôn giúp chú đi trước kẻ khác.', caTinh: 'Gan dạ, thích phiêu lưu', phongCach: 'Bám theo nhóm đầu, tụt lại là tìm đường tắt vượt lên',
+    mt: 'Tìm đường tắt', loi: 'Hút gió +6%, hút xu 2 m', gio: 0.06, hut: 2,
+    mo: { mt: 'Về nhất 3 đường khác nhau', dk: (t, L) => [Math.min(3, DUONG.filter(d => (L.duong[d.id] || {}).hang === 1).length), 3] },
+    ky: { ten: 'Shortcut Finder', ic: '⚓', mt: 'Tìm ra lối tắt, vọt lên trước 120 m.', cd: 26, dung: 'gap' },
+    ai: [0.98, 1.05, 1.0, 0.6, 0.6, 0.6, 0.8, 0.3, 1.0, 0.7, 'thang', 'cho', 1.0] }),
+  _nv({ id: 'dino', ic: '🦖', hinh: 'Khủng long xanh', ten: 'Dino', mau: 0x7ad83a, phu: 0x2a8a2a, xe: 8,
+    tieuSu: 'Chú khủng long con dậm chân một cái là cả đường đua rung chuyển.', caTinh: 'Hậu đậu, rất khỏe', phongCach: 'Lấn ra giữa đường, đụng vào ai thì người đó chịu',
+    mt: 'To khỏe', loi: 'Va chạm mất ít tốc độ hơn 50%', ben: 0.5,
+    mo: { mt: 'Lái tổng cộng 50 km', dk: (t) => [Math.floor(t.km), 50] },
+    ky: { ten: 'Dino Smash', ic: '💥', mt: 'Dậm chân gây chấn động: mọi xe trong 60 m bị chậm lại.', cd: 28, dung: 'gan' },
+    ai: [0.98, 0.95, 1.0, 0.5, 0.3, 0.8, 0.6, 0.15, 0.97, 0.6, 'cuoi', 'cho', 1.3] }),
+  // ---------- hàng 3 ----------
+  _nv({ id: 'bunny', ic: '🐰', hinh: 'Thỏ trắng', ten: 'Bunny', mau: 0xff8ac8, phu: 0xffffff, xe: 17,
+    tieuSu: 'Cô thỏ vô địch nhảy xa của trường, thấy dốc là phải bay cho bằng được.', caTinh: 'Nhí nhảnh, liều lĩnh', phongCach: 'Lao thẳng vào dốc nhảy, tăng tốc ngay khi đáp',
+    mt: 'Nhảy dốc giỏi', loi: 'Tăng tốc +5%, bay qua dốc được thêm gấp đôi Nitro', ga: 1.05, nitBay: 2,
+    mo: { mt: 'Hoàn thành 3 cuộc đua', dk: (t) => [t.dua, 3] },
+    ky: { ten: 'Bunny Hop', ic: '⭐', mt: 'Nhún nhảy 3 lần liên tiếp, mỗi lần đáp xuống được tăng tốc.', cd: 22, dung: 'tang' },
+    ai: [0.97, 1.15, 1.0, 0.7, 0.4, 0.3, 0.9, 0.4, 1.03, 0.8, 'luc', 'ngay', 0.7] }),
+  _nv({ id: 'mimi', ic: '🍀', hinh: 'Cô bé tai mèo', ten: 'Mimi', mau: 0x8a4ad8, phu: 0xff9ad8, xe: 13,
+    tieuSu: 'Cô bé tai mèo may mắn nhất lớp, đi tới đâu đồng xu rơi vào tay tới đó.', caTinh: 'Vui vẻ, hơi ham của', phongCach: 'Bẻ lái theo từng hàng xu, chấp nhận chạy chậm một chút',
+    mt: 'May mắn', loi: 'Nam châm hút xu 5 m', hut: 5,
+    mo: { mt: 'Nhặt tổng cộng 300 xu', dk: (t) => [t.xuTong, 300] },
+    ky: { ten: 'Lucky Coin', ic: '🍀', mt: 'Mưa xu: nhận ngay 25 xu, hút xu mạnh 10 giây và thêm Nitro.', cd: 26, dung: 'moi' },
+    ai: [0.96, 1.05, 1.0, 0.5, 1.0, 0.2, 0.9, 0.3, 0.98, 0.5, 'thang', 'cho', 1.0] }),
+  _nv({ id: 'bobo', ic: '🐻', hinh: 'Gấu nâu', ten: 'Bobo', mau: 0x3a7aff, phu: 0xffffff, xe: 4,
+    tieuSu: 'Chú gấu nâu dễ thương, bánh xe lúc nào cũng bám đường như dính keo.', caTinh: 'Dễ thương, chắc tay', phongCach: 'Giữ làn đều đặn, vào cua chậm mà chắc',
+    mt: 'Bám đường', loi: 'Bám cua +12%, va chạm mất ít tốc độ hơn 20%', bam: 1.12, ben: 0.2,
+    mo: { mt: 'Hoàn thành 15 cuộc đua', dk: (t) => [t.dua, 15] },
+    ky: { ten: 'Super Grip', ic: '💗', mt: '8 giây bánh bám đường siêu chặt: ôm cua cực gắt, va chạm không mất tốc.', cd: 28, dung: 'cua' },
+    ai: [0.98, 1.0, 1.25, 0.5, 0.3, 0.3, 0.5, 0.2, 0.96, 1.1, 'cuoi', 'cho', 1.4] }),
+  _nv({ id: 'ducky', ic: '🦆', hinh: 'Vịt vàng', ten: 'Ducky', mau: 0xffd23a, phu: 0xffffff, xe: 5,
+    tieuSu: 'Chú vịt vàng mê bong bóng xà phòng, cả chiếc xe lúc nào cũng được bọc kín bong bóng.', caTinh: 'Mơ mộng, ồn ào', phongCach: 'Thích bay xa, đáp xuống là bật Nitro luôn',
+    mt: 'Thích bay', loi: 'Tăng tốc +4%, bay qua dốc được thêm 60% Nitro', ga: 1.04, nitBay: 1.6,
+    mo: { mt: 'Bay xa một lần 150 m', dk: (t) => [Math.min(150, t.nhayXa), 150] },
+    ky: { ten: 'Bubble Shield', ic: '🔵', mt: 'Khiên bong bóng 10 giây, khi vỡ sẽ bật tăng tốc.', cd: 28, dung: 'thu' },
+    ai: [0.97, 1.1, 1.0, 1.0, 0.4, 0.3, 0.9, 0.3, 1.0, 0.8, 'luc', 'ngay', 0.8] }),
+  _nv({ id: 'rainbow', ic: '🦄', hinh: 'Kỳ lân cầu vồng', ten: 'Rainbow', mau: 0xff9ad8, phu: 0x6ad8ff, xe: 18,
+    tieuSu: 'Kỳ lân sinh ra sau cơn mưa, chạy tới đâu cầu vồng nở tới đó.', caTinh: 'Lạc quan, hào phóng', phongCach: 'Săn hộp quà cầu vồng và tung chiêu đúng lúc',
+    mt: 'Sắc màu', loi: 'Nitro mạnh hơn 10%, hút xu 3 m', nit: 1.1, hut: 3,
+    mo: { mt: 'Có 10 huy chương vàng', dk: () => [Math.min(10, demHuyChuong().tongVang), 10] },
+    ky: { ten: 'Rainbow Trail', ic: '🌈', mt: 'Tăng tốc 3,5 giây và để lại vệt cầu vồng làm chậm người chạy qua.', cd: 26, dung: 'tang' },
+    ai: [0.99, 1.1, 1.1, 0.8, 0.5, 0.4, 0.6, 0.6, 1.0, 1.0, 'thang', 'cho', 0.9] }),
+  _nv({ id: 'monkey', ic: '🐵', hinh: 'Chú khỉ tinh nghịch', ten: 'Monkey', mau: 0xff8a2a, phu: 0x15151c, xe: 19,
+    tieuSu: 'Chú khỉ nghịch nhất rừng, chuyên rải vỏ chuối để trêu các bạn chạy phía sau.', caTinh: 'Láu lỉnh, tinh quái', phongCach: 'Lượn qua lại giữa các làn, thích tung chiêu tấn công',
+    mt: 'Thích chơi khăm', loi: 'Tăng tốc +5%, hút xu 3 m', ga: 1.05, hut: 3,
+    mo: { mt: 'Nhặt 3 hộp quà bí mật', dk: (t) => [t.qua, 3] },
+    ky: { ten: 'Banana Trick', ic: '🍌', mt: 'Rải 3 vỏ chuối phía sau, ai dẫm phải sẽ xoay tròn.', cd: 22, dung: 'thu' },
+    ai: [0.97, 1.15, 1.05, 0.6, 0.5, 0.6, 1.0, 0.5, 1.02, 0.6, 'thang', 'ngay', 0.4] }),
+  // ---------- hàng 4 ----------
+  _nv({ id: 'kinggold', ic: '👑', hinh: 'Vị vua râu trắng', ten: 'King Gold', mau: 0xffc83a, phu: 0xff3a3a, xe: 11,
+    tieuSu: 'Vị vua nhân hậu với bộ râu trắng, vua bước vào đường đua là vàng xu đổ về.', caTinh: 'Uy nghiêm, hào phóng', phongCach: 'Mọi kỹ năng đều giỏi, chèn ép không nương tay',
+    mt: 'Giàu có', loi: 'Xu nhặt được +50%, hút xu 3 m', xuX: 1.5, hut: 3,
+    mo: { mt: 'Về đích trước Boss Vua Tốc Độ (đường Đại Lộ Ngân Hà)', dk: (t, L) => [L.kyTich.thang_vuatocdo ? 1 : 0, 1] },
+    ky: { ten: 'Golden Rush', ic: '👑', mt: 'Cơn sốt vàng 8 giây: xu nhân ba, hút xu cực mạnh, tăng tốc nhẹ.', cd: 34, dung: 'moi' },
+    ai: [1.03, 1.3, 1.2, 1.2, 0.6, 0.9, 0.3, 0.6, 1.03, 1.1, 'luc', 'ngay', 0.6] }),
+  _nv({ id: 'icequeen', ic: '❄️', hinh: 'Nữ hoàng băng giá', ten: 'Ice Queen', mau: 0x6ad0ff, phu: 0xffffff, xe: 10,
+    tieuSu: 'Nữ hoàng xứ tuyết, lướt đi trên mặt băng và đóng băng bất cứ ai cản đường.', caTinh: 'Lạnh lùng, duyên dáng', phongCach: 'Trượt êm qua cua, giữ tốc độ cao suốt chặng',
+    mt: 'Băng giá', loi: 'Bám cua +10%, hút gió +5%', bam: 1.1, gio: 0.05,
+    mo: { mt: 'Về đích trước Boss Băng Vương (đường Núi Tuyết)', dk: (t, L) => [L.kyTich.thang_bangvuong ? 1 : 0, 1] },
+    ky: { ten: 'Ice Slide', ic: '❄️', mt: 'Đóng băng 2 xe phía trước 1,8 giây, mình trượt băng tăng tốc.', cd: 28, dung: 'tan' },
+    ai: [1.0, 1.15, 1.3, 0.7, 0.2, 0.5, 0.4, 0.75, 1.0, 1.15, 'thang', 'cho', 1.0] }),
+  _nv({ id: 'dragon', ic: '🐲', hinh: 'Rồng lửa con', ten: 'Dragon', mau: 0xe83a2a, phu: 0xffd23a, xe: 15,
+    tieuSu: 'Rồng con chưa biết bay, nên Dragon phun lửa phía sau để lao vút lên.', caTinh: 'Nóng tính, đầy năng lượng', phongCach: 'Nitro không ngừng nghỉ, vào cua cực liều',
+    mt: 'Lửa cháy', loi: 'Nitro dùng lâu hơn 15%, tốc độ tối đa +2%', nit: 1.15, vm: 1.02,
+    mo: { mt: 'Hoàn thành 12 nhiệm vụ', dk: (t, L) => [NHIEM_VU.filter(n => L.nhiemVu[n.id]).length, 12] },
+    ky: { ten: 'Fire Boost', ic: '🔥', mt: 'Phun lửa tăng tốc 3,5 giây, để lại 3 đốm lửa làm chậm người đuổi.', cd: 26, dung: 'tang' },
+    ai: [1.02, 1.2, 1.05, 1.6, 0.2, 0.7, 0.7, 0.6, 1.05, 1.0, 'luc', 'ngay', 0.6] }),
+  _nv({ id: 'shadow', ic: '👻', hinh: 'Cậu bé bóng đêm', ten: 'Shadow', mau: 0x3a1a5a, phu: 0xc05aff, xe: 25,
+    tieuSu: 'Chỉ đua lúc trời tối, không ai biết Shadow học lái xe ở đâu.', caTinh: 'Bí ẩn, hiếu thắng', phongCach: 'Bám đuôi để hút gió rồi chèn ép, rất khó vượt',
+    mt: 'Khó vượt', loi: 'Hút gió +8%, drift tích nhanh hơn 15%', gio: 0.08, driftNhanh: 1.15,
+    mo: { mt: 'Về nhất 5 lần', dk: (t) => [t.thang, 5] },
+    ky: { ten: 'Ghost Mode', ic: '👻', mt: 'Hóa ma 5 giây: xuyên qua xe và chướng ngại, không dính chiêu nào.', cd: 30, dung: 'thu' },
+    ai: [1.0, 1.1, 1.05, 0.8, 0.2, 1.0, 0.8, 0.5, 1.02, 1.0, 'cuoi', 'cho', 1.0] }),
+  _nv({ id: 'alien', ic: '👽', hinh: 'Người ngoài hành tinh', ten: 'Alien', mau: 0x3acb5a, phu: 0x7a3ad8, xe: 14,
+    tieuSu: 'Đến từ một ngôi sao xa xôi, Alien nhấc bổng đối thủ bằng đĩa bay xanh.', caTinh: 'Tò mò, hay đùa', phongCach: 'Luồn lách khắp đường, tung chiêu khi có xe phía trước',
+    mt: 'Người ngoài hành tinh', loi: 'Hút xu 4 m, Nitro mạnh hơn 10%', hut: 4, nit: 1.1,
+    mo: { mt: 'Bay qua dốc tổng cộng 30 lần', dk: (t) => [t.nhay, 30] },
+    ky: { ten: 'UFO Lift', ic: '🛸', mt: 'Đĩa bay nhấc bổng xe gần nhất phía trước lên không trung rồi thả xuống.', cd: 28, dung: 'tan' },
+    ai: [0.99, 1.1, 1.1, 0.7, 0.5, 0.4, 0.6, 0.5, 1.0, 1.0, 'thang', 'cho', 1.0] }),
+  _nv({ id: 'cyber', ic: '💠', hinh: 'Chiến binh mạng', ten: 'Cyber', mau: 0x2a8aff, phu: 0x3af0ff, xe: 6,
+    tieuSu: 'Chiến binh mạng với kính ngắm sáng xanh, phản xạ nhanh đến mức bật ngược mọi chiêu.', caTinh: 'Nhanh trí, tự tin', phongCach: 'Phản ứng cực nhanh, xài Nitro đúng lúc',
+    mt: 'Phản xạ nhanh', loi: 'Tăng tốc +6%, trúng chiêu chỉ chậm 70% thời gian', ga: 1.06, chiu: 0.7,
+    mo: { mt: 'Hoàn thành 5 thử thách', dk: (t) => [t.thuThach, 5] },
+    ky: { ten: 'Cyber Reflex', ic: '💠', mt: '8 giây bật ngược kỹ năng của đối thủ về phía họ, thêm Nitro.', cd: 30, dung: 'thu' },
+    ai: [1.01, 1.2, 1.15, 1.0, 0.3, 0.6, 0.3, 0.6, 1.02, 1.1, 'luc', 'cho', 0.8] }),
+  // ---------- hàng 5 ----------
+  _nv({ id: 'chef', ic: '🍭', hinh: 'Đầu bếp nhí', ten: 'Chef', mau: 0xf4f4f4, phu: 0xe83a3a, xe: 1,
+    tieuSu: 'Đầu bếp nhí cầm tay kẹo ngọt, kẹo rơi tới đâu đối thủ dính tới đó.', caTinh: 'Tốt bụng, thích ăn ngon', phongCach: 'Đi đường nào nhiều xu nhất, kể cả phải đi đường vòng',
+    mt: 'Kẹo ngọt', loi: 'Xu nhặt được +20%, hút xu 4 m', xuX: 1.2, hut: 4,
+    mo: { mt: 'Ăn combo 20 xu', dk: (t) => [Math.min(20, t.combo), 20] },
+    ky: { ten: 'Candy Boost', ic: '🍭', mt: 'Tăng tốc 1,5 giây và rải kẹo dính phía trước làm chậm đối thủ.', cd: 24, dung: 'tang' },
+    ai: [0.96, 1.0, 1.0, 0.5, 0.7, 0.2, 1.0, 0.3, 0.98, 0.6, 'thang', 'cho', 1.0] }),
+  _nv({ id: 'police', ic: '🚓', hinh: 'Chú cảnh sát', ten: 'Police', mau: 0x2a4ad8, phu: 0xffffff, xe: 3,
+    tieuSu: 'Chú cảnh sát tuần tra tốc độ, còi hú vang lên là các xe phía trước phải giảm tốc.', caTinh: 'Nghiêm túc, tận tụy', phongCach: 'Giữ khoảng cách rồi đuổi sát, bứt lên ở nước rút',
+    mt: 'Tuần tra', loi: 'Hút gió +5%, va chạm mất ít tốc độ hơn 30%', gio: 0.05, ben: 0.3,
+    mo: { mt: 'Về nhất 1 lần', dk: (t) => [t.thang, 1] },
+    ky: { ten: 'Speed Patrol', ic: '🚨', mt: 'Còi hú: các xe phía trước trong 250 m bị chậm lại, mình tăng tốc nhẹ.', cd: 30, dung: 'tan' },
+    ai: [1.0, 1.05, 1.1, 0.7, 0.2, 0.8, 0.3, 0.4, 0.98, 1.0, 'cuoi', 'cho', 1.0] }),
+  _nv({ id: 'builder', ic: '🔧', hinh: 'Anh thợ xây', ten: 'Builder', mau: 0xffc83a, phu: 0x15151c, xe: 4,
+    tieuSu: 'Anh thợ xây đội mũ vàng, dọn sạch chướng ngại trên đường chỉ trong tích tắc.', caTinh: 'Chăm chỉ, đáng tin', phongCach: 'Chạy chắc, không mạo hiểm, hiếm khi chạm vật cản',
+    mt: 'Thợ sửa đường', loi: 'Va chạm mất ít tốc độ hơn 50%, trúng chiêu chỉ chậm 70%', ben: 0.5, chiu: 0.7,
+    mo: { mt: 'Lái tổng cộng 150 km', dk: (t) => [Math.floor(t.km), 150] },
+    ky: { ten: 'Road Fix', ic: '🔧', mt: 'Dọn sạch chướng ngại 400 m phía trước, sửa xe hết bị chậm, tăng tốc nhẹ.', cd: 26, dung: 'vat' },
+    ai: [0.97, 1.0, 1.05, 0.5, 0.3, 0.5, 0.5, 0.2, 0.96, 0.8, 'cuoi', 'cho', 1.3] }),
+  _nv({ id: 'magic', ic: '🔮', hinh: 'Cô phù thủy nhỏ', ten: 'Magic', mau: 0x8a3ad8, phu: 0xffd23a, xe: 13,
+    tieuSu: 'Cô phù thủy nhỏ mở cổng phép thuật để đổi chỗ với người đi trước.', caTinh: 'Thông minh, tinh nghịch', phongCach: 'Bám sát nhóm đầu rồi bất ngờ nhảy cóc lên trước',
+    mt: 'Phép thuật', loi: 'Nitro mạnh hơn 10%, hút xu 3 m', nit: 1.1, hut: 3,
+    mo: { mt: 'Hoàn thành 2 thử thách', dk: (t) => [t.thuThach, 2] },
+    ky: { ten: 'Magic Portal', ic: '🔮', mt: 'Mở cổng phép thuật đổi chỗ với xe gần nhất phía trước.', cd: 30, dung: 'tan' },
+    ai: [0.98, 1.05, 1.1, 0.8, 0.4, 0.4, 0.7, 0.6, 1.0, 0.9, 'thang', 'cho', 0.9] }),
+  _nv({ id: 'shark', ic: '🦈', hinh: 'Cá mập nhỏ', ten: 'Shark', mau: 0x4a8ad8, phu: 0xffffff, xe: 18,
+    tieuSu: 'Cá mập nhỏ lao như tên bắn, cắn đứt tốc độ của người đi trước.', caTinh: 'Tự tin, thích rượt đuổi', phongCach: 'Đuổi sát xe phía trước và lao vào đớp',
+    mt: 'Thích rượt đuổi', loi: 'Tăng tốc +8%, hút gió +4%', ga: 1.08, gio: 0.04,
+    mo: { mt: 'Drift tổng cộng 10 km', dk: (t) => [Math.floor(t.drift), 10000] },
+    ky: { ten: 'Shark Dash', ic: '🦈', mt: 'Lao tới, đớp xe nào chạm vào trong 2,5 giây làm chậm.', cd: 24, dung: 'tan' },
+    ai: [1.0, 1.1, 1.0, 0.9, 0.2, 0.8, 0.8, 0.4, 1.02, 0.9, 'luc', 'ngay', 0.4] }),
+  _nv({ id: 'skelly', ic: '💀', hinh: 'Bộ xương vui tính', ten: 'Skelly', mau: 0x23232f, phu: 0xe83a3a, xe: 2,
+    tieuSu: 'Bộ xương vui tính, ném xương nảy khắp nơi và chẳng sợ bị ai đụng.', caTinh: 'Vui tính, gan lì', phongCach: 'Chạy liều, ném xương liên tục vào xe phía trước',
+    mt: 'Gan lì', loi: 'Bám cua +5%, trúng chiêu chỉ chậm 60% thời gian', bam: 1.05, chiu: 0.6,
+    mo: { mt: 'Về nhất đường Sa Mạc Vàng', dk: (t, L) => [(L.duong.samac || {}).hang === 1 ? 1 : 0, 1] },
+    ky: { ten: 'Bone Bounce', ic: '💀', mt: 'Ném 3 khúc xương nảy tự dẫn đường đuổi 3 xe phía trước.', cd: 26, dung: 'tan' },
+    ai: [0.98, 1.1, 1.0, 0.6, 0.3, 0.7, 0.8, 0.5, 1.04, 0.7, 'thang', 'cho', 1.0] })
+];
+const nvMo = (n) => !n.mo || (LUU.nvMo || []).includes(n.id);
+function tienDoMo(n) { try { const [a, b] = n.mo.dk(LUU.tk, LUU); return [Math.max(0, a || 0), b]; } catch (e) { return [0, 1]; } }
+function kiemTraMoNhanVat() {           // trả về các nhân vật vừa đủ điều kiện mở khóa (và ghi vào LUU)
+  const moi = [];
+  for (const n of NHAN_VAT) { if (nvMo(n)) continue; const [a, b] = tienDoMo(n); if (a >= b) { LUU.nvMo.push(n.id); moi.push(n); } }
+  return moi;
+}
 
 // ===================== KHỞI TẠO THREE, VẬT LIỆU, ÂM THANH, HẠT, LƯU TRỮ =====================
 const $ = (id) => document.getElementById(id);
@@ -659,6 +922,8 @@ const LUU = (() => {
   if (!o.xe.includes(o.xeDang)) o.xeDang = 'x01';
   for (const t of ['mau', 'duong', 'thuThach', 'nhiemVu', 'kyTich']) if (!o[t] || typeof o[t] !== 'object') o[t] = {};
   if (!NHAN_VAT.some(n => n.id === o.nhanVat)) o.nhanVat = 'speedy';
+  if (!Array.isArray(o.nvMo)) o.nvMo = NV_MO_SAN.slice(); o.nvMo = o.nvMo.filter(id => NHAN_VAT.some(n => n.id === id)); for (const id of NV_MO_SAN) if (!o.nvMo.includes(id)) o.nvMo.push(id);
+  if (!o.nvMo.includes(o.nhanVat)) o.nvMo.push(o.nhanVat);
   if (!DO_KHO[o.kho]) o.kho = 'vua';
   if (!DO_HOA[o.doHoa]) o.doHoa = CAM_UNG ? 'dep' : 'toida';
   return o;
@@ -1252,55 +1517,180 @@ const sonXe = (mau) => new THREE.MeshPhysicalMaterial({ color: mau, metalness: 0
 const nhua = (mau) => new THREE.MeshStandardMaterial({ color: mau, metalness: 0.05, roughness: 0.55 });
 const kimLoai = (mau) => new THREE.MeshStandardMaterial({ color: mau, metalness: 0.9, roughness: 0.25 });
 
-function dauChibi(nvId, yD, zD, them, hop) {     // đầu thú hoạt hình (bộ nhân vật tự thiết kế): mỗi nhân vật một con vật, một phụ kiện riêng
+function dauChibi(nvId, yD, zD, them, hop) {     // đầu của 30 nhân vật (bạn nhỏ, thú, người máy, phi hành gia…) + 2 Boss: mỗi người một kiểu tóc, mũ, phụ kiện riêng
   const R = 0.74, den = nhua(0x15151c), trang = nhua(0xffffff), phat = (r, g, b) => new THREE.MeshBasicMaterial({ color: new THREE.Color(r, g, b) });
-  const MAU = { speedy: 0xff7a2a, ninja: 0x2e2e3a, turbo: 0x4a8aff, lucky: 0xa8703a, rocky: 0x9a9aaa, shadow: 0x4a3a5e, bangvuong: 0x1c1c26, vuatocdo: 0xffc24a };
-  const mDa = nvId === 'turbo' ? kimLoai(0x4a8aff) : nhua(MAU[nvId] != null ? MAU[nvId] : 0xffd8b0);
-  const dau = them(new THREE.SphereGeometry(R, 24, 18), mDa, 0, yD, zD); if (nvId === 'turbo') dau.scale.set(1.08, 0.92, 0.98);
+  const MAU = { bangvuong: 0x1c1c26, vuatocdo: 0xffc24a, fox: 0xff7a2a, panda: 0xffffff, tiger: 0xff9a2a, bunny: 0xfff0f6, bobo: 0xa8703a, ducky: 0xffe14a, rainbow: 0xffffff, monkey: 0x8a5a3a, dragon: 0xe83a2a, shark: 0x5a8ad8, cosmo: 0xf4f6ff, dino: 0x4ac84a, alien: 0x6ae04a, skelly: 0xf4f0e0, shadow: 0xe8dcf0, icequeen: 0xffe8f0 };   // màu đầu (không có trong bảng = da người)
+  const mDa = nvId === 'robo' ? kimLoai(0xf0f4ff) : nhua(MAU[nvId] != null ? MAU[nvId] : 0xffd8b0);
+  const dau = them(new THREE.SphereGeometry(R, 24, 18), mDa, 0, yD, zD); if (nvId === 'robo') dau.scale.set(1.08, 0.92, 0.98);
   const mat = (mauTrong, mauCon, to) => { for (const sx of [-1, 1]) { const tr = them(new THREE.SphereGeometry(to || 0.2, 14, 12), nhua(mauTrong), sx * 0.27, yD + 0.08, zD + R * 0.84); tr.scale.set(1, 1.15, 0.6); const c = them(new THREE.SphereGeometry((to || 0.2) * 0.62, 12, 10), nhua(mauCon), sx * 0.27, yD + 0.06, zD + R * 0.84 + 0.09); c.scale.set(1, 1.2, 0.6); them(new THREE.SphereGeometry(0.045, 6, 4), trang, sx * 0.27 + 0.04, yD + 0.13, zD + R * 0.84 + 0.15); } };
   const mom = (mau, w, y) => { const m = them(new THREE.SphereGeometry(0.3, 14, 10), nhua(mau), 0, yD + (y || -0.22), zD + 0.6); m.scale.set(w || 1.2, 0.8, 0.85); return m; };
   const mui = (y, z) => them(new THREE.SphereGeometry(0.09, 10, 8), den, 0, yD + y, zD + z);
   const cuoi = (y, z) => { const m = them(new THREE.TorusGeometry(0.12, 0.03, 6, 12, Math.PI), nhua(0x8a2a2a), 0, yD + y, zD + z, 0, 0, Math.PI); m.castShadow = false; };
   const tai = (r, h, x, y, mau, trong, nghieng) => { for (const sx of [-1, 1]) { const t = them(new THREE.ConeGeometry(r, h, 10), nhua(mau), sx * x, yD + y, zD - 0.05, 0, 0, -sx * (nghieng || 0.35)); if (trong != null) { const ti = them(new THREE.ConeGeometry(r * 0.55, h * 0.7, 8), nhua(trong), sx * x, yD + y - 0.04, zD + 0.06, 0, 0, -sx * (nghieng || 0.35)); ti.castShadow = false; } } };
-  if (nvId === 'speedy') {               // cáo đỏ: tai nhọn, mõm trắng, băng đô đua vàng
-    tai(0.24, 0.55, 0.44, 0.66, 0xff7a2a, 0xffffff); mom(0xffffff, 1.3, -0.24); mui(-0.14, 0.86); mat(0xffffff, 0x2a1a0a); cuoi(-0.36, 0.78);
-    them(new THREE.TorusGeometry(R * 0.98, 0.08, 8, 28), nhua(0xffd23a), 0, yD + 0.3, zD, Math.PI / 2 - 0.15, 0, 0);
-  } else if (nvId === 'ninja') {         // mèo đen ninja: tai mèo, khăn bịt mắt tím có đuôi bay, ria
-    tai(0.22, 0.4, 0.42, 0.62, 0x2e2e3a, 0xff9ab0, 0.25); mat(0xd8ff7a, 0x15151c, 0.19); mom(0x4a4a58, 1.1, -0.24); mui(-0.13, 0.82);
-    them(new THREE.TorusGeometry(R * 1.0, 0.1, 8, 28), nhua(0x6a2ad8), 0, yD + 0.1, zD, Math.PI / 2, 0, 0); for (const sx of [-1, 1]) hop(0.12, 0.06, 0.95, nhua(0x6a2ad8), sx * 0.16, yD + 0.1, zD - 1.0, 0.3, sx * 0.25);
-    for (const sx of [-1, 1]) for (const dy of [-0.05, 0.05]) { const r = hop(0.5, 0.02, 0.02, trang, sx * 0.45, yD - 0.2 + dy, zD + 0.62, 0, 0, sx * dy * 2); r.castShadow = false; }
-  } else if (nvId === 'turbo') {         // rô-bốt: tấm kính đen, mắt đèn xanh, ăng-ten có bóng sáng, bu-lông hai bên
+  const mat3 = (iris) => { mat(0xffffff, iris, 0.2); cuoi(-0.3, 0.72); for (const sx of [-1, 1]) { const m = them(new THREE.SphereGeometry(0.1, 10, 8), nhua(0xff9a9a), sx * 0.46, yD - 0.16, zD + 0.55); m.scale.z = 0.4; m.castShadow = false; } them(new THREE.SphereGeometry(0.05, 8, 6), nhua(0xe8a888), 0, yD - 0.1, zD + 0.8); };   // mắt to long lanh, miệng cười, má hồng, mũi nhỏ
+  const toc = (mau) => them(new THREE.SphereGeometry(R + 0.05, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2.1), nhua(mau), 0, yD + 0.12, zD);
+  const sau = (mau, k) => { const s = them(new THREE.SphereGeometry(R + 0.09, 20, 14), nhua(mau), 0, yD - 0.06, zD - 0.17); s.scale.set(1, k || 1.02, 0.95); return s; };      // tóc phía sau và hai bên đầu
+  const mai = (mau, n) => { n = n || 5; for (let i = 0; i < n; i++) { const x = (i - (n - 1) / 2) * 0.21, y = 0.4 - Math.abs(x) * 0.22; them(new THREE.SphereGeometry(0.17, 10, 8), nhua(mau), x, yD + y, zD + Math.sqrt(Math.max(0.05, (R + 0.02) * (R + 0.02) - x * x - y * y)) - 0.04); } };   // tóc mái
+  const gai = (mau, n, cao, ng) => { const m = nhua(mau); for (let i = 0; i < n; i++) { const a = i / n * 6.283 + 0.4, r = i === 0 ? 0 : 0.36, t = i === 0 ? 0 : (ng || 0.5); them(new THREE.ConeGeometry(0.17, cao, 8), m, Math.cos(a) * r, yD + 0.78, zD + Math.sin(a) * r - 0.05, Math.sin(a) * t, 0, -Math.cos(a) * t); } };   // tóc dựng gai
+  const vong = (mau, y, d) => them(new THREE.TorusGeometry(Math.sqrt(R * R - y * y) + 0.03, d || 0.07, 8, 28), nhua(mau), 0, yD + y, zD, Math.PI / 2, 0, 0);
+  const canh = (mau, x, y) => { for (const sx of [-1, 1]) { const m = them(new THREE.SphereGeometry(0.24, 12, 10), nhua(mau), sx * x, yD + y, zD - 0.05); m.scale.set(0.7, 1.5, 0.8); } };   // tóc dài rủ hai bên
+  if (nvId === 'speedy') {         // cậu bé băng đô đỏ: tóc nâu dựng gai, băng đô đỏ có nút thắt và đuôi bay
+    sau(0x4a2a1a, 0.95); toc(0x4a2a1a); gai(0x4a2a1a, 7, 0.46, 0.5); mai(0x4a2a1a, 5); mat3(0x4a2a1a);
+    vong(0xe83a3a, 0.34, 0.085); hop(0.22, 0.22, 0.12, nhua(0xe83a3a), 0, yD + 0.34, zD - 0.74); for (const sx of [-1, 1]) hop(0.13, 0.07, 0.6, nhua(0xe83a3a), sx * 0.17, yD + 0.3, zD - 1.0, 0.5, 0, sx * 0.3);
+  } else if (nvId === 'luna') {         // cô bé tai nghe hồng: tóc đen dài, mái bằng, tai nghe hồng có nơ
+    sau(0x15151c, 1.12); toc(0x15151c); mai(0x15151c, 7); canh(0x15151c, 0.62, -0.4); mat3(0x6a3a8a);
+    them(new THREE.TorusGeometry(R + 0.1, 0.07, 8, 24, Math.PI), nhua(0xff7ab8), 0, yD, zD);
+    for (const sx of [-1, 1]) { const c = them(new THREE.SphereGeometry(0.22, 14, 10), nhua(0xff7ab8), sx * (R + 0.12), yD, zD); c.scale.set(0.55, 1, 1); const d = them(new THREE.SphereGeometry(0.15, 12, 10), nhua(0xffc8e0), sx * (R + 0.2), yD, zD); d.scale.set(0.4, 1, 1); }
+    for (const sx of [-1, 1]) them(new THREE.ConeGeometry(0.13, 0.3, 4), nhua(0xff3a8a), -0.5 + sx * 0.17, yD + 0.6, zD + 0.18, 0, 0, sx * Math.PI / 2); them(new THREE.SphereGeometry(0.07, 8, 6), nhua(0xff1a6a), -0.5, yD + 0.6, zD + 0.18);
+  } else if (nvId === 'turbo') {         // cậu bé tóc xanh: tóc xanh dương dựng gai, mắt sáng, quyết tâm
+    sau(0x2a5ae8, 0.95); toc(0x2a5ae8); gai(0x2a5ae8, 9, 0.54, 0.75); mai(0x2a5ae8, 5); mat3(0x1a2a6a);
+    for (const sx of [-1, 1]) hop(0.05, 0.28, 0.05, phat(0.4, 1.6, 3), sx * 0.34, yD + 0.78, zD + 0.1, 0.4, 0, -sx * 0.4);
+  } else if (nvId === 'flash') {         // cậu bé đeo kính bay: tóc nâu, kính bay vàng cam đội trên trán
+    sau(0x6a3a1a, 1.0); toc(0x6a3a1a); mai(0x6a3a1a, 5); mat3(0x3a2a1a); vong(0x2a2a30, 0.42, 0.055);
+    for (const sx of [-1, 1]) { them(new THREE.TorusGeometry(0.2, 0.06, 8, 20), nhua(0xffa81a), sx * 0.26, yD + 0.52, zD + 0.58, -0.5, 0, 0); them(new THREE.CircleGeometry(0.17, 18), phat(0.5, 1.7, 2.3), sx * 0.26, yD + 0.52, zD + 0.62, -0.5, 0, 0); }
+  } else if (nvId === 'robo') {         // người máy trắng: mặt kính đen, mắt đèn xanh, ăng-ten đỏ, bu-lông xanh hai bên
     hop(1.0, 0.36, 0.2, nhua(0x10141e), 0, yD + 0.06, zD + R * 0.84); for (const sx of [-1, 1]) them(new THREE.SphereGeometry(0.11, 10, 8), phat(0.4, 3, 3.2), sx * 0.24, yD + 0.06, zD + R * 0.84 + 0.11);
     them(new THREE.CylinderGeometry(0.04, 0.04, 0.5, 6), kimLoai(0xd8dce6), 0, yD + 0.9, zD); them(new THREE.SphereGeometry(0.12, 10, 8), phat(3, 0.6, 0.4), 0, yD + 1.18, zD);
     for (const sx of [-1, 1]) them(new THREE.CylinderGeometry(0.16, 0.16, 0.2, 12), kimLoai(0xff8a2a), sx * 0.8, yD, zD, 0, 0, Math.PI / 2); hop(0.3, 0.05, 0.05, phat(0.4, 3, 3.2), 0, yD - 0.3, zD + 0.68);
-  } else if (nvId === 'lucky') {         // gấu nâu: tai tròn, mõm sáng, mũ chóp xanh có cỏ ba lá
+  } else if (nvId === 'fox') {         // cáo: tai nhọn lòng trắng, mõm trắng, mắt đen to, đuôi mắt cười
+    tai(0.24, 0.55, 0.44, 0.66, 0xff7a2a, 0xffffff); mom(0xffffff, 1.3, -0.24); mui(-0.14, 0.86); mat(0xffffff, 0x2a1a0a); cuoi(-0.36, 0.78);
+  } else if (nvId === 'ninja') {         // cậu bé ninja: mũ trùm đen bịt kín mặt chỉ hở mắt, băng đô kim loại, đuôi băng bay phía sau
+    them(new THREE.SphereGeometry(R + 0.04, 24, 18), nhua(0x15151c), 0, yD, zD);
+    const bd = them(new THREE.SphereGeometry(0.6, 20, 12), mDa, 0, yD + 0.1, zD + 0.26); bd.scale.set(1.0, 0.3, 0.8); mat(0xffffff, 0x15151c, 0.17);
+    hop(0.55, 0.2, 0.07, kimLoai(0xc8ccd8), 0, yD + 0.44, zD + 0.64, -0.35); them(new THREE.SphereGeometry(0.06, 8, 6), nhua(0xff3a3a), 0, yD + 0.44, zD + 0.69);
+    for (const sx of [-1, 1]) hop(0.12, 0.06, 0.62, nhua(0x2a2a8a), sx * 0.16, yD + 0.36, zD - 0.98, 0.5, 0, sx * 0.3);
+  } else if (nvId === 'panda') {         // gấu trúc: tai đen tròn, mảng đen quanh mắt, kính đua trên trán
+    for (const sx of [-1, 1]) them(new THREE.SphereGeometry(0.24, 14, 10), den, sx * 0.5, yD + 0.56, zD - 0.05);
+    for (const sx of [-1, 1]) { const v = them(new THREE.SphereGeometry(0.25, 14, 10), den, sx * 0.28, yD + 0.05, zD + R * 0.72, 0, 0, sx * 0.5); v.scale.set(1, 1.3, 0.55); }
+    mat(0xffffff, 0x15151c, 0.17); mom(0xffffff, 1.2, -0.24); mui(-0.12, 0.84); cuoi(-0.36, 0.74);
+    them(new THREE.TorusGeometry(R * 0.99, 0.06, 8, 28), nhua(0x2a9a4a), 0, yD + 0.4, zD, Math.PI / 2 - 0.2, 0, 0); for (const sx of [-1, 1]) them(new THREE.SphereGeometry(0.15, 12, 8), phat(0.4, 2.2, 3), sx * 0.22, yD + 0.52, zD + 0.6);
+  } else if (nvId === 'tiger') {         // hổ vằn: tai tròn, vằn đen trên trán và má, mắt xanh lá
+    for (const sx of [-1, 1]) { them(new THREE.SphereGeometry(0.22, 12, 10), mDa, sx * 0.5, yD + 0.56, zD - 0.05); them(new THREE.SphereGeometry(0.11, 10, 8), trang, sx * 0.5, yD + 0.56, zD + 0.08); }
+    for (const i of [-1, 0, 1]) { const v = hop(0.07, 0.32, 0.05, den, i * 0.17, yD + 0.52, zD + 0.52, -0.75, 0, i * 0.25); v.castShadow = false; }
+    for (const sx of [-1, 1]) for (const j of [0, 1]) { const v = hop(0.28, 0.05, 0.05, den, sx * 0.62, yD + 0.02 - j * 0.14, zD + 0.36, 0, -sx * 0.9, sx * 0.25); v.castShadow = false; }
+    mom(0xffffff, 1.35, -0.22); them(new THREE.SphereGeometry(0.09, 10, 8), nhua(0xff7a9a), 0, yD - 0.12, zD + 0.86); mat(0xffffff, 0x2a8a3a); cuoi(-0.36, 0.74);
+  } else if (nvId === 'cosmo') {         // phi hành gia nhí: mũ bảo hiểm trắng với kính chắn tối, ăng-ten đỏ, vòng cổ bạc
+    const vz = kimLoai(0x1a2a6a); const v = them(new THREE.SphereGeometry(0.58, 22, 16), vz, 0, yD + 0.03, zD + 0.3); v.scale.set(1.08, 0.88, 0.85);
+    for (const sx of [-1, 1]) { const e = them(new THREE.SphereGeometry(0.09, 10, 8), phat(0.4, 2.2, 3.2), sx * 0.24, yD + 0.06, zD + 0.76); e.scale.z = 0.5; }
+    them(new THREE.TorusGeometry(0.13, 0.03, 6, 12, Math.PI), phat(0.4, 2.2, 3.2), 0, yD - 0.1, zD + 0.8, 0, 0, Math.PI); them(new THREE.SphereGeometry(0.06, 8, 6), trang, -0.3, yD + 0.28, zD + 0.78);
+    for (const sx of [-1, 1]) them(new THREE.CylinderGeometry(0.18, 0.18, 0.22, 14), nhua(0x2a7aff), sx * (R + 0.02), yD, zD, 0, 0, Math.PI / 2);
+    them(new THREE.CylinderGeometry(0.04, 0.04, 0.38, 6), kimLoai(0xd8dce6), 0.38, yD + 0.82, zD); them(new THREE.SphereGeometry(0.09, 10, 8), phat(3, 0.5, 0.4), 0.38, yD + 1.04, zD); them(new THREE.TorusGeometry(0.64, 0.09, 8, 24), kimLoai(0xd8dce6), 0, yD - 0.62, zD, Math.PI / 2, 0, 0);
+  } else if (nvId === 'captain') {         // thuyền trưởng hải tặc: mũ ba góc đen có đầu lâu, râu và ria nâu, ánh mắt tinh quái
+    sau(0x5a3a1a, 0.9); mai(0x5a3a1a, 5); mat3(0x3a2a1a);
+    const rau = them(new THREE.SphereGeometry(0.5, 16, 12), nhua(0x5a3a1a), 0, yD - 0.5, zD + 0.3); rau.scale.set(1.15, 0.85, 0.95);
+    for (const sx of [-1, 1]) { const r = them(new THREE.SphereGeometry(0.13, 10, 8), nhua(0x5a3a1a), sx * 0.15, yD - 0.19, zD + 0.8, 0, 0, -sx * 0.3); r.scale.set(1.7, 0.6, 0.8); }
+    them(new THREE.CylinderGeometry(0.92, 0.98, 0.1, 24), nhua(0x15151c), 0, yD + 0.6, zD - 0.02); them(new THREE.CylinderGeometry(0.5, 0.66, 0.45, 20), nhua(0x15151c), 0, yD + 0.86, zD - 0.02); them(new THREE.TorusGeometry(0.64, 0.04, 6, 24), sonXe(0xffc83a), 0, yD + 0.68, zD - 0.02, Math.PI / 2, 0, 0);
+    them(new THREE.SphereGeometry(0.1, 10, 8), trang, 0, yD + 0.9, zD + 0.64); hop(0.3, 0.05, 0.04, trang, 0, yD + 0.72, zD + 0.68, 0, 0, 0.5); hop(0.3, 0.05, 0.04, trang, 0, yD + 0.72, zD + 0.68, 0, 0, -0.5);
+  } else if (nvId === 'dino') {         // khủng long xanh: mõm dài có hàm răng, mắt vàng, gờ lông mày, hàng gai cam sau gáy
+    const sn = them(new THREE.SphereGeometry(0.42, 16, 12), nhua(0x7ae07a), 0, yD - 0.1, zD + 0.7); sn.scale.set(0.95, 0.6, 1.9); const hm = them(new THREE.SphereGeometry(0.36, 14, 10), nhua(0x5ad05a), 0, yD - 0.4, zD + 0.68); hm.scale.set(0.9, 0.34, 1.7); const mg = them(new THREE.SphereGeometry(0.3, 12, 8), nhua(0x5a1a2a), 0, yD - 0.3, zD + 0.7); mg.scale.set(0.95, 0.12, 1.75);
+    for (const sx of [-1, 1]) {
+      them(new THREE.SphereGeometry(0.05, 6, 4), den, sx * 0.13, yD - 0.03, zD + 1.38); const e = them(new THREE.SphereGeometry(0.17, 12, 10), nhua(0xffe14a), sx * 0.4, yD + 0.25, zD + 0.5); e.scale.z = 0.7; hop(0.04, 0.2, 0.04, den, sx * 0.4, yD + 0.25, zD + 0.64);
+      const b = them(new THREE.SphereGeometry(0.17, 10, 8), mDa, sx * 0.4, yD + 0.44, zD + 0.5); b.scale.set(1, 0.6, 1); const m = them(new THREE.SphereGeometry(0.1, 10, 8), nhua(0xff9a9a), sx * 0.5, yD - 0.16, zD + 0.5); m.scale.z = 0.4; m.castShadow = false;
+    }
+    for (let i = -3; i <= 3; i++) { them(new THREE.ConeGeometry(0.05, 0.15, 4), trang, i * 0.11, yD - 0.27, zD + 1.12 - Math.abs(i) * 0.08, Math.PI, 0, 0); them(new THREE.ConeGeometry(0.04, 0.11, 4), trang, i * 0.1, yD - 0.34, zD + 1.08 - Math.abs(i) * 0.08, 0, 0, 0); }
+    for (let i = 0; i < 5; i++) them(new THREE.ConeGeometry(0.11, 0.32, 6), nhua(0xff8a2a), 0, yD + 0.68 - i * 0.12, zD + 0.25 - i * 0.28, -0.4, 0, 0);
+  } else if (nvId === 'bunny') {         // thỏ bông: hai tai dài dựng đứng, má hồng, răng thỏ, nơ đỏ
+    for (const sx of [-1, 1]) { const t = them(new THREE.SphereGeometry(0.2, 14, 10), mDa, sx * 0.26, yD + 1.08, zD - 0.05, 0, 0, -sx * 0.18); t.scale.set(1, 3.0, 0.7); const ti = them(new THREE.SphereGeometry(0.1, 10, 8), nhua(0xffa8d0), sx * 0.27, yD + 1.08, zD + 0.08, 0, 0, -sx * 0.18); ti.scale.set(1, 4.6, 0.5); ti.castShadow = false; }
+    mom(0xffffff, 1.2, -0.22); them(new THREE.SphereGeometry(0.08, 10, 8), nhua(0xff6aa8), 0, yD - 0.12, zD + 0.86); mat(0xffffff, 0x8a2a5a); for (const sx of [-1, 1]) hop(0.08, 0.12, 0.04, trang, sx * 0.045, yD - 0.4, zD + 0.78);
+    for (const sx of [-1, 1]) { const m = them(new THREE.SphereGeometry(0.1, 10, 8), nhua(0xff9ac8), sx * 0.46, yD - 0.14, zD + 0.55); m.scale.z = 0.4; m.castShadow = false; }
+    for (const sx of [-1, 1]) them(new THREE.ConeGeometry(0.14, 0.26, 8), nhua(0xff3a5a), sx * 0.16, yD + 0.62, zD + 0.3, 0, 0, sx * Math.PI / 2);
+  } else if (nvId === 'mimi') {         // cô bé tai mèo: tóc nâu ngắn, hai tai mèo hồng, cỏ ba lá may mắn
+    sau(0x6a3a2a, 1.05); toc(0x6a3a2a); mai(0x6a3a2a, 7); canh(0x6a3a2a, 0.62, -0.25); mat3(0x3a8a4a);
+    for (const sx of [-1, 1]) { const t = them(new THREE.ConeGeometry(0.21, 0.42, 4), nhua(0xff7ab8), sx * 0.42, yD + 0.82, zD - 0.02, 0, Math.PI / 4, -sx * 0.3); t.scale.z = 0.6; const ti = them(new THREE.ConeGeometry(0.11, 0.26, 4), nhua(0xffc8e0), sx * 0.42, yD + 0.8, zD + 0.06, 0, Math.PI / 4, -sx * 0.3); ti.scale.z = 0.5; ti.castShadow = false; }
+    for (let i = 0; i < 4; i++) { const a = i * Math.PI / 2; them(new THREE.SphereGeometry(0.06, 8, 6), nhua(0x3acb5a), 0.52 + Math.cos(a) * 0.07, yD + 0.5 + Math.sin(a) * 0.07, zD + 0.42); }
+  } else if (nvId === 'bobo') {         // gấu nâu: tai tròn, mõm sáng, mắt đen to
     for (const sx of [-1, 1]) { them(new THREE.SphereGeometry(0.26, 14, 10), mDa, sx * 0.52, yD + 0.55, zD - 0.05); them(new THREE.SphereGeometry(0.14, 10, 8), nhua(0xffc8a0), sx * 0.52, yD + 0.55, zD + 0.08); }
     mom(0xf0d0a8, 1.2, -0.2); mui(-0.1, 0.86); mat(0xffffff, 0x15151c); cuoi(-0.36, 0.72);
-    them(new THREE.CylinderGeometry(0.52, 0.56, 0.12, 20), nhua(0x2a9a4a), 0, yD + 0.7, zD); them(new THREE.CylinderGeometry(0.36, 0.4, 0.42, 18), nhua(0x2a9a4a), 0, yD + 0.95, zD);
-    for (let i = 0; i < 3; i++) { const a = i * 2.1; them(new THREE.SphereGeometry(0.08, 8, 6), nhua(0x7aff7a), Math.cos(a) * 0.08, yD + 0.98 + Math.sin(a) * 0.08, zD + 0.38); }
-  } else if (nvId === 'rocky') {         // tê giác xám: sừng ngà trên mõm, tai nhỏ, mũ bảo hộ vàng
-    tai(0.16, 0.3, 0.5, 0.5, 0x9a9aaa, 0xd8a8b0, 0.6); mom(0xb8b8c6, 1.4, -0.26); mat(0xffffff, 0x15151c, 0.17);
-    them(new THREE.ConeGeometry(0.15, 0.55, 10), nhua(0xfff2d8), 0, yD + 0.0, zD + 0.98, 1.1, 0, 0); them(new THREE.ConeGeometry(0.09, 0.28, 8), nhua(0xfff2d8), 0, yD + 0.22, zD + 0.8, 0.9, 0, 0);
-    them(new THREE.SphereGeometry(R + 0.06, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2.4), sonXe(0xffc83a), 0, yD + 0.16, zD); hop(0.9, 0.08, 0.4, sonXe(0xffc83a), 0, yD + 0.3, zD + 0.62, -0.1);
-  } else if (nvId === 'shadow') {        // dơi đêm: tai dơi to, mắt đỏ phát sáng, răng nanh
-    for (const sx of [-1, 1]) { const t = them(new THREE.ConeGeometry(0.34, 0.8, 4), nhua(0x4a3a5e), sx * 0.5, yD + 0.75, zD - 0.05, 0, Math.PI / 4, -sx * 0.45); t.scale.z = 0.35; }
-    for (const sx of [-1, 1]) { them(new THREE.SphereGeometry(0.13, 10, 8), phat(3.2, 0.4, 0.4), sx * 0.26, yD + 0.08, zD + R * 0.86); them(new THREE.ConeGeometry(0.05, 0.16, 6), trang, sx * 0.09, yD - 0.33, zD + 0.68, Math.PI, 0, 0); }
-    mom(0x5a4a6e, 1.1, -0.22); mui(-0.12, 0.84);
-  } else if (nvId === 'bangvuong') {     // vua chim cánh cụt: mặt trắng, mỏ cam, vương miện băng
+  } else if (nvId === 'ducky') {         // vịt vàng: mỏ dẹt cam rộng, chỏm lông trên đầu
+    const mo = them(new THREE.SphereGeometry(0.3, 16, 10), nhua(0xff9a2a), 0, yD - 0.12, zD + 0.78); mo.scale.set(1.15, 0.35, 0.95);
+    mat(0xffffff, 0x15151c, 0.2);
+    for (let i = -1; i <= 1; i++) them(new THREE.ConeGeometry(0.07, 0.3, 6), mDa, i * 0.1, yD + 0.8, zD + 0.05, -0.2, 0, -i * 0.4);
+  } else if (nvId === 'rainbow') {         // kỳ lân: sừng vàng xoắn, bờm cầu vồng, tai nhọn, mắt tím
+    them(new THREE.ConeGeometry(0.12, 0.7, 12), sonXe(0xffd23a), 0, yD + 0.85, zD + 0.35, 0.5, 0, 0);
+    for (let i = 0; i < 3; i++) { const t = -0.2 + i * 0.15; them(new THREE.TorusGeometry(0.1 - i * 0.025, 0.018, 6, 14), sonXe(0xffe9a0), 0, yD + 0.85 + t * 0.88, zD + 0.35 + t * 0.48, -(Math.PI / 2 - 0.5), 0, 0); }
+    const cv = [0xff3a3a, 0xff9a2a, 0xffe14a, 0x3acb5a, 0x3a8aff, 0xa05aff];
+    for (let i = 0; i < 6; i++) { const a = 0.5 + i * 0.36; them(new THREE.SphereGeometry(0.19, 10, 8), nhua(cv[i]), (i % 2 ? 0.08 : -0.08), yD + Math.cos(a) * 0.8, zD - Math.sin(a) * 0.8); }
+    tai(0.13, 0.32, 0.4, 0.62, 0xffffff, 0xffb8e0, 0.3); mat(0xffffff, 0x8a3ad8, 0.2); cuoi(-0.36, 0.72);
+    for (const sx of [-1, 1]) { const m = them(new THREE.SphereGeometry(0.1, 10, 8), nhua(0xff9ad0), sx * 0.46, yD - 0.14, zD + 0.55); m.scale.z = 0.4; m.castShadow = false; }
+  } else if (nvId === 'monkey') {         // khỉ: mặt sáng, tai tròn hai bên, mắt to
+    const m = them(new THREE.SphereGeometry(0.55, 18, 14), nhua(0xf0c8a0), 0, yD - 0.05, zD + 0.28); m.scale.set(1.05, 0.9, 0.75);
+    for (const sx of [-1, 1]) { them(new THREE.SphereGeometry(0.24, 12, 10), mDa, sx * 0.76, yD + 0.08, zD - 0.05); them(new THREE.SphereGeometry(0.14, 10, 8), nhua(0xf0c8a0), sx * 0.8, yD + 0.08, zD + 0.06); them(new THREE.SphereGeometry(0.03, 6, 4), den, sx * 0.05, yD - 0.12, zD + 0.82); }
+    mat(0xffffff, 0x2a1a0a, 0.18); cuoi(-0.32, 0.76);
+  } else if (nvId === 'kinggold') {         // vị vua râu trắng: vương miện vàng có ngọc đỏ, râu và ria trắng, tóc bạc hai bên
+    mat3(0x3a6ac8); for (const sx of [-1, 1]) { them(new THREE.SphereGeometry(0.27, 12, 10), nhua(0xf4f4f4), sx * 0.62, yD - 0.02, zD - 0.05); const b = hop(0.2, 0.05, 0.06, nhua(0xf4f4f4), sx * 0.26, yD + 0.26, zD + 0.68, 0, 0, sx * 0.25); b.castShadow = false; }
+    const rau = them(new THREE.SphereGeometry(0.5, 16, 12), nhua(0xf4f4f4), 0, yD - 0.62, zD + 0.2); rau.scale.set(1.1, 0.9, 0.9);
+    for (const sx of [-1, 1]) { const r = them(new THREE.SphereGeometry(0.13, 10, 8), nhua(0xf4f4f4), sx * 0.15, yD - 0.17, zD + 0.8, 0, 0, -sx * 0.35); r.scale.set(1.7, 0.6, 0.8); }
+    const vang = sonXe(0xffc83a); them(new THREE.CylinderGeometry(0.5, 0.54, 0.24, 18), vang, 0, yD + 0.8, zD); for (let i = 0; i < 5; i++) { const a = i / 5 * 6.283; them(new THREE.ConeGeometry(0.1, 0.34, 6), vang, Math.cos(a) * 0.46, yD + 1.09, zD + Math.sin(a) * 0.46); }
+    them(new THREE.SphereGeometry(0.09, 10, 8), phat(3, 0.3, 0.3), 0, yD + 0.82, zD + 0.52);
+  } else if (nvId === 'icequeen') {         // nữ hoàng băng giá: tóc xanh băng dài, hai bím rủ, vương miện bạc có ngọc xanh
+    sau(0x6ad0ff, 1.15); toc(0x6ad0ff); mai(0x6ad0ff, 7); mat3(0x2a8ad8);
+    for (const sx of [-1, 1]) for (let i = 0; i < 3; i++) them(new THREE.SphereGeometry(0.2 - i * 0.04, 10, 8), nhua(0x6ad0ff), sx * 0.7, yD - 0.15 - i * 0.28, zD - 0.1);
+    them(new THREE.TorusGeometry(0.55, 0.045, 8, 20, Math.PI), kimLoai(0xdde8ff), 0, yD + 0.5, zD, Math.PI / 2, 0, 0); for (const sx of [-1, 0, 1]) them(new THREE.ConeGeometry(0.08, sx ? 0.2 : 0.32, 4), kimLoai(0xdde8ff), sx * 0.28, yD + 0.6, zD + 0.46 - Math.abs(sx) * 0.06);
+    them(new THREE.OctahedronGeometry(0.09), phat(0.5, 2, 3), 0, yD + 0.58, zD + 0.6);
+  } else if (nvId === 'dragon') {         // rồng lửa con: hai sừng, gai vàng trên đầu, mõm dài đỏ cam
+    for (const sx of [-1, 1]) them(new THREE.ConeGeometry(0.1, 0.5, 8), nhua(0xfff2d8), sx * 0.3, yD + 0.78, zD - 0.25, -0.7, 0, -sx * 0.2);
+    for (let i = 0; i < 5; i++) { const z = 0.3 - i * 0.28; them(new THREE.ConeGeometry(0.09, 0.28, 6), nhua(0xffd23a), 0, yD + Math.sqrt(Math.max(0.05, R * R - z * z)) + 0.08, zD + z, -0.3, 0, 0); }
+    const mm = mom(0xffb84a, 1.2, -0.22); mm.scale.set(1.1, 0.8, 1.35); for (const sx of [-1, 1]) { them(new THREE.SphereGeometry(0.04, 6, 4), nhua(0x7a1a1a), sx * 0.1, yD - 0.1, zD + 1.0); them(new THREE.ConeGeometry(0.035, 0.1, 6), trang, sx * 0.14, yD - 0.36, zD + 0.82, Math.PI, 0, 0); }
+    mat(0xffe14a, 0x15151c, 0.19); cuoi(-0.32, 0.86);
+  } else if (nvId === 'shadow') {         // cậu bé bóng đêm: da nhợt nhạt, tóc đen rối xõa che mắt, mắt tím phát sáng, răng nanh
+    sau(0x1a0a2a, 1.08); toc(0x1a0a2a); gai(0x1a0a2a, 6, 0.5, 0.95); mai(0x1a0a2a, 4); mat(0xffffff, 0xc05aff, 0.2); cuoi(-0.3, 0.72);
+    for (const sx of [-1, 1]) { them(new THREE.SphereGeometry(0.06, 8, 6), phat(2.4, 0.5, 3.2), sx * 0.27, yD + 0.08, zD + R * 0.92); them(new THREE.ConeGeometry(0.04, 0.13, 6), trang, sx * 0.1, yD - 0.37, zD + 0.7, Math.PI, 0, 0); }
+    hop(0.12, 0.32, 0.06, nhua(0x1a0a2a), 0.34, yD + 0.18, zD + 0.68, 0, 0, -0.2);
+  } else if (nvId === 'alien') {         // người ngoài hành tinh: đầu xanh lá to, mắt đen to xếch, hai ăng-ten phát sáng
+    dau.scale.set(1, 1.1, 1);
+    for (const sx of [-1, 1]) { const e = them(new THREE.SphereGeometry(0.24, 16, 12), nhua(0x0a0a14), sx * 0.3, yD + 0.02, zD + 0.6, 0, 0, -sx * 0.45); e.scale.set(0.9, 1.45, 0.5); them(new THREE.SphereGeometry(0.05, 6, 4), trang, sx * 0.3 + 0.07, yD + 0.12, zD + 0.74); them(new THREE.SphereGeometry(0.025, 6, 4), den, sx * 0.05, yD - 0.25, zD + 0.78); }
+    cuoi(-0.4, 0.68); for (const sx of [-1, 1]) { them(new THREE.CylinderGeometry(0.03, 0.03, 0.4, 6), mDa, sx * 0.25, yD + 0.95, zD, 0, 0, -sx * 0.25); them(new THREE.SphereGeometry(0.1, 10, 8), phat(3, 2.4, 0.4), sx * 0.34, yD + 1.17, zD); }
+  } else if (nvId === 'cyber') {         // chiến binh mạng: tóc xanh dương chải ngược, kính ngắm xanh phát sáng, tai nghe bạc
+    sau(0x2a8aff, 1.0); toc(0x2a8aff); gai(0x2a8aff, 7, 0.55, 1.0); mat(0xffffff, 0x1a2a6a, 0.2); cuoi(-0.3, 0.72);
+    const kinh = new THREE.MeshStandardMaterial({ color: 0x3af0ff, emissive: 0x1a6aff, emissiveIntensity: 0.9, transparent: true, opacity: 0.5, roughness: 0.1, side: THREE.DoubleSide }); them(new THREE.SphereGeometry(R + 0.07, 28, 6, Math.PI * 0.5 - 0.95, 1.9, Math.PI / 2 - 0.22, 0.46), kinh, 0, yD, zD).castShadow = false;
+    for (const sx of [-1, 1]) { const c = them(new THREE.SphereGeometry(0.2, 12, 10), kimLoai(0xb8c0d0), sx * (R + 0.04), yD - 0.02, zD); c.scale.set(0.55, 1, 1); hop(0.05, 0.3, 0.05, phat(0.4, 2, 3), sx * 0.34, yD + 0.8, zD + 0.06, 0.5, 0, -sx * 0.5); }
+  } else if (nvId === 'chef') {         // đầu bếp nhí: mũ đầu bếp trắng phồng cao, khăn đỏ quanh cổ
+    sau(0x6a3a1a, 0.9); mai(0x6a3a1a, 5); mat3(0x4a2a1a);
+    const trangB = nhua(0xffffff); them(new THREE.CylinderGeometry(0.5, 0.54, 0.16, 20), trangB, 0, yD + 0.6, zD); them(new THREE.CylinderGeometry(0.6, 0.5, 0.36, 20), trangB, 0, yD + 0.86, zD);
+    for (let i = 0; i < 6; i++) { const a = i / 6 * 6.283; them(new THREE.SphereGeometry(0.3, 12, 10), trangB, Math.cos(a) * 0.4, yD + 1.18, zD + Math.sin(a) * 0.4); } them(new THREE.SphereGeometry(0.34, 12, 10), trangB, 0, yD + 1.3, zD);
+    them(new THREE.TorusGeometry(0.52, 0.09, 8, 24), nhua(0xe83a3a), 0, yD - 0.62, zD, Math.PI / 2, 0, 0);
+  } else if (nvId === 'police') {         // chú cảnh sát: mũ cảnh sát xanh đậm có phù hiệu vàng, lưỡi trai đen
+    sau(0x15151c, 0.9); mai(0x15151c, 3); mat3(0x2a2a3a);
+    const xanhS = nhua(0x1a2a6a); them(new THREE.CylinderGeometry(0.62, 0.76, 0.42, 24), xanhS, 0, yD + 0.66, zD - 0.02); them(new THREE.CylinderGeometry(0.82, 0.7, 0.1, 24), xanhS, 0, yD + 0.9, zD - 0.02); them(new THREE.CylinderGeometry(0.77, 0.78, 0.09, 24), sonXe(0xffc83a), 0, yD + 0.56, zD - 0.02);
+    hop(0.92, 0.05, 0.5, nhua(0x0a0a10), 0, yD + 0.5, zD + 0.8, 0.25); them(new THREE.SphereGeometry(0.1, 10, 8), sonXe(0xffc83a), 0, yD + 0.74, zD + 0.68);
+  } else if (nvId === 'builder') {         // anh thợ xây: mũ bảo hộ vàng có sống mũ, đèn nhỏ phía trước
+    sau(0x6a3a1a, 0.9); mai(0x6a3a1a, 3); mat3(0x4a2a1a);
+    const vangB = sonXe(0xffc83a); them(new THREE.SphereGeometry(R + 0.08, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2.2), vangB, 0, yD + 0.16, zD); hop(0.98, 0.07, 0.55, vangB, 0, yD + 0.32, zD + 0.6, 0.12); hop(0.14, 0.1, 1.25, vangB, 0, yD + 0.9, zD - 0.02);
+    them(new THREE.CylinderGeometry(0.1, 0.1, 0.08, 12), phat(2.4, 2.4, 2.0), 0, yD + 0.62, zD + 0.72, Math.PI / 2, 0, 0);
+  } else if (nvId === 'magic') {         // cô phù thủy nhỏ: mũ phù thủy tím có dải vàng và ngôi sao, tóc dài tím than
+    sau(0x4a1a5a, 1.15); mai(0x4a1a5a, 5); canh(0x4a1a5a, 0.65, -0.4); mat3(0xa05aff);
+    them(new THREE.CylinderGeometry(1.0, 1.0, 0.07, 28), nhua(0x6a22c0), 0, yD + 0.52, zD); them(new THREE.ConeGeometry(0.56, 1.15, 20), nhua(0x7a2ad8), 0, yD + 1.1, zD - 0.05, -0.18, 0, 0);
+    them(new THREE.CylinderGeometry(0.58, 0.62, 0.14, 20), sonXe(0xffc83a), 0, yD + 0.64, zD - 0.01); them(new THREE.OctahedronGeometry(0.13), phat(3, 2.4, 0.4), 0, yD + 0.66, zD + 0.62); them(new THREE.SphereGeometry(0.12, 10, 8), nhua(0x7a2ad8), 0, yD + 1.66, zD - 0.17);
+  } else if (nvId === 'shark') {         // cá mập nhỏ: vây lưng trên đầu, bụng trắng, hàm răng tam giác, kính lặn
+    const v = them(new THREE.ConeGeometry(0.34, 0.8, 4), mDa, 0, yD + 0.9, zD - 0.2, -0.45, Math.PI / 4, 0); v.scale.set(0.35, 1, 1);
+    mom(0xffffff, 1.6, -0.3); mat(0xffffff, 0x15151c, 0.18);
+    for (let i = -3; i <= 3; i++) them(new THREE.ConeGeometry(0.04, 0.1, 4), trang, i * 0.07, yD - 0.38, zD + 0.83 - Math.abs(i) * 0.015, Math.PI, 0, 0);
+    hop(0.04, 0.02, 0.4, nhua(0x15151c), 0, yD - 0.34, zD + 0.74); for (const sx of [-1, 1]) { const g = them(new THREE.ConeGeometry(0.12, 0.3, 4), mDa, sx * 0.76, yD - 0.1, zD, 0, 0, -sx * 1.4); g.scale.z = 0.3; }
+    them(new THREE.TorusGeometry(R * 0.99, 0.05, 8, 28), nhua(0xffd23a), 0, yD + 0.12, zD, Math.PI / 2 - 0.05, 0, 0);
+  } else if (nvId === 'skelly') {         // bộ xương vui tính: sọ trắng, hốc mắt đen có đốm sáng, mũi trống, hàm răng cười
+    for (const sx of [-1, 1]) { const s = them(new THREE.SphereGeometry(0.22, 14, 10), den, sx * 0.27, yD + 0.1, zD + 0.62); s.scale.set(1, 1.15, 0.5); them(new THREE.SphereGeometry(0.06, 8, 6), phat(0.4, 2, 2.4), sx * 0.27, yD + 0.1, zD + 0.72); them(new THREE.SphereGeometry(0.04, 6, 4), den, sx * 0.05, yD - 0.12, zD + 0.8); them(new THREE.SphereGeometry(0.16, 10, 8), mDa, sx * 0.5, yD - 0.14, zD + 0.45); }
+    hop(0.64, 0.2, 0.08, den, 0, yD - 0.38, zD + 0.68); for (let i = -3; i <= 3; i++) hop(0.075, 0.17, 0.05, trang, i * 0.085, yD - 0.38, zD + 0.73);
+    hop(0.05, 0.3, 0.04, den, 0.22, yD + 0.5, zD + 0.55, 0.5, 0, 0.3);
+  } else if (nvId === 'bangvuong') {         // vua chim cánh cụt: mặt trắng, mỏ cam, vương miện băng
     const m = them(new THREE.SphereGeometry(0.58, 18, 14), trang, 0, yD - 0.08, zD + 0.22); m.scale.set(1.05, 1, 0.9); mat(0xffffff, 0x15151c, 0.18);
     them(new THREE.ConeGeometry(0.16, 0.42, 10), nhua(0xff9a2a), 0, yD - 0.2, zD + 0.84, Math.PI / 2, 0, 0);
     const mv = phat(0.8, 2.6, 3.2); them(new THREE.CylinderGeometry(0.56, 0.56, 0.2, 16), mv, 0, yD + 0.7, zD); for (let i = 0; i < 6; i++) { const a = i / 6 * 6.283; them(new THREE.ConeGeometry(0.11, 0.45, 6), mv, Math.cos(a) * 0.47, yD + 0.98, zD + Math.sin(a) * 0.47); }
-  } else if (nvId === 'vuatocdo') {      // vua sư tử vàng: bờm tròn quanh mặt, tai tròn, vương miện vàng
+  } else if (nvId === 'vuatocdo') {         // vua sư tử vàng: bờm tròn quanh mặt, tai tròn, vương miện vàng
     for (let i = 0; i < 14; i++) { const a = i / 14 * 6.283; them(new THREE.SphereGeometry(0.3, 10, 8), nhua(0xd86a1a), Math.cos(a) * 0.78, yD + Math.sin(a) * 0.78, zD - 0.12); }
     mom(0xffe2a8, 1.3, -0.22); mui(-0.12, 0.84); mat(0xffffff, 0x3a1a0a); cuoi(-0.36, 0.76);
     const mv = phat(3.2, 2.4, 0.4); them(new THREE.CylinderGeometry(0.5, 0.5, 0.2, 16), mv, 0, yD + 0.74, zD); for (let i = 0; i < 6; i++) { const a = i / 6 * 6.283; them(new THREE.ConeGeometry(0.11, 0.45, 6), mv, Math.cos(a) * 0.42, yD + 1.0, zD + Math.sin(a) * 0.42); }
   } else { mat(0xffffff, 0x15151c); cuoi(-0.24, 0.66); them(new THREE.SphereGeometry(R + 0.05, 24, 12, 0, Math.PI * 2, 0, Math.PI / 2.1), sonXe(0x2e3a5a), 0, yD + 0.12, zD); }
 }
+function nhomDau(g, y, z, tl) {            // nhóm chứa đầu nhân vật: dựng quanh gốc rồi phóng to (đầu to dễ thương)
+  const hg = new THREE.Group(); hg.position.set(0, y, z); hg.scale.setScalar(tl); g.add(hg);
+  const them = (geo, mat, px, py, pz, rx, ry, rz) => { const m = new THREE.Mesh(geo, mat); m.position.set(px, py, pz); m.rotation.set(rx || 0, ry || 0, rz || 0); m.castShadow = true; hg.add(m); return m; };
+  return { them, hop: (w, h, d, mat, px, py, pz, rx, ry, rz) => them(new THREE.BoxGeometry(w, h, d), mat, px, py, pz, rx, ry, rz) };
+}
 function taoTayDua(g, nvId, mauAo, yN, them, hop) {   // người lái ngồi trong xe: thân, hai tay cầm lái, đầu to
   const mAo = nhua(mauAo), trang = nhua(0xffffff);
   them(new THREE.CylinderGeometry(0.4, 0.46, 0.8, 14), mAo, 0, 1.2 + yN, -0.4);
   for (const sx of [-1, 1]) { const tay = them(new THREE.CylinderGeometry(0.12, 0.12, 0.75, 8), mAo, sx * 0.34, 1.32 + yN, -0.05, 1.1, 0, -sx * 0.35); tay.castShadow = false; them(new THREE.SphereGeometry(0.15, 8, 6), trang, sx * 0.27, 1.25 + yN, 0.3); }
-  dauChibi(nvId, 2.15 + yN, -0.35, them, hop);
+  const hg = nhomDau(g, 2.2 + yN, -0.35, 1.22); dauChibi(nvId, 0, 0, hg.them, hg.hop);
 }
 function taoNguoiDung(nvId, mauAo) {           // nhân vật đứng (trên bục vinh quang): chân, giày, áo đua, hai tay giơ cao
   const g = new THREE.Group(), them = (geo, mat, px, py, pz, rx, ry, rz) => { const m = new THREE.Mesh(geo, mat); m.position.set(px, py, pz); m.rotation.set(rx || 0, ry || 0, rz || 0); m.castShadow = true; g.add(m); return m; };
@@ -1309,7 +1699,7 @@ function taoNguoiDung(nvId, mauAo) {           // nhân vật đứng (trên b�
   for (const sx of [-1, 1]) { them(new THREE.CylinderGeometry(0.17, 0.19, 0.75, 10), quan, sx * 0.22, 0.45, 0); const gi = them(new THREE.SphereGeometry(0.24, 12, 8), giay, sx * 0.22, 0.1, 0.08); gi.scale.set(1, 0.6, 1.4); }
   them(new THREE.CylinderGeometry(0.42, 0.5, 0.95, 16), mAo, 0, 1.25, 0); hop(0.5, 0.08, 0.04, nhua(0xffffff), 0, 1.4, 0.45);
   const tay = []; for (const sx of [-1, 1]) { const vai = new THREE.Group(); vai.position.set(sx * 0.48, 1.6, 0); g.add(vai); const t = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.13, 1.0, 8), mAo); t.position.y = 0.48; vai.add(t); const n = new THREE.Mesh(new THREE.SphereGeometry(0.19, 10, 8), gang); n.position.y = 1.02; vai.add(n); vai.rotation.z = -sx * 0.55; tay.push(vai); }
-  dauChibi(nvId, 2.45, 0, them, hop);
+  { const hg = nhomDau(g, 2.52, 0, 1.22); dauChibi(nvId, 0, 0, hg.them, hg.hop); }
   g.userData.tay = tay; return g;
 }
 function taoKart(x, mau, phu, ten, o) {
@@ -1454,12 +1844,14 @@ function vMaxXe(k, nit) { return Math.min(V_TRAN, V_GOC * k.tt.vmax * k.heV * (n
 function buocXe(k, dt) {
   const dk = k.dk, T = k.tt, fx = Math.sin(k.yaw), fz = Math.cos(k.yaw), ux = fz, uz = -fx;
   let vf = k.vx * fx + k.vz * fz, vl = k.vx * ux + k.vz * uz;
+  for (const b of TK_BUFF) if (k[b] > 0) k[b] -= dt;                 // các trạng thái của kỹ năng độc quyền đếm ngược
+  if (k.bNitMien > 0 && !k.xong) { dk.nitro = true; k.nitro = Math.max(k.nitro, 10); }   // Mega Nitro: tự xả và không tốn bình
   const nit = dk.nitro && k.nitro > 0 && vf > 6 && !k.xong;
   if (nit && !k.nitDang && suKien) suKien('nitro', k, 0);
-  k.nitDang = nit; if (nit) { k.nitro = Math.max(0, k.nitro - NITRO_TIEU / T.nit * dt); k.dungNitro = true; }
+  k.nitDang = nit; if (nit) { if (!(k.bNitMien > 0)) k.nitro = Math.max(0, k.nitro - NITRO_TIEU / T.nit * dt); k.dungNitro = true; }
   if (k.xungT > 0) k.xungT -= dt; if (k.chamT > 0) k.chamT -= dt; if (k.gioT > 0) k.gioT -= dt; if (k.comboT > 0) { k.comboT -= dt; if (k.comboT <= 0) k.combo = 0; }
   const boost = nit || k.xungT > 0;
-  const vm = Math.min(V_TRAN, V_GOC * T.vmax * k.heV * (k.leCo ? LE_HE : 1) * (nit ? heNitro(k) : 1) * (k.xungT > 0 ? XUNG_V : 1) * (k.chamT > 0 ? k.chamHe : 1) * (k.gioT > 0 ? 1 + k.gio : 1));
+  const vm = Math.min(V_TRAN, V_GOC * T.vmax * k.heV * (k.leCo && !(k.bTuLai > 0) ? LE_HE : 1) * (nit ? heNitro(k) : 1) * (k.xungT > 0 ? XUNG_V : 1) * (k.chamT > 0 ? k.chamHe : 1) * (k.gioT > 0 ? 1 + k.gio : 1));
   if (!k.bay) {
     const ga = GA_GOC * T.ga * (boost ? NITRO_GA : 1);
     if (dk.phanh > 0.02) { if (vf > 0.5) vf = Math.max(0, vf - PHANH * dk.phanh * dt); else vf = Math.max(-LUI_MAX, vf - 16 * dk.phanh * dt); }
@@ -1475,27 +1867,27 @@ function buocXe(k, dt) {
     }
     let laiHieu = k.lai;
     if (k.drift) {
-      laiHieu = kep(k.driftHuong * 0.62 + k.lai * 0.55, -1.15, 1.15); k.driftT += dt * (T.driftNhanh || 1);
+      laiHieu = kep(k.driftHuong * 0.62 + k.lai * 0.55, -1.15, 1.15); k.driftT += dt * (T.driftNhanh || 1) * (k.bDrift > 0 ? 3 : 1);
       const m = k.driftT > DRIFT_MOC[2] ? 3 : k.driftT > DRIFT_MOC[1] ? 2 : k.driftT > DRIFT_MOC[0] ? 1 : 0;
       if (m > k.driftMoc) { k.driftMoc = m; if (suKien) suKien('moc', k, m); }
       k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_DRIFT * dt); k.driftQuang += vf * dt; vf -= 3 * dt;
     }
-    const quay = TOC_QUAY * T.bam * Math.min(1, Math.abs(vf) / 8) / (1 + (vf / V_QUAY) * (vf / V_QUAY)) * (k.drift ? 1.3 : 1);
+    const bamH = T.bam * (k.bBam > 0 ? 1.7 : 1), quay = TOC_QUAY * bamH * Math.min(1, Math.abs(vf) / 8) / (1 + (vf / V_QUAY) * (vf / V_QUAY)) * (k.drift ? 1.3 : 1);
     k.yaw -= laiHieu * quay * (vf >= 0 ? 1 : -1) * dt;
-    vl *= Math.exp(-BAM_GOC * T.bam * (k.drift ? 0.3 : 1) * dt);
+    vl *= Math.exp(-BAM_GOC * bamH * (k.drift ? 0.3 : 1) * dt);
   } else {                               // đang bay: chỉ chỉnh hướng một chút
     k.lai += (dk.lai - k.lai) * Math.min(1, dt * 6); k.yaw -= k.lai * 0.45 * dt; vf -= 1.2 * dt; vl *= Math.exp(-0.8 * dt); k.tgBay += dt;
     if (k.drift) { k.drift = false; k.driftMoc = 0; }
   }
   k.vx = fx * vf + ux * vl; k.vz = fz * vf + uz * vl; k.vf = vf;
-  k.x += k.vx * dt; k.z += k.vz * dt; k.vy -= TRONG_LUC * dt; k.y += k.vy * dt;
+  k.x += k.vx * dt; k.z += k.vz * dt; k.vy -= TRONG_LUC * (k.bTrongLuc > 0 ? 0.3 : 1) * dt; k.y += k.vy * dt;
   // vị trí trên đường, rào chắn
   let o = gan(k.x, k.z, k.i, _gv);
   const lim = RONG_DUONG + RONG_LE - BAN_KINH_XE * 0.5;
   if (Math.abs(o.d) > lim) {
     const sg = o.d > 0 ? 1 : -1, dx = Math.abs(o.d) - lim; k.x -= o.nx * sg * dx; k.z -= o.nz * sg * dx;
     const vn = (k.vx * o.nx + k.vz * o.nz) * sg;
-    if (vn > 0) { const mat = 1 - 0.12 * (1 - k.ben); k.vx -= o.nx * sg * vn * 1.3; k.vz -= o.nz * sg * vn * 1.3; k.vx *= mat; k.vz *= mat; if (vn > 3 && k.vaT <= 0) { k.vaT = 0.3; k.chamTuong++; if (suKien) suKien('tuong', k, vn); } }
+    if (vn > 0) { const mat = 1 - 0.12 * (1 - benCua(k)); k.vx -= o.nx * sg * vn * 1.3; k.vz -= o.nz * sg * vn * 1.3; k.vx *= mat; k.vz *= mat; if (vn > 3 && k.vaT <= 0) { k.vaT = 0.3; k.chamTuong++; if (suKien) suKien('tuong', k, vn); } }
     k.yaw += gocChenh(Math.atan2(o.tx, o.tz), k.yaw) * Math.min(1, 2.5 * dt);    // tự nắn theo đường để không dính rào
     o = gan(k.x, k.z, o.i, _gv);
   }
@@ -1506,7 +1898,8 @@ function buocXe(k, dt) {
   if (k.y <= gy) {
     if (k.bay) {
       k.bay = false; const xa = Math.hypot(k.x - k.xBay, k.z - k.zBay);
-      if (k.tgBay > 0.45) { k.nhay++; if (xa > k.nhayXa) k.nhayXa = xa; if (k.tgBay > 0.7) k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_BAY); if (suKien) suKien('dap', k, xa); }
+      if (k.thuongDap > 0) { k.xungT = Math.max(k.xungT, k.thuongDap); k.thuongDap = 0; }     // đáp xuống được thưởng tăng tốc (Tiger Jump, Bunny Hop)
+      if (k.tgBay > 0.45) { k.nhay++; if (xa > k.nhayXa) k.nhayXa = xa; if (k.tgBay > 0.7) k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_BAY * ((k.nv && k.nv.nitBay) || 1)); if (suKien) suKien('dap', k, xa); }
     }
     k.vy = kep((gy - k.gyCu) / dt, -60, 60); k.y = gy;
   } else if (!k.bay && k.y - gy > 0.45) { k.bay = true; k.tgBay = 0; k.xBay = k.x; k.zBay = k.z; }
@@ -1519,12 +1912,13 @@ function vaChamXe() {
   const n = XE_DUA.length, tong = BAN_KINH_XE * 2;
   for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) {
     const A = XE_DUA[a], B = XE_DUA[b], dx = B.x - A.x, dz = B.z - A.z; if (Math.abs(dx) > tong || Math.abs(dz) > tong || Math.abs(A.y - B.y) > 2) continue;
+    if (A.bMa > 0 || B.bMa > 0) continue;          // chế độ ma: xuyên qua xe khác
     let d = Math.hypot(dx, dz); if (d >= tong) continue; if (d < 0.001) { A.x -= 0.05; d = 0.05; }
     const nx = dx / d, nz = dz / d, ov = tong - d;
     A.x -= nx * ov / 2; A.z -= nz * ov / 2; B.x += nx * ov / 2; B.z += nz * ov / 2;
     const rv = (B.vx - A.vx) * nx + (B.vz - A.vz) * nz;
     if (rv < 0) {
-      const j = Math.min(14, -(1 + 0.3) * rv / 2), ma = 1 - Math.min(0.05, -rv * 0.004) * (1 - A.ben), mb = 1 - Math.min(0.05, -rv * 0.004) * (1 - B.ben);
+      const j = Math.min(14, -(1 + 0.3) * rv / 2), ma = 1 - Math.min(0.05, -rv * 0.004) * (1 - benCua(A)), mb = 1 - Math.min(0.05, -rv * 0.004) * (1 - benCua(B));
       A.vx -= nx * j; A.vz -= nz * j; B.vx += nx * j; B.vz += nz * j; A.vx *= ma; A.vz *= ma; B.vx *= mb; B.vz *= mb;
       if (-rv > 4 && A.vaT <= 0 && B.vaT <= 0) { A.vaT = B.vaT = 0.3; if (suKien) suKien('va', A.nguoi ? A : B, -rv); }
     }
@@ -1533,22 +1927,22 @@ function vaChamXe() {
 function heXu(combo) { for (const [tu, nhan] of COMBO_BAC) if (combo >= tu) return nhan; return 1; }
 function xuLyVatPham(k, dt) {
   if (k.xong) return;                    // đã về đích: không nhặt gì nữa (máy vẫn chạy tiếp sau màn kết quả)
-  const rX = 3.4 + (k.hut || 0), ra = timDau(XU, k.s - rX - 2), rb = timDau(XU, k.s + rX + 2);
+  const rX = 3.4 + (k.hut || 0) + (k.bXu > 0 ? 14 : 0), ra = timDau(XU, k.s - rX - 2), rb = timDau(XU, k.s + rX + 2);
   for (let i = ra; i < rb; i++) {
     const c = XU[i]; if (!c.on) continue; const dx = k.x - c.x, dz = k.z - c.z, dy = k.y + 1 - c.h;
     if (dx * dx + dz * dz + dy * dy < rX * rX) {
       c.on = false; k.combo = k.comboT > 0 ? k.combo + 1 : 1; k.comboT = COMBO_GIAY; if (k.combo > k.comboMax) k.comboMax = k.combo;
-      const n = heXu(k.combo); k.xu += n; k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_XU); if (suKien) suKien('xu', k, n);
+      const n = Math.round(heXu(k.combo) * ((k.nv && k.nv.xuX) || 1) * (k.bXuX > 0 ? 3 : 1)); k.xu += n; k.nitro = Math.min(NITRO_MAX, k.nitro + NITRO_XU); if (suKien) suKien('xu', k, n);
     }
   }
   const va = timDau(VAT, k.s - 6), vb = timDau(VAT, k.s + 6);
   for (let i = va; i < vb; i++) {
-    const v = VAT[i]; if (v.da || k.y > v.h + 3.5) continue; const dx = k.x - v.x, dz = k.z - v.z, r = v.r + BAN_KINH_XE * 0.7, d2 = dx * dx + dz * dz;
+    const v = VAT[i]; if (v.da || k.bMa > 0 || k.y > v.h + 3.5) continue; const dx = k.x - v.x, dz = k.z - v.z, r = v.r + BAN_KINH_XE * 0.7, d2 = dx * dx + dz * dz;
     if (d2 >= r * r) continue; const d = Math.sqrt(d2) || 0.01;
     if (v.loai === 'thung') {
       const nx = dx / d, nz = dz / d; k.x += nx * (r - d); k.z += nz * (r - d);
-      const vn = k.vx * nx + k.vz * nz; if (vn < 0) { const m = 1 - 0.45 * (1 - k.ben); k.vx -= nx * vn * 1.4; k.vz -= nz * vn * 1.4; k.vx *= m; k.vz *= m; if (-vn > 3 && k.vaT <= 0) { k.vaT = 0.3; if (suKien) suKien('va', k, -vn); } }
-    } else { v.da = true; v.hoi = 5.5; v.oy = 0; v.vx = -dx / d * (8 + Math.abs(k.vf) * 0.25); v.vz = -dz / d * (8 + Math.abs(k.vf) * 0.25); const m = 1 - 0.08 * (1 - k.ben); k.vx *= m; k.vz *= m; if (suKien) suKien('non', k, 0); }
+      const vn = k.vx * nx + k.vz * nz; if (vn < 0) { const m = 1 - 0.45 * (1 - benCua(k)); k.vx -= nx * vn * 1.4; k.vz -= nz * vn * 1.4; k.vx *= m; k.vz *= m; if (-vn > 3 && k.vaT <= 0) { k.vaT = 0.3; if (suKien) suKien('va', k, -vn); } }
+    } else { v.da = true; v.hoi = 5.5; v.oy = 0; v.vx = -dx / d * (8 + Math.abs(k.vf) * 0.25); v.vz = -dz / d * (8 + Math.abs(k.vf) * 0.25); const m = 1 - 0.08 * (1 - benCua(k)); k.vx *= m; k.vz *= m; if (suKien) suKien('non', k, 0); }
   }
   for (const p of XUNG) { const ds = quanhS(p.s - k.s); if ((ds < 5 || ds > DD.L - 5) && Math.abs(p.d - k.d) < p.r && !k.bay && k.xungT < XUNG_GIAY * 0.6) { k.xungT = XUNG_GIAY; if (suKien) suKien('xung', k, 0); } }
   { const ha = timDau(HOP, k.s - 5), hb = timDau(HOP, k.s + 5); for (let i = ha; i < hb; i++) { const h = HOP[i]; if (!h.on) continue; const dx = k.x - h.x, dz = k.z - h.z, dy = k.y + 1 - h.h; if (dx * dx + dz * dz + dy * dy < 9) { h.on = false; h.hoi = HOP_HOI; nhatHop(k); } } }
@@ -1567,8 +1961,9 @@ function capNhatXeMesh(k, dt, t) {
   if (u.muiTen) { u.muiTen.position.y = (u.moto ? 4.3 : 3.4) + Math.sin(t * 5) * 0.2; u.muiTen.rotation.y = t * 3; }
   if (u.haoQuang) u.haoQuang.rotation.z = t * 1.5;
   if (k.xoayT > 0) { k.xoayT = Math.max(0, k.xoayT - dt); m.rotation.y += (1 - k.xoayT / 0.9) * Math.PI * 2; }      // trúng chiêu: xoay một vòng
-  if (k.khienT > 0 && !u.khien) { u.khien = new THREE.Mesh(new THREE.SphereGeometry(3.2, 20, 14), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.6, 1.6, 2.4), transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false })); u.khien.position.y = 1.4; m.add(u.khien); }
-  if (u.khien) { u.khien.visible = k.khienT > 0; u.khien.scale.setScalar(1 + Math.sin(t * 6) * 0.04); }
+  if ((k.khienT > 0 || k.bPhanXa > 0) && !u.khien) { u.khien = new THREE.Mesh(new THREE.SphereGeometry(3.2, 20, 14), new THREE.MeshBasicMaterial({ color: new THREE.Color(0.6, 1.6, 2.4), transparent: true, opacity: 0.28, blending: THREE.AdditiveBlending, depthWrite: false })); u.khien.position.y = 1.4; m.add(u.khien); }
+  capNhatMa(k);
+  if (u.khien) { u.khien.visible = k.khienT > 0 || k.bPhanXa > 0; u.khien.scale.setScalar(1 + Math.sin(t * 6) * 0.04); }
   if (k.chamT > 0 && Math.random() < dt * 20) hat(k.x + ngauNhien(-1.5, 1.5), k.y + 2.6, k.z + ngauNhien(-1.5, 1.5), 0, 1.5, 0, 0xffe14a, 0.5, 0.6, 0.2, true, 1);   // sao chóng mặt
 }
 const VET = { mesh: null, n: 900, i: 0 };       // vệt lốp in trên đường khi drift, phanh gấp, đáp đất
@@ -1604,59 +1999,199 @@ const KY_NANG = {
 const BAY = [];                          // vũng mật và lốc xoáy đang ở trên đường
 const HOP_HOI = 4;                       // hộp quà mọc lại sau 4 giây
 function chonKyNang(k) {                 // người dẫn đầu nhận chiêu phòng thủ, người đi sau nhận chiêu mạnh
-  const n = XE_DUA.length, vt = n > 1 ? (k.hang - 1) / (n - 1) : 0, r = Math.random();
+  const n = XE_DUA.length, vt = k.nv && k.nv.kyManh ? 1 : n > 1 ? (k.hang - 1) / (n - 1) : 0, r = Math.random();   // kyManh: luôn nhận chiêu tấn công
   const bang = vt < 0.2 ? [['mat', 0.55], ['khien', 0.35], ['loc', 0.1]] : vt < 0.65 ? [['loc', 0.45], ['mat', 0.3], ['khien', 0.2], ['sam', 0.05]] : [['loc', 0.45], ['sam', 0.3], ['mat', 0.15], ['khien', 0.1]];
   let c = 0; for (const [id, w] of bang) { c += w; if (r < c) return id; } return 'mat';
 }
 function nhatHop(k) {                    // gọi khi xe chạm hộp
-  if (k.kyNang) return; k.kyNang = chonKyNang(k); k.kyCho = ngauNhien(0.8, 3.5);
+  if (k.kyNang) return; k.kyNang = chonKyNang(k); k.kySo = k.nv && k.nv.kyNang2 ? 2 : 1; k.kyCho = ngauNhien(0.8, 3.5) * ((k.nv && k.nv.kyCho) || 1);
   if (suKien) suKien('hop', k, 0);
 }
-function trungChieu(j, giay, he, tu) {   // xe j bị làm chậm (có khiên thì khiên vỡ thay)
-  if (j.xong) return false;
-  if (j.khienT > 0) { j.khienT = 0; if (suKien) suKien('khienVo', j, 0); return false; }
-  j.chamT = Math.max(j.chamT, giay); j.chamHe = he; j.xoayT = 0.9; j.dk.nitro = false; if (j.drift) { j.drift = false; j.driftMoc = 0; }
+function trungChieu(j, giay, he, tu, chu) {   // xe j bị làm chậm. Có thể chặn bằng: ma, bật ngược (Cyber), khiên (Iron/Bubble Shield giữ khiên, khiên thường vỡ)
+  if (j.xong || j.bMa > 0) return false;
+  if (j.bPhanXa > 0 && chu && chu !== j && !chu.xong) { j.bPhanXa = 0; bung(j, 0x3af0ff, 20, 8); if (suKien) suKien('phanxa', j, 0); return trungChieu(chu, giay, he, tu, null); }
+  if (j.khienT > 0) {
+    if (!(j.bSat > 0)) j.khienT = 0;
+    if (j.nv && j.nv.id === 'ducky' && !(j.bSat > 0)) { tangToc(j, 1.6); bung(j, [0x6ad8ff, 0xffffff], 22, 8); }       // Bubble Shield: bong bóng vỡ thì bật tăng tốc
+    if (suKien) suKien('khienVo', j, 0); return false;
+  }
+  j.chamT = Math.max(j.chamT, giay * ((j.nv && j.nv.chiu) || 1)); j.chamHe = he; j.xoayT = (tu === 'bang' || tu === 'coi') ? 0 : 0.9; j.dk.nitro = false; if (j.drift) { j.drift = false; j.driftMoc = 0; }
   if (suKien) suKien('trung', j, tu); return true;
 }
 function dungKyNang(k) {
-  const id = k.kyNang; if (!id || !CUOC.chay || k.xong) return; k.kyNang = null;
+  const id = k.kyNang; if (!id || !CUOC.chay || k.xong) return; k.kySo = (k.kySo || 1) - 1; k.kyNang = k.kySo > 0 ? id : null; if (k.kyNang) k.kyCho = ngauNhien(0.8, 2.5);
   if (id === 'mat') { const c = Math.cos(k.yaw), s = Math.sin(k.yaw); BAY.push({ loai: 'mat', chu: k, x: k.x - s * 4, z: k.z - c * 4, h: k.y, song: 25, mesh: null }); }
-  else if (id === 'loc') { let muc = null, kc = 1e9; for (const j of XE_DUA) { const d = j.tot - k.tot; if (j !== k && !j.xong && d > 0 && d < 450 && d < kc) { kc = d; muc = j; } } BAY.push({ loai: 'loc', chu: k, muc, tot: k.tot + 3, d: k.d, v: Math.max(70, k.vf + 30), song: 9, mesh: null }); }
-  else if (id === 'sam') { let n = 0; for (const j of XE_DUA) if (j !== k && j.tot > k.tot && trungChieu(j, 2.0, 0.6, 'sam')) n++; if (suKien) suKien('sam2', k, n); }
-  else if (id === 'khien') k.khienT = 10;
+  else if (id === 'loc') { let muc = null, kc = 1e9; for (const j of XE_DUA) { const d = j.tot - k.tot; if (j !== k && !j.xong && d > 0 && d < 450 && d < kc) { kc = d; muc = j; } } BAY.push({ loai: 'loc', chu: k, muc, tot: k.tot + 3, d: k.d, v: ((k.nv && k.nv.locNhanh) || 1) * Math.max(70, k.vf + 30), song: 9, mesh: null }); }
+  else if (id === 'sam') { let n = 0; for (const j of XE_DUA) if (j !== k && j.tot > k.tot && trungChieu(j, 2.0, 0.6, 'sam', k)) n++; if (suKien) suKien('sam2', k, n); }
+  else if (id === 'khien') k.khienT = 10 * ((k.nv && k.nv.khienX) || 1);
   if (suKien) suKien('dung', k, id);
 }
 const _vp = { x: 0, z: 0, h: 0, tx: 0, tz: 0, nx: 0, nz: 0, k: 0 };
 let matMatOng = null, matLocXoay = null, geoMat = null, geoLoc = null;
-function capNhatKyNang(dt) {             // máy tự dùng kỹ năng; vũng mật và lốc xoáy bay, chạm xe thì làm chậm
+const A_NGAY = (k) => !!(k.ai && k.ai.p && k.ai.p.kyKieu === 'ngay');   // tính cách 'có là xài'
+function capNhatKyNang(dt) {             // máy tự dùng kỹ năng của hộp quà; vật bay trên đường (vũng, lốc xoáy, xương) chạm xe thì làm chậm
   for (const k of XE_DUA) {
     if (k.khienT > 0) k.khienT -= dt;
     if (k.kyNang && !k.nguoi && CUOC.chay) {
       k.kyCho -= dt; if (k.kyCho > 0) continue;
       const sau = XE_DUA.some(j => j !== k && k.tot - j.tot > 2 && k.tot - j.tot < 60), truoc = XE_DUA.some(j => j !== k && j.tot - k.tot > 2 && j.tot - k.tot < 400);
-      if ((k.kyNang === 'mat' && sau) || (k.kyNang === 'loc' && truoc) || (k.kyNang === 'khien' && sau) || k.kyNang === 'sam' || k.kyCho < -6) dungKyNang(k);
+      if ((k.kyNang === 'mat' && sau) || (k.kyNang === 'loc' && truoc) || (k.kyNang === 'khien' && sau) || k.kyNang === 'sam' || (A_NGAY(k) && k.kyNang !== 'khien') || k.kyCho < -6) dungKyNang(k);
     }
   }
   for (let i = BAY.length - 1; i >= 0; i--) {
     const b = BAY[i]; b.song -= dt; let xoa = b.song <= 0;
-    if (b.loai === 'mat') {
-      for (const j of XE_DUA) { if (j === b.chu && b.song > 23.5) continue; if (!j.bay && Math.hypot(j.x - b.x, j.z - b.z) < 3.4 && Math.abs(j.y - b.h) < 2) { trungChieu(j, 1.6, 0.5, 'mat'); xoa = true; break; } }
-    } else {
+    if (b.loai === 'mat') {                // vũng/bẫy trên đường (mật ong, vỏ chuối, bom khói, kẹo, lửa, vệt cầu vồng)
+      for (const j of XE_DUA) {
+        if (j.xong || j.bMa > 0 || (b.chuMien && j === b.chu) || (j === b.chu && b.song > 23.5)) continue;
+        if (!j.bay && Math.hypot(j.x - b.x, j.z - b.z) < 3.4 && Math.abs(j.y - b.h) < 2) { trungChieu(j, b.giay || 1.6, b.he || 0.5, b.tu || 'mat', b.chu); xoa = true; break; }
+      }
+    } else {                               // 'loc' (lốc xoáy) và 'xuong' (khúc xương): bay dọc đường đuổi theo xe mục tiêu
       b.tot += b.v * dt; const s = quanhS(b.tot);
-      if (b.muc && !b.muc.xong) { b.d += (b.muc.d - b.d) * Math.min(1, dt * 4); if (b.tot >= b.muc.tot - 1.5) { trungChieu(b.muc, 1.4, 0.4, 'loc'); xoa = true; } }
+      if (b.muc && !b.muc.xong) { b.d += (b.muc.d - b.d) * Math.min(1, dt * 4); if (b.tot >= b.muc.tot - 1.5) { trungChieu(b.muc, b.giay || 1.4, b.he || 0.4, b.loai, b.chu); xoa = true; } }
       diemTai(s, _vp); b.x = _vp.x + _vp.nx * b.d; b.z = _vp.z + _vp.nz * b.d; b.h = _vp.h;
     }
     if (xoa) { if (b.mesh) scene.remove(b.mesh); BAY.splice(i, 1); }
   }
 }
-function veKyNang(t) {                   // mô hình vũng mật (đĩa vàng bóng) và lốc xoáy (phễu cầu vồng xoay)
-  if (!matMatOng) { matMatOng = new THREE.MeshStandardMaterial({ color: 0xffb21e, roughness: 0.15, metalness: 0.1, emissive: new THREE.Color(0.5, 0.3, 0) }); geoMat = new THREE.CircleGeometry(3, 24); geoMat.rotateX(-Math.PI / 2); matLocXoay = new THREE.MeshBasicMaterial({ map: HOP_TEX, color: new THREE.Color(1.6, 1.6, 1.6), transparent: true, opacity: 0.85, side: THREE.DoubleSide, depthWrite: false }); geoLoc = new THREE.ConeGeometry(2.2, 4.5, 16, 1, true); geoLoc.rotateX(Math.PI); }
+const MAT_BAY = {}; let geoXuong = null, matXuong = null;
+function matBayCua(mau) { return MAT_BAY[mau] || (MAT_BAY[mau] = new THREE.MeshStandardMaterial({ color: mau, roughness: 0.2, metalness: 0.1, emissive: new THREE.Color(mau).multiplyScalar(0.35) })); }
+function veKyNang(t) {                   // mô hình: vũng/bẫy (đĩa màu bóng), lốc xoáy (phễu cầu vồng xoay), khúc xương (cầu trắng xoay)
+  if (!matMatOng) { matMatOng = matBayCua(0xffb21e); geoMat = new THREE.CircleGeometry(3, 24); geoMat.rotateX(-Math.PI / 2); matLocXoay = new THREE.MeshBasicMaterial({ map: HOP_TEX, color: new THREE.Color(1.6, 1.6, 1.6), transparent: true, opacity: 0.85, side: THREE.DoubleSide, depthWrite: false }); geoLoc = new THREE.ConeGeometry(2.2, 4.5, 16, 1, true); geoLoc.rotateX(Math.PI); }
+  if (!geoXuong) { geoXuong = new THREE.CylinderGeometry(0.28, 0.28, 1.8, 8); geoXuong.rotateZ(Math.PI / 2); matXuong = new THREE.MeshStandardMaterial({ color: 0xf4f0e0, roughness: 0.5, emissive: new THREE.Color(0.35, 0.35, 0.3) }); }
   for (const b of BAY) {
-    if (!b.mesh) { b.mesh = new THREE.Mesh(b.loai === 'mat' ? geoMat : geoLoc, b.loai === 'mat' ? matMatOng : matLocXoay); scene.add(b.mesh); }
-    b.mesh.position.set(b.x, b.h + (b.loai === 'mat' ? 0.1 : 2.4), b.z); if (b.loai === 'loc') { b.mesh.rotation.y = t * 14; if (Math.random() < 0.5) hat(b.x, b.h + 1, b.z, ngauNhien(-3, 3), ngauNhien(1, 4), ngauNhien(-3, 3), [0xff5ad8, 0x3af0ff, 0xffe14a][Math.floor(Math.random() * 3)], 0.4, 0.8, 0.1, true, 1); }
+    if (!b.mesh) { b.mesh = new THREE.Mesh(b.loai === 'mat' ? geoMat : b.loai === 'xuong' ? geoXuong : geoLoc, b.loai === 'mat' ? matBayCua(b.mau || 0xffb21e) : b.loai === 'xuong' ? matXuong : matLocXoay); scene.add(b.mesh); }
+    b.mesh.position.set(b.x, b.h + (b.loai === 'mat' ? 0.1 : b.loai === 'xuong' ? 1.4 : 2.4), b.z);
+    if (b.loai === 'xuong') { b.mesh.rotation.y = t * 12; b.mesh.rotation.z = t * 9; if (Math.random() < 0.4) hat(b.x, b.h + 1, b.z, ngauNhien(-2, 2), ngauNhien(1, 3), ngauNhien(-2, 2), 0xffffff, 0.35, 0.6, 0.1, true, 1); }
+    if (b.loai === 'loc') { b.mesh.rotation.y = t * 14; if (Math.random() < 0.5) hat(b.x, b.h + 1, b.z, ngauNhien(-3, 3), ngauNhien(1, 4), ngauNhien(-3, 3), [0xff5ad8, 0x3af0ff, 0xffe14a][Math.floor(Math.random() * 3)], 0.4, 0.8, 0.1, true, 1); }
   }
 }
 function xoaKyNang() { for (const b of BAY) if (b.mesh) scene.remove(b.mesh); BAY.length = 0; for (const h of HOP) { h.on = true; h.hoi = 0; } }
+
+// ===================== 30 KỸ NĂNG ĐỘC QUYỀN CỦA 30 NHÂN VẬT =====================
+// Mỗi nhân vật có đúng một kỹ năng riêng (nv.ky): bấm Q (hoặc nút trên điện thoại), có hồi chiêu ky.cd giây. Máy tự dùng theo ky.dung.
+// Trạng thái kéo dài lưu trên xe dưới dạng bộ đếm giây (TK_BUFF), vật lý đọc các bộ đếm này (d_vatly.js, d2_vatpham.js).
+const TK_BUFF = ['bDrift', 'bNitMien', 'bMa', 'bPhanXa', 'bBam', 'bTuLai', 'bTrongLuc', 'bXu', 'bXuX', 'bSat', 'bMord'];
+const benCua = (k) => (k.bTuLai > 0 || k.bBam > 0 || k.bSat > 0) ? 1 : k.ben;      // xe đang tự cân bằng / bám chặt / giáp sắt: va chạm không mất tốc
+const TEN_TRUNG = { mat: '🍯 Dính mật ong!', loc: '🌀 Trúng lốc xoáy!', sam: '⚡ Bị sét đánh!', khoi: '💨 Dính bom khói!', cv: '🌈 Dính vệt cầu vồng!', chuoi: '🍌 Trượt vỏ chuối!', lua: '🔥 Bị lửa táp!', keo: '🍭 Dính kẹo!',
+  dino: '🦖 Bị dậm chân!', bang: '❄️ Bị đóng băng!', ufo: '🛸 Bị đĩa bay nhấc!', coi: '🚨 Bị còi hú chặn!', cap: '🦈 Bị cá mập đớp!', xuong: '💀 Trúng khúc xương!', boss: '⚡ Bị sóng sấm!' };
+const datBuff = (k, ten, giay) => { k[ten] = Math.max(k[ten] || 0, giay); };
+const tangToc = (k, giay) => { k.xungT = Math.max(k.xungT, giay); };
+function lucTien(k, dv) {                // thêm vận tốc về phía trước (không vượt trần)
+  const v = Math.max(0, k.vf), moi = Math.min(V_TRAN, v + dv) - v, f = Math.sin(k.yaw), z = Math.cos(k.yaw); k.vx += f * moi; k.vz += z * moi; k.vf += moi;
+}
+function bung(k, mau, n, tam, cao) {     // chùm hạt màu quanh xe
+  for (let i = 0; i < n; i++) hat(k.x, k.y + (cao || 1), k.z, ngauNhien(-tam, tam), ngauNhien(1, tam), ngauNhien(-tam, tam), Array.isArray(mau) ? mau[i % mau.length] : mau, 0.7, 1.0, 0.1, true, 1);
+}
+const xeTruoc = (k, tam) => XE_DUA.filter(j => j !== k && !j.xong && j.tot - k.tot > 1 && j.tot - k.tot < tam).sort((a, b) => a.tot - b.tot);    // xe phía trước trong tầm, gần nhất trước
+const xeSau = (k, tam) => XE_DUA.filter(j => j !== k && !j.xong && k.tot - j.tot > 1 && k.tot - j.tot < tam);
+function datBay(k, lui, d, o) {          // đặt một bẫy trên đường: lui > 0 phía sau xe, lui < 0 phía trước (mét); d: lệch ngang. Chủ bẫy không bao giờ dính
+  const g = diemTai(k.s - lui, {});
+  BAY.push(Object.assign({ loai: 'mat', chu: k, x: g.x + g.nx * d, z: g.z + g.nz * d, h: g.h, song: 22, mesh: null, chuMien: true, giay: 1.2, he: 0.5, mau: 0xffb21e, tu: 'mat' }, o || {}));
+}
+function nhayLen(k, vy) { k.vy = vy; k.y += 0.6; k.bay = true; k.tgBay = 0; k.xBay = k.x; k.zBay = k.z; k.drift = false; k.driftMoc = 0; }
+function nhayTien(k, m) {                // vọt thẳng lên trước m mét dọc đường (cùng làn), giữ nguyên tốc độ
+  const s0 = k.s, g = diemTai(s0 + m, {}), d = kep(k.d, -8, 8), yaw = Math.atan2(g.tx, g.tz), v = Math.max(25, k.vf);
+  k.x = g.x + g.nx * d; k.z = g.z + g.nz * d; k.yaw = yaw; k.vx = Math.sin(yaw) * v; k.vz = Math.cos(yaw) * v; k.vf = v; k.vy = 0; k.bay = false; k.drift = false; k.driftMoc = 0;
+  gan(k.x, k.z, -1, _gv); k.i = _gv.i; k.d = _gv.d; k.tx = _gv.tx; k.tz = _gv.tz;
+  let dS = _gv.s - s0; if (dS < -DD.L / 2) dS += DD.L; else if (dS > DD.L / 2) dS -= DD.L; k.tot += dS; k.sCu = k.s = _gv.s; k.y = k.gyCu = matDat(_gv.s, _gv.d, _gv.h);
+}
+const _SW = ['x', 'z', 'y', 'yaw', 's', 'i', 'd', 'tot', 'sCu', 'gyCu'];
+function doiCho(k, j) {                  // đổi chỗ hai xe (mỗi xe giữ tốc độ của mình)
+  const A = {}, B = {}; for (const f of _SW) { A[f] = k[f]; B[f] = j[f]; }
+  bung(k, 0xc05aff, 20, 7); bung(j, 0xc05aff, 20, 7);
+  for (const f of _SW) { k[f] = B[f]; j[f] = A[f]; }
+  for (const x of [k, j]) { const v = Math.max(25, x.vf); x.vx = Math.sin(x.yaw) * v; x.vz = Math.cos(x.yaw) * v; x.vf = v; x.vy = 0; x.bay = false; x.drift = false; x.driftMoc = 0; }
+  bung(k, [0xc05aff, 0xffd23a], 20, 7); bung(j, [0xc05aff, 0xffd23a], 20, 7);
+}
+const _ta = {};
+function laiTuDong(k) {                  // lái theo đường như máy (dùng cho Auto Balance của người chơi)
+  const nhin = kep(14 + Math.max(0, k.vf) * 0.45, 16, 80), g = diemTai(k.s + nhin, _ta), d = kep(k.d, -8, 8);
+  return kep(-gocChenh(Math.atan2(g.x + g.nx * d - k.x, g.z + g.nz * d - k.z), k.yaw) * 2.6, -1, 1);
+}
+const MAU_CV = [0xff3a3a, 0xff9a2a, 0xffe14a, 0x3acb5a, 0x3a8aff, 0xa05aff];
+const TK_HAM = {
+  speedy(k) { tangToc(k, 3.2); lucTien(k, 12); bung(k, [0xffe14a, 0xffffff], 26, 9); },
+  luna(k) { datBuff(k, 'bDrift', 7); k.nitro = Math.min(NITRO_MAX, k.nitro + 35); bung(k, [0xc8a8ff, 0xfff0a0, 0xffffff], 22, 7, 2); },
+  turbo(k) { k.nitro = NITRO_MAX; datBuff(k, 'bNitMien', 5); bung(k, [0x3af0ff, 0xffffff], 26, 9); },
+  flash(k) { lucTien(k, 45); tangToc(k, 1.5); datBuff(k, 'bMa', 1.5); bung(k, [0xffe14a, 0xffffff], 30, 10); },
+  robo(k) { datBuff(k, 'bTuLai', 7); bung(k, [0x7ad8ff, 0xffffff], 20, 6, 2); },
+  fox(k) { k.chamT = 0; k.xoayT = 0; k.khienT = Math.max(k.khienT, 4); tangToc(k, 1.8); bung(k, [0xffa84a, 0xffffff], 24, 8); },
+  ninja(k) { datBuff(k, 'bDrift', 5); datBay(k, 8, k.d, { tu: 'khoi', mau: 0x2a2a3a, giay: 1.3, he: 0.55 }); datBay(k, 22, kep(k.d + 2, -9, 9), { tu: 'khoi', mau: 0x2a2a3a, giay: 1.3, he: 0.55 }); bung(k, [0x3a3a4a, 0x8a5aff], 26, 8); },
+  panda(k) { k.khienT = Math.max(k.khienT, 12); datBuff(k, 'bSat', 12); bung(k, [0xc8d0e0, 0x3acb5a], 22, 7); },
+  tiger(k) { nhayLen(k, 24); k.thuongDap = 2.0; bung(k, [0xff9a2a, 0x15151c], 24, 8); },
+  cosmo(k) { datBuff(k, 'bTrongLuc', 7); tangToc(k, 1.5); bung(k, [0xc8d8ff, 0xffe14a, 0xffffff], 26, 8, 2); },
+  captain(k) { bung(k, [0xffd23a, 0xffffff], 20, 7); nhayTien(k, 120); bung(k, [0xffd23a, 0xff3a3a], 20, 7); },
+  dino(k) {
+    for (const j of XE_DUA) if (j !== k && !j.xong && Math.hypot(j.x - k.x, j.z - k.z) < 60) { trungChieu(j, 1.3, 0.45, 'dino', k); bung(j, [0x7ae07a, 0xffe14a], 10, 6); }
+    bung(k, [0x7ae07a, 0xff9a2a, 0xffffff], 36, 12, 0.3); const P = XE_DUA[0]; if (Math.hypot(P.x - k.x, P.z - k.z) < 90) DV.rung = Math.max(DV.rung || 0, 0.5);
+  },
+  bunny(k) { k.bHop = 3; k.hopCho = 0; bung(k, [0xffffff, 0xff8ac8], 16, 6); },
+  mimi(k) { k.xu += 25; if (suKien) suKien('xu', k, 25); k.nitro = Math.min(NITRO_MAX, k.nitro + 40); datBuff(k, 'bXu', 10); bung(k, [0xffd23a, 0x3acb5a, 0xffffff], 30, 9, 2); },
+  bobo(k) { datBuff(k, 'bBam', 8); bung(k, [0xff7ab8, 0xffffff], 20, 6); },
+  ducky(k) { k.khienT = Math.max(k.khienT, 10); bung(k, [0x6ad8ff, 0xffffff], 22, 7, 2); },
+  rainbow(k) { tangToc(k, 3.5); for (let i = 1; i <= 6; i++) datBay(k, i * 7, k.d, { tu: 'cv', mau: MAU_CV[i - 1], giay: 0.9, he: 0.5, song: 18 }); bung(k, MAU_CV, 30, 9); },
+  monkey(k) { for (let i = 0; i < 3; i++) datBay(k, 10 + i * 12, kep(k.d + (i - 1) * 3.5, -9, 9), { tu: 'chuoi', mau: 0xffe14a, giay: 1.0, he: 0.55, song: 20 }); bung(k, 0xffe14a, 14, 6); },
+  kinggold(k) { datBuff(k, 'bXu', 8); datBuff(k, 'bXuX', 8); tangToc(k, 2.5); bung(k, [0xffd23a, 0xffffff, 0xffa81a], 34, 10, 2); },
+  icequeen(k) { for (const j of xeTruoc(k, 300).slice(0, 2)) { trungChieu(j, 1.8, 0.15, 'bang', k); bung(j, [0x9ae8ff, 0xffffff], 22, 7); } tangToc(k, 2.0); bung(k, [0x9ae8ff, 0xffffff], 26, 8); },
+  dragon(k) { tangToc(k, 3.5); for (let i = 1; i <= 3; i++) datBay(k, i * 10, k.d, { tu: 'lua', mau: 0xff6a1a, giay: 1.0, he: 0.55, song: 16 }); bung(k, [0xff6a1a, 0xffd23a, 0xff3a2a], 30, 10); },
+  shadow(k) { datBuff(k, 'bMa', 5); tangToc(k, 1.5); bung(k, [0xc05aff, 0x3a1a5a], 26, 8); },
+  alien(k) {
+    const j = xeTruoc(k, 400)[0];
+    if (j) { if (trungChieu(j, 2.2, 0.25, 'ufo', k)) { j.vy = Math.max(j.vy, 16); j.y += 0.6; j.bay = true; j.tgBay = 0; j.xBay = j.x; j.zBay = j.z; } bung(j, [0x7aff7a, 0xffffff], 30, 6, 4); } else tangToc(k, 1.2);
+    bung(k, [0x7aff7a, 0xc05aff], 16, 6);
+  },
+  cyber(k) { datBuff(k, 'bPhanXa', 8); k.nitro = Math.min(NITRO_MAX, k.nitro + 35); bung(k, [0x3af0ff, 0x2a8aff], 24, 8); },
+  chef(k) { tangToc(k, 1.5); for (let i = 0; i < 3; i++) datBay(k, -(40 + i * 28), kep((i - 1) * 4, -9, 9), { tu: 'keo', mau: [0xff5ab0, 0x5ad8ff, 0xffe14a][i], giay: 1.4, he: 0.5, song: 25 }); bung(k, [0xff5ab0, 0xffe14a, 0xffffff], 24, 8); },
+  police(k) { for (const j of xeTruoc(k, 250)) { trungChieu(j, 1.6, 0.45, 'coi', k); bung(j, [0xff3a3a, 0x3a8aff], 10, 5); } tangToc(k, 1.5); bung(k, [0xff3a3a, 0x3a8aff], 26, 8); },
+  builder(k) { for (const o of VAT) if (!o.da && o.s > k.s && o.s < k.s + 400) { o.da = true; o.hoi = 40; o.vx = o.vz = 0; } k.chamT = 0; k.xoayT = 0; tangToc(k, 1.5); bung(k, [0xffc83a, 0xffffff], 26, 8); },
+  magic(k) { const j = xeTruoc(k, 500)[0]; if (j) doiCho(k, j); else { bung(k, 0xc05aff, 16, 6); nhayTien(k, 80); bung(k, 0xffd23a, 16, 6); } },
+  shark(k) { lucTien(k, 30); tangToc(k, 1.6); datBuff(k, 'bMord', 2.5); bung(k, [0x6ad8ff, 0xffffff], 28, 9); },
+  skelly(k) {
+    const ds = xeTruoc(k, 450).slice(0, 3);
+    ds.forEach((j, i) => BAY.push({ loai: 'xuong', chu: k, muc: j, tot: k.tot + 3, d: kep(k.d + (i - 1) * 3, -9, 9), v: Math.max(70, k.vf + 30), song: 9, mesh: null, giay: 1.1, he: 0.5 }));
+    if (!ds.length) tangToc(k, 1.2); bung(k, [0xffffff, 0xe83a3a], 20, 7);
+  }
+};
+function dungTuyetKy(k) {
+  const ky = k.nv && k.nv.ky; if (!ky || !CUOC.chay || k.xong || k.tkCho > 0 || !TK_HAM[k.nv.id]) return false;
+  k.tkCho = ky.cd; k.tkSo = (k.tkSo || 0) + 1; TK_HAM[k.nv.id](k); if (suKien) suKien('tuyetky', k, ky); return true;
+}
+function aiNenDung(k, ky) {              // máy chọn lúc xài kỹ năng theo kiểu của nhân vật (ky.dung)
+  const v = Math.max(0, k.vf), thang = Math.abs(doCong(k.s + 40)) < 1 / 1200 && Math.abs(doCong(k.s + 120)) < 1 / 900;
+  switch (ky.dung) {
+    case 'tang': return v > 25 && thang;
+    case 'cua': return v > 25 && Math.abs(doCong(k.s + 40)) > 1 / 500;
+    case 'cham': return k.chamT > 0.3;
+    case 'thu': return xeSau(k, 90).length > 0 || k.chamT > 0.3;
+    case 'gap': return k.hang > 1 && thang;
+    case 'gan': return XE_DUA.some(j => j !== k && !j.xong && Math.hypot(j.x - k.x, j.z - k.z) < 40);
+    case 'tan': return xeTruoc(k, 280).length > 0;
+    case 'vat': { const a = timDau(VAT, k.s), b = timDau(VAT, k.s + 250); for (let i = a; i < b; i++) if (!VAT[i].da) return true; return false; }
+    default: return true;
+  }
+}
+function capNhatTuyetKy(dt) {            // mỗi bước vật lý: hồi chiêu, các hiệu ứng kéo dài, máy tự xài
+  for (const k of XE_DUA) {
+    if (k.xong) continue;
+    if (CUOC.chay && k.tkCho > 0) k.tkCho -= dt;
+    if (k.bHop > 0 && !k.bay) { k.hopCho -= dt; if (k.hopCho <= 0) { nhayLen(k, 12); k.thuongDap = 0.7; k.bHop--; k.hopCho = 0.35; } }
+    if (k.bMord > 0) for (const j of XE_DUA) if (j !== k && !j.xong && Math.hypot(j.x - k.x, j.z - k.z) < 7 && j.tot > k.tot - 4) { trungChieu(j, 2.0, 0.4, 'cap', k); bung(j, [0xffffff, 0x6ad8ff], 18, 7); k.bMord = 0; tangToc(k, 0.8); break; }
+    if (Math.random() < dt * 24) {
+      if (k.bMa > 0) hat(k.x + ngauNhien(-1, 1), k.y + 1.5, k.z + ngauNhien(-1, 1), 0, 1.5, 0, 0xc8a8ff, 0.6, 0.9, 0.1, true, 1);
+      else if (k.bXu > 0) hat(k.x + ngauNhien(-2, 2), k.y + 2, k.z + ngauNhien(-2, 2), 0, 1.5, 0, 0xffd23a, 0.5, 0.8, 0.1, true, 1);
+      else if (k.bTrongLuc > 0) hat(k.x + ngauNhien(-1, 1), k.y + 0.5, k.z + ngauNhien(-1, 1), 0, 3, 0, 0xc8d8ff, 0.6, 0.8, 0.1, true, 1);
+      else if (k.bBam > 0 || k.bTuLai > 0) hat(k.x + ngauNhien(-1, 1), k.y + 0.3, k.z + ngauNhien(-1, 1), ngauNhien(-1, 1), 1, ngauNhien(-1, 1), k.bTuLai > 0 ? 0x7ad8ff : 0xff7ab8, 0.4, 0.6, 0.1, true, 1);
+    }
+    if (!k.nguoi && CUOC.chay) {
+      const ky = k.nv && k.nv.ky;
+      if (ky && k.tkCho <= 0) { if (k.tkDoi == null) k.tkDoi = ngauNhien(0.2, 2.5); k.tkDoi -= dt; if (k.tkDoi <= 0 && (aiNenDung(k, ky) || k.tkDoi < -9) && dungTuyetKy(k)) k.tkDoi = null; }
+    }
+  }
+}
+function capNhatMa(k) {                  // chế độ ma: xe trong mờ
+  const ma = k.bMa > 0; if (ma === !!k._ma) return; k._ma = ma;
+  k.mesh.traverse(o => { const m = o.material; if (!m || o.isSprite) return; if (m.userData.op0 == null) { m.userData.op0 = m.opacity; m.userData.tr0 = m.transparent; } m.transparent = ma || m.userData.tr0; m.opacity = ma ? 0.38 : m.userData.op0; m.needsUpdate = true; });
+}
 
 // ===================== MÁY ĐIỀU KHIỂN (AI) VÀ BOSS =====================
 // Mỗi xe máy tự lái, không chạy theo kịch bản: (1) chọn làn (ôm cua trong, né vật, vượt xe, nhặt xu, chèn ép),
@@ -1696,7 +2231,7 @@ function dieuKhienAI(k, dt) {
   if (A.tPU <= 0) {
     A.tPU = kh.phanUng * (0.6 + Math.random() * 0.8);
     const cong = doCong(k.s + 25 + v * 0.8);
-    let muon = A.lane * (1 - Math.min(1, Math.abs(cong) * 300)) - Math.sign(cong) * Math.min(1, Math.abs(cong) * 350) * (RONG_DUONG - 5);   // vào cua thì ôm phía trong
+    let muon = A.lane * (1 - Math.min(1, Math.abs(cong) * 300)) - Math.sign(cong) * Math.min(1, Math.abs(cong) * 350) * (RONG_DUONG - 5) * (P.om != null ? P.om : 1);   // vào cua thì ôm phía trong
     if ((P.axu || 0) > 0.5) {             // thích nhặt xu: đi theo đồng xu gần nhất phía trước
       const a = timDau(XU, k.s + 6), b = timDau(XU, k.s + 70); for (let i = a; i < b; i++) if (XU[i].on && XU[i].y < 3) { muon = XU[i].d; break; }
     }
@@ -1724,13 +2259,14 @@ function dieuKhienAI(k, dt) {
   const dy = gocChenh(Math.atan2(tx - k.x, tz - k.z), k.yaw);
   dk.lai = kep(-dy * 2.6 + A.lech, -1, 1);
   // ---- (3) ga/phanh theo cua phía trước; (4) drift ở cua gắt ----
-  const bam = k.tt.bam, congNay = Math.abs(doCong(k.s + 10)), duocDrift = v > DRIFT_V + 4 && (P.abam || 1) * (1.2 - sai * 0.4) > 0.9;
-  dk.drift = duocDrift && congNay > 1 / 420 && Math.abs(dk.lai) > 0.25;
+  const bam = k.tt.bam * (k.bBam > 0 ? 1.7 : 1), congNay = Math.abs(doCong(k.s + 10)), duocDrift = v > DRIFT_V + 4 && (P.abam || 1) * (1.2 - sai * 0.4) > 0.9;
+  const thich = P.drift != null ? P.drift : 0.4;   // tính cách drift: thích drift thì đánh lái nhẹ cũng drift và giữ tới hết cua; ít drift thì chỉ drift ở cua gắt
+  dk.drift = duocDrift && congNay > 1 / (90 + 330 * thich) && (Math.abs(dk.lai) > 0.6 - 0.5 * thich || (k.drift && thich >= 0.6 && congNay > 1 / 700));   // nhân vật thích drift thì drift cả cua nhẹ
   let vT = vMaxXe(k, k.nitDang);
   const tamPhanh = Math.min(420, v * v / (2 * GIA_TOC_PHANH) + 60);
   for (let dd = 8; dd <= tamPhanh; dd += 12) {
     const c = Math.abs(doCong(k.s + dd)); if (c < 1 / 2500) continue;
-    const vc = vToiDaCua(1 / c, bam, k.drift || dk.drift) * (0.95 + 0.04 * (1 - sai)), cho = Math.sqrt(vc * vc + 2 * GIA_TOC_PHANH * dd);
+    const vc = vToiDaCua(1 / c, bam, k.drift || dk.drift) * (0.95 + 0.04 * (1 - sai)) * (P.lieu || 1), cho = Math.sqrt(vc * vc + 2 * GIA_TOC_PHANH * dd);
     if (cho < vT) vT = cho;
   }
   if (Math.abs(A.off - k.d) > 9) vT = Math.min(vT, 62);       // đang đổi làn rất xa thì bớt ga cho kịp lái
@@ -1743,8 +2279,9 @@ function dieuKhienAI(k, dt) {
   if (A.nitT > 0) { A.nitT -= dt; dk.nitro = true; }
   else {
     dk.nitro = false; A.nitCho -= dt;
-    if (A.nitCho <= 0 && k.nitro > ((P.anitro || 0) > 1.2 ? 15 : 32) && v > 30) {
-      let thang = true; for (let dd = 20; dd <= 300; dd += 20) if (Math.abs(doCong(k.s + dd)) > 1 / 1500) { thang = false; break; }
+    const cuoi = P.nitroKieu === 'cuoi', choCuoi = cuoi && k.tot < DD.L * 0.7;   // 'cuoi': để dành Nitro cho 3 km nước rút
+    if (A.nitCho <= 0 && !choCuoi && k.nitro > ((P.anitro || 0) > 1.2 || cuoi ? 15 : 32) && v > 30) {
+      let thang = true; if (P.nitroKieu !== 'luc') for (let dd = 20; dd <= 300; dd += 20) if (Math.abs(doCong(k.s + dd)) > 1 / 1500) { thang = false; break; }
       if (thang && Math.random() < 0.6 * (P.anitro || 0.5) * (0.4 + kh.nitro)) A.nitT = 1.2 + Math.random() * 1.6;
       A.nitCho = ngauNhien(2, 5) / Math.max(0.3, (P.anitro || 0.5) * kh.nitro + 0.2);
     }
@@ -1764,7 +2301,7 @@ function tuyetChieuBoss(k, dt) {
   const A = k.ai; A.chieuT -= dt;
   if (A.canhT > 0) {
     A.canhT -= dt;
-    if (A.canhT <= 0) { for (const j of XE_DUA) { if (j === k) continue; const dT = k.tot - j.tot; if (dT > 0 && dT < 70 && Math.abs(j.d - k.d) < 18 && !j.bay && !j.xong) { if (j.khienT > 0) { j.khienT = 0; if (suKien) suKien('khienVo', j, 0); } else { j.chamT = 1.5; j.chamHe = 0.8; } } } if (suKien) suKien('sam', k, 0); }
+    if (A.canhT <= 0) { for (const j of XE_DUA) { if (j === k) continue; const dT = k.tot - j.tot; if (dT > 0 && dT < 70 && Math.abs(j.d - k.d) < 18 && !j.bay) trungChieu(j, 1.5, 0.8, 'boss', k); } if (suKien) suKien('sam', k, 0); }
     return;
   }
   if (A.chieuT <= 0) { const sau = XE_DUA.some(j => j !== k && k.tot - j.tot > 5 && k.tot - j.tot < 60); if (sau) { A.canhT = 1.0; A.chieuT = A.p.chieu + Math.random() * 6; if (suKien) suKien('canh', k, 0); } else A.chieuT = 2; }
@@ -1775,6 +2312,7 @@ function tuyetChieuBoss(k, dt) {
 const CUOC = { tt: 'menu', duong: 0, cheDo: 'nghiep', thuThach: null, kho: LUU.kho, heAI: 1, soLo: false, giay: 0, chay: false, demT: 0, dem: 4,
   nguoiXong: false, slowT: 0, xepHang: [], ketQua: null, tamTruoc: 'dua', gioChoi: 0, thu: false, hangCu: 0, mocDaQua: 0, quaMoi: [], chayM: 0 };
 let tichLuy = 0;
+const SO_DOI_THU = 6;                  // mỗi cuộc đua: bạn + 6 máy
 const nhanVatCua = (id) => NHAN_VAT.find(n => n.id === id) || NHAN_VAT[0];
 const xeCua = (id) => XE.find(x => x.id === id) || XE[0];
 const mauXeNguoi = (x) => MAU_XE[(LUU.mau[x.id] != null ? LUU.mau[x.id] : x.mau) % MAU_XE.length];
@@ -1800,17 +2338,22 @@ function batDauCuoc(o) {               // o: { duong, cheDo: 'nghiep'|'tudo'|'th
   const t = o.thuThach || null, idx = t ? t.duong : o.duong, p = DUONG[idx];
   CUOC.duong = idx; CUOC.cheDo = o.cheDo; CUOC.thuThach = t; CUOC.kho = t && t.loai === 'doi' ? 'kho' : LUU.kho; CUOC.heAI = p.ai; CUOC.soLo = !!(t && t.loai === 'gio');
   dungDuong(idx); bacXe();
-  const nv = nhanVatCua(LUU.nhanVat), x = xeCua(LUU.xeDang), m = mauXeNguoi(x);
-  XE_DUA.push(taoXeDua({ ten: 'BẠN', id: 'nguoi', nguoi: true, nv, xe: x, mau: m, phu: x.phu, tt: { vmax: x.vmax, ga: x.ga * nv.ga, bam: x.bam * nv.bam, nit: x.nit * nv.nit, driftNhanh: nv.id === 'ninja' ? 1.3 : 1 }, hut: nv.hut, ben: nv.ben, gio: nv.gio }));
+  const nv = nhanVatCua(o.nvId || LUU.nhanVat), x = xeCua(o.xeId || LUU.xeDang), m = mauXeNguoi(x);
+  XE_DUA.push(taoXeDua({ ten: 'BẠN', id: 'nguoi', nguoi: true, nv, xe: x, mau: m, phu: x.phu, tt: { vmax: x.vmax * (nv.vm || 1), ga: x.ga * nv.ga, bam: x.bam * nv.bam, nit: x.nit * nv.nit, driftNhanh: nv.driftNhanh || 1 }, hut: nv.hut, ben: nv.ben, gio: nv.gio }));
   const doiThu = [];
-  if (t && t.loai === 'doi') doiThu.push(BOSS[t.muc] ? Object.assign({ laBoss: true }, BOSS[t.muc]) : nhanVatCua(t.muc));
-  else if (!CUOC.soLo) { for (const n of NHAN_VAT) if (n.id !== nv.id) doiThu.push(n); if (p.boss && !t) doiThu.push(Object.assign({ laBoss: true }, BOSS[p.boss])); }
-  for (const c of doiThu) XE_DUA.push(taoXeDua({ ten: c.ten, id: c.id, nv: c, boss: c.laBoss ? c : null, xe: XE[c.xe], mau: c.mau, phu: c.phu, tt: { vmax: 1.12, ga: c.aga, bam: c.abam, nit: 1.1 }, hut: c.hut || 0, ai: taoAI(c) }));
+  if (t && t.loai === 'doi') { let c = BOSS[t.muc] ? Object.assign({ laBoss: true }, BOSS[t.muc]) : nhanVatCua(t.muc); if (c.id === nv.id) c = Object.assign({}, c, { ten: c.ten + ' Bóng Tối', mau: 0x15151c }); doiThu.push(c); }
+  else if (!CUOC.soLo) {                 // 6 đối thủ máy rút ngẫu nhiên từ 30 nhân vật, không ai trùng nhau, không trùng bạn; đường có Boss thì Boss là 1 trong 6
+    const bossId = p.boss && !t && p.boss !== nv.id ? p.boss : null, kho = NHAN_VAT.filter(n => n.id !== nv.id && n.id !== bossId);
+    for (let i = kho.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [kho[i], kho[j]] = [kho[j], kho[i]]; }
+    if (bossId) doiThu.push(Object.assign({ laBoss: true }, BOSS[bossId]));
+    for (const n of kho) { if (doiThu.length >= SO_DOI_THU) break; doiThu.push(n); }
+  }
+  for (const c of doiThu) XE_DUA.push(taoXeDua({ ten: c.ten, id: c.id, nv: c, boss: c.laBoss ? c : null, xe: XE[c.xe], mau: c.mau, phu: c.phu, tt: { vmax: 1.12, ga: c.aga, bam: c.abam, nit: 1.1, driftNhanh: c.driftNhanh || 1 }, hut: c.hut || 0, ben: c.ben || 0, gio: c.gio || 0, ai: taoAI(c) }));
   const choNguoi = XE_DUA.length > 3 ? 3 : XE_DUA.length - 1, conLai = [];     // người chơi xuất phát thứ 4 (tay đôi: thứ 2), máy chia các chỗ còn lại
   for (let n = 0; n < XE_DUA.length; n++) if (n !== choNguoi) conLai.push(n);
   for (let i = conLai.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [conLai[i], conLai[j]] = [conLai[j], conLai[i]]; }
   const slot = [choNguoi].concat(conLai);
-  XE_DUA.forEach((k, i) => { const l = luoiXuatPhat(slot[i]); datXe(k, l.x, l.z, l.yaw, l.tot); k.hang = slot[i] + 1; });
+  XE_DUA.forEach((k, i) => { const l = luoiXuatPhat(slot[i]); datXe(k, l.x, l.z, l.yaw, l.tot); k.hang = slot[i] + 1; k.tkCho = k.nv && k.nv.ky ? k.nv.ky.cd * 0.35 : 0; });
   for (const qa of QUA) qa.on = !ttDuong(p.id).qua[qa.so];
   for (const c of XU) { c.on = true; c.hoi = 0; }                                  // đua lại cùng đường: xu mọc đủ, chướng ngại về chỗ cũ
   for (const v of VAT) { v.da = false; v.hoi = 0; v.oy = 0; v.ang = 0; v.vx = v.vz = 0; const g = diemTai(v.s); v.x = g.x + g.nx * v.d; v.z = g.z + g.nz * v.d; v.h = g.h; }
@@ -1823,7 +2366,7 @@ function tinhXepHang() {
   CUOC.xepHang = XE_DUA.slice().sort((a, b) => a.xong && b.xong ? a.tgXong - b.tgXong : a.xong ? -1 : b.xong ? 1 : b.tot - a.tot);
   CUOC.xepHang.forEach((k, i) => { k.hang = i + 1; });
 }
-function dieuKhienNguoi(k) { const d = k.dk, I = DV.nhap(); d.lai = I.lai; d.nitro = I.nitro; d.drift = I.drift; d.phanh = I.phanh; d.ga = I.phanh ? 0 : I.ga; }
+function dieuKhienNguoi(k) { const d = k.dk, I = DV.nhap(); d.lai = I.lai; d.nitro = I.nitro; d.drift = I.drift; d.phanh = I.phanh; d.ga = I.phanh ? 0 : I.ga; if (k.bTuLai > 0) d.lai = kep(d.lai * 0.3 + laiTuDong(k) * 0.7, -1, 1); }   // Auto Balance: xe tự giữ đường
 function capNhatMotBuoc(dt) {
   const chay = CUOC.chay;
   for (const k of XE_DUA) {
@@ -1833,7 +2376,7 @@ function capNhatMotBuoc(dt) {
     const sCu = k.tot; buocXe(k, dt);
     if (k.nguoi && chay && !k.xong) CUOC.chayM += Math.max(0, k.tot - sCu);
   }
-  vaChamXe(); capNhatKyNang(dt);
+  vaChamXe(); capNhatKyNang(dt); capNhatTuyetKy(dt);
   for (const k of XE_DUA) {
     xuLyVatPham(k, dt);
     if (k.gio > 0) for (const j of XE_DUA) { if (j === k) continue; const dT = j.tot - k.tot; if (dT > 4 && dT < 30 && Math.abs(j.d - k.d) < 3) { k.gioT = 0.25; break; } }
@@ -1859,7 +2402,9 @@ function suKienDua(ten, k, tham) {
   else if (ten === 'xung') { if (nguoi) { tieng('xung'); DV.rung = 0.2; } }
   else if (ten === 'nitro') { if (nguoi) tieng('nitro'); }
   else if (ten === 'hop') { if (nguoi) { tieng('qua'); if (DV.bao) DV.bao(KY_NANG[k.kyNang].icon + ' ' + KY_NANG[k.kyNang].ten + (CAM_UNG ? ' — bấm nút kỹ năng' : ' — bấm E'), 1600); } for (let i = 0; i < 14; i++) hat(k.x, k.y + 2, k.z, ngauNhien(-6, 6), ngauNhien(2, 7), ngauNhien(-6, 6), [0xff3a3a, 0xffe03a, 0x3aa8ff, 0x4acb5a, 0xb05aff][i % 5], 0.6, 0.9, 0.1, true, 1); }
-  else if (ten === 'trung') { if (nguoi) { tieng('va'); rung(120); DV.rung = 0.4; if (DV.bao) DV.bao(tham === 'mat' ? '🍯 Dính mật ong!' : tham === 'loc' ? '🌀 Trúng lốc xoáy!' : '⚡ Bị sét đánh!', 1200); } }
+  else if (ten === 'trung') { if (nguoi) { tieng('va'); rung(120); DV.rung = 0.4; if (DV.bao) DV.bao(TEN_TRUNG[tham] || '⚡ Bị sét đánh!', 1200); } }
+  else if (ten === 'tuyetky') { if (nguoi) { tieng('xung'); setTimeout(() => tieng('huy'), 160); DV.bao(tham.ic + ' ' + tham.ten + '!', 1300); DV.rung = Math.max(DV.rung || 0, 0.25); } }
+  else if (ten === 'phanxa') { if (nguoi) { tieng('huy'); if (DV.bao) DV.bao('💠 Phản xạ! Chiêu bật ngược về đối thủ', 1300); } }
   else if (ten === 'khienVo') { if (nguoi) { tieng('non'); if (DV.bao) DV.bao('🛡️ Khiên đã đỡ đòn!', 1000); } }
   else if (ten === 'sam2') { tieng('sam'); for (const j of XE_DUA) if (j.chamT > 1.9) for (let i = 0; i < 12; i++) hat(j.x, j.y + 8 - i * 0.6, j.z, ngauNhien(-1, 1), -4, ngauNhien(-1, 1), 0xbfe8ff, 0.35, 1.4, 0.4, true, 1); }
   else if (ten === 'dung') { if (nguoi) tieng(tham === 'khien' ? 'huy' : 'xung'); }
@@ -1932,6 +2477,7 @@ function ketThucCuoc() {
   LUU.xu += k.xu + kq.thuong;
   // nhiệm vụ dài hạn
   for (const n of NHIEM_VU) { if (LUU.nhiemVu[n.id]) continue; const [a, b] = n.dk(tk, LUU); if (a >= b) { LUU.nhiemVu[n.id] = true; LUU.xu += n.thuong; kq.nhiemVu.push(n.ten + ' (+' + n.thuong + ' xu)'); } }
+  kq.nvMoi = kiemTraMoNhanVat(); for (const n of kq.nvMoi) kq.moi.push('🔓 Mở khóa nhân vật mới: ' + n.ic + ' ' + n.ten + ' (' + n.hinh + ')');
   for (const x of XE) if (x.mo && !LUU.xe.includes(x.id) && xeMoDuoc(x) && !LUU.kyTich['bao_' + x.id]) { LUU.kyTich['bao_' + x.id] = true; kq.moi.push('🚗 Xe đặc biệt ' + x.ten + ' đã mở! Vào Garage để nhận miễn phí'); }
   luuLai(); CUOC.ketQua = kq;
   tieng(hang === 1 || kq.thuThachOK ? 'thang' : 'dich'); if (kq.nhiemVu.length || kq.huy) setTimeout(() => tieng('huy'), 900);
@@ -1940,7 +2486,7 @@ function ketThucCuoc() {
 function thoatCuoc() { xoaKyNang(); xoaVet(); bacXe(); CUOC.tt = 'menu'; CUOC.chay = false; if (DV.vaoSanh) DV.vaoSanh(); }
 
 // ===================== GIAO DIỆN: SẢNH, CÁC MÀN HÌNH, HUD, ĐIỀU KHIỂN, CAMERA, VÒNG LẶP =====================
-const LOP = ['sanh', 'chonLoai', 'man', 'hud', 'ketQua', 'tamDung', 'huongDan', 'nghiMat'];
+const LOP = ['sanh', 'chonLoai', 'chonDua', 'man', 'hud', 'ketQua', 'tamDung', 'huongDan', 'nghiMat'];
 function hienLop(ds) { for (const id of LOP) if (id !== 'nghiMat') $(id).classList.toggle('hien', ds.includes(id)); }   // màn nghỉ mắt chỉ tắt bằng nút của nó
 if (CAM_UNG) document.body.classList.add('camung');
 const hexCss = (m) => '#' + new THREE.Color(m).getHexString();
@@ -1965,12 +2511,14 @@ addEventListener('keydown', (e) => {
   if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space'].includes(e.code) && (dangDua() || CUOC.tt === 'tamdung')) e.preventDefault();
   DV.phim[e.code] = true;
   if (e.repeat) return;
-  if (e.code === 'Escape' || e.code === 'KeyP') { if (CUOC.tt === 'dua' || CUOC.tt === 'dem') tamDung(); else if (CUOC.tt === 'tamdung') tiepTuc(); else if ($('man').classList.contains('hien') || $('chonLoai').classList.contains('hien')) vaoSanh(); }
+  if (e.code === 'Escape' || e.code === 'KeyP') { if (CUOC.tt === 'dua' || CUOC.tt === 'dem') tamDung(); else if (CUOC.tt === 'tamdung') tiepTuc(); else if ($('man').classList.contains('hien') || $('chonLoai').classList.contains('hien') || $('chonDua').classList.contains('hien')) vaoSanh(); }
   if (e.code === 'KeyR' && CUOC.tt === 'dua' && !XE_DUA[0].xong) datLaiTrenDuong(XE_DUA[0]);
   if (e.code === 'KeyM') doiAm();
   if (e.code === 'KeyC') doiCam();
   if (e.code === 'KeyE' && CUOC.tt === 'dua' && XE_DUA.length) dungKyNang(XE_DUA[0]);
-  if (e.code === 'Enter' && CUOC.tt === 'menu' && $('sanh').classList.contains('hien') && !$('nghiMat').classList.contains('hien')) batDauDua({ duong: duongTiep(), cheDo: 'nghiep' });
+  if (e.code === 'KeyQ' && CUOC.tt === 'dua' && XE_DUA.length) bamTuyetKy();
+  if (e.code === 'Enter' && CUOC.tt === 'menu' && $('sanh').classList.contains('hien') && !$('nghiMat').classList.contains('hien')) moChonDua({ duong: duongTiep(), cheDo: 'nghiep' });
+  if (e.code === 'Enter' && CUOC.tt === 'menu' && $('chonDua').classList.contains('hien')) $('cdDua').click();
 });
 addEventListener('keyup', (e) => { DV.phim[e.code] = false; });
 addEventListener('blur', () => { DV.nhaHet(); if (CUOC.tt === 'dua' || CUOC.tt === 'dem') tamDung(); });
@@ -2001,6 +2549,12 @@ for (const [id, ten] of [['tGa', 'ga'], ['tPhanh', 'phanh'], ['tNitro', 'nitro']
   el.addEventListener('pointerdown', (e) => { e.preventDefault(); ngon.add(e.pointerId); try { el.setPointerCapture(e.pointerId); } catch (x) { } cap(); });
   for (const ev of ['pointerup', 'pointercancel', 'lostpointercapture']) el.addEventListener(ev, (e) => { ngon.delete(e.pointerId); cap(); });
 }
+function bamTuyetKy() {                  // phím Q / nút kỹ năng độc quyền
+  const k = XE_DUA[0], ky = k && k.nv && k.nv.ky; if (!ky || CUOC.tt !== 'dua' || k.xong) return;
+  if (k.tkCho > 0) { DV.bao('⏳ ' + ky.ten + ' còn ' + Math.ceil(k.tkCho) + ' giây', 900); tieng('nay'); } else dungTuyetKy(k);
+}
+$('tTK').addEventListener('pointerdown', (e) => { e.preventDefault(); bamTuyetKy(); });
+$('oTK').addEventListener('pointerdown', (e) => { e.preventDefault(); bamTuyetKy(); });
 $('tKyNang').addEventListener('pointerdown', (e) => { e.preventDefault(); if (CUOC.tt === 'dua') dungKyNang(XE_DUA[0]); });
 $('oKyNang').addEventListener('pointerdown', (e) => { e.preventDefault(); if (CUOC.tt === 'dua') dungKyNang(XE_DUA[0]); });
 $('tDat').addEventListener('pointerdown', (e) => { e.preventDefault(); if (CUOC.tt === 'dua' && !XE_DUA[0].xong) datLaiTrenDuong(XE_DUA[0]); });
@@ -2013,9 +2567,16 @@ DV.combo = (n, he) => { if (n < 3) return; const c = $('combo'); c.textContent =
 // ---------- xe trưng bày ở sảnh / garage ----------
 let xemMesh = null, xemXe = LUU.xeDang;
 function huyXemTruoc() { if (xemMesh) { scene.remove(xemMesh); huyMoHinh(xemMesh); xemMesh = null; } }
-function dungXemTruoc(xeId) {
-  huyXemTruoc(); xemXe = xeId; const x = xeCua(xeId), nv = nhanVatCua(LUU.nhanVat);
+function dungXemTruoc(xeId, nvId) {
+  huyXemTruoc(); xemXe = xeId; const x = xeCua(xeId), nv = nhanVatCua(nvId || LUU.nhanVat);
   xemMesh = taoKart(x, mauXeNguoi(x), x.phu, null, { mauMu: nv.mau, nvId: nv.id }); const l = luoiXuatPhat(3); xemMesh.position.set(l.x, l.y, l.z); xemMesh.rotation.y = l.yaw; scene.add(xemMesh);
+}
+function dungXemNhanVat(id) {          // bộ sưu tập: nhân vật đứng cạnh chiếc xe riêng của mình (chưa mở khóa thì chỉ thấy bóng đen)
+  huyXemTruoc(); const n = nhanVatCua(id), x = XE[n.xe] || XE[0], g = new THREE.Group();
+  const xe = taoKart(x, n.mau, n.phu, null, { khongNguoi: true }); xe.position.x = 1.4; g.add(xe);
+  const ng = taoNguoiDung(n.id, n.mau); ng.position.set(-2.0, 0, 0.6); ng.rotation.y = 0.35; ng.scale.setScalar(1.25); g.add(ng);
+  if (!nvMo(n)) { const bong = new THREE.MeshBasicMaterial({ color: 0x0a0e1e }); g.traverse(o => { if (o.isMesh) { o.material = bong; o.castShadow = false; } }); }
+  const l = luoiXuatPhat(3); g.position.set(l.x, l.y, l.z); g.rotation.y = l.yaw; xemMesh = g; xemXe = null; scene.add(g);
 }
 function duongTiep() { let i = 0; for (let k = 0; k < DUONG.length; k++) if (duongMo(k)) { i = k; if ((LUU.duong[DUONG[k].id] || {}).hang !== 1) return k; } return i; }
 
@@ -2027,10 +2588,10 @@ function vaoSanh() {
 DV.vaoSanh = vaoSanh;
 function veSanh() {
   const nv = nhanVatCua(LUU.nhanVat), x = xeCua(LUU.xeDang), h = demHuyChuong(), di = duongTiep(), d = DUONG[di];
-  $('hsAvatar').textContent = nv.ten[0]; $('hsAvatar').style.background = hexCss(nv.mau); $('hsTen').textContent = nv.ten + ' · ' + nv.hinh; $('hsXe').textContent = '🚗 ' + x.ten + ' · ' + nv.loi; $('hsXu').textContent = dinhDangSo(LUU.xu);
+  $('hsAvatar').textContent = nv.ic || nv.ten[0]; $('hsAvatar').style.background = hexCss(nv.mau); $('hsTen').textContent = nv.ten + ' · ' + nv.hinh; $('hsXe').textContent = '🚗 ' + x.ten + ' · ' + nv.loi; $('hsXu').textContent = dinhDangSo(LUU.xu);
   $('hsHuy').innerHTML = '<span class="huy">🥇 ' + h.vang + '</span><span class="huy">🥈 ' + h.bac + '</span><span class="huy">🥉 ' + h.dong + '</span><span class="huy">🏅 ' + h.thuThach + '</span><span class="huy">📜 ' + h.nhiemVu + '</span>';
   $('mDuong').textContent = 'Đã mở ' + DUONG.filter((_, i) => duongMo(i)).length + '/10 · đường ' + KM_DUONG + ' km'; $('mThuThach').textContent = THU_THACH.filter(t => (LUU.thuThach[t.id] || {}).xong).length + '/10 hoàn thành';
-  $('mGarage').textContent = 'Có ' + LUU.xe.length + '/' + XE.length + ' xe'; $('mTayDua').textContent = 'Đang chọn ' + nv.ten; $('mNhiemVu').textContent = h.nhiemVu + '/' + NHIEM_VU.length + ' · huy chương'; $('mCaiDat').textContent = 'Đồ họa: ' + DH().ten;
+  $('mGarage').textContent = 'Có ' + LUU.xe.length + '/' + XE.length + ' xe'; $('mTayDua').textContent = 'Đã mở ' + NHAN_VAT.filter(nvMo).length + '/' + NHAN_VAT.length + ' · ' + (nv.ic || '') + ' ' + nv.ten; $('mNhiemVu').textContent = h.nhiemVu + '/' + NHIEM_VU.length + ' · huy chương'; $('mCaiDat').textContent = 'Đồ họa: ' + DH().ten;
   $('nutLoaiXe').textContent = laMoto(x) ? '🏍️ Đang đi xe máy · đổi sang ô tô' : '🏎️ Đang đi ô tô · đổi sang xe máy';
   $('tenTiep').textContent = d.icon + ' ' + d.ten + (d.boss ? ' 👑' : '');
 }
@@ -2049,16 +2610,43 @@ function chonLoaiXe(moto) {
 }
 $('loaiOto').onclick = () => chonLoaiXe(false); $('loaiMoto').onclick = () => chonLoaiXe(true);
 $('nutLoaiXe').onclick = () => { tieng('chuyen'); moChonLoai(); };
+// ---------- CHỌN NHÂN VẬT VÀ XE TRƯỚC KHI ĐUA: bấm Đua là hiện, chọn được TẤT CẢ nhân vật và xe (cái chưa mở khóa/chưa mua thì dùng thử cuộc đó) ----------
+const CD = { o: null, nv: null, xe: null, tab: 'nv', loai: 'oto' };
+function moChonDua(o) {
+  CD.o = o; CD.nv = LUU.nhanVat; CD.xe = LUU.xeDang; CD.tab = 'nv'; CD.loai = laMoto(xeCua(CD.xe)) ? 'moto' : 'oto';
+  hienLop(['chonDua']); dungXemTruoc(CD.xe, CD.nv); veChonDua(); tieng('chuyen');
+}
+function veChonDua() {
+  const n = nhanVatCua(CD.nv), x = xeCua(CD.xe), thuN = !nvMo(n), thuX = !LUU.xe.includes(x.id);
+  $('cdTabNv').classList.toggle('bat', CD.tab === 'nv'); $('cdTabXe').classList.toggle('bat', CD.tab === 'xe');
+  $('cdTin').innerHTML = '<b>' + n.ic + ' ' + n.ten + '</b> · ' + n.ky.ic + ' ' + n.ky.ten + ' (phím Q) · <b>' + (laMoto(x) ? '🏍️ ' : '🏎️ ') + x.ten + '</b> · ' + Math.round(V_GOC * x.vmax * 3.6) + ' km/h' +
+    (thuN || thuX ? '<br>🎟️ <b>Miễn phí</b> trong cuộc đua này: ' + [thuN ? n.ten + ' (chưa có trong bộ sưu tập)' : '', thuX ? x.ten + ' (chưa mua)' : ''].filter(Boolean).join(' và ') + ' — đua tốt sẽ mở khóa hẳn!' : '<br>✅ Chọn thoải mái, tất cả nhân vật và xe đều miễn phí khi bấm Đua.');
+  const g = $('cdLuoi'), cuon = g.scrollTop;
+  if (CD.tab === 'nv') g.innerHTML = NHAN_VAT.map(c => '<button class="nvO cdO' + (nvMo(c) ? '' : ' khoa') + (c.id === CD.nv ? ' chon' : '') + '" data-nv="' + c.id + '"><span class="goc">' + (c.id === LUU.nhanVat ? '⭐' : nvMo(c) ? '' : '🎟️') + '</span><i style="background:' + hexCss(c.mau) + '">' + c.ic + '</i><span>' + c.ten + '</span><small>' + c.ky.ic + ' ' + c.ky.ten + '</small></button>').join('');
+  else g.innerHTML = '<div class="cdLoc"><button class="nutNho' + (CD.loai === 'oto' ? ' bat' : '') + '" data-loai="oto">🏎️ Ô tô (' + XE.filter(z => !laMoto(z)).length + ')</button><button class="nutNho' + (CD.loai === 'moto' ? ' bat' : '') + '" data-loai="moto">🏍️ Xe máy (' + XE.filter(laMoto).length + ')</button></div>' +
+    XE.filter(z => laMoto(z) === (CD.loai === 'moto')).map(z => { const co = LUU.xe.includes(z.id); return '<button class="nvO cdO' + (co ? '' : ' khoa') + (z.id === CD.xe ? ' chon' : '') + '" data-xe="' + z.id + '"><span class="goc">' + (LUU.xeDang === z.id ? '⭐' : co ? '' : '🎟️') + '</span><i style="background:' + hexCss(mauXeNguoi(z)) + '">' + (laMoto(z) ? '🏍️' : '🏎️') + '</i><span>' + z.ten + '</span><small>' + Math.round(V_GOC * z.vmax * 3.6) + ' km/h</small></button>'; }).join('');
+  g.scrollTop = cuon;
+  g.querySelectorAll('[data-nv]').forEach(b => b.onclick = () => { CD.nv = b.dataset.nv; tieng('chuyen'); dungXemTruoc(CD.xe, CD.nv); veChonDua(); });
+  g.querySelectorAll('[data-xe]').forEach(b => b.onclick = () => { CD.xe = b.dataset.xe; tieng('chuyen'); dungXemTruoc(CD.xe, CD.nv); veChonDua(); });
+  g.querySelectorAll('[data-loai]').forEach(b => b.onclick = () => { CD.loai = b.dataset.loai; tieng('chuyen'); veChonDua(); });
+}
+$('cdTabNv').onclick = () => { CD.tab = 'nv'; $('cdLuoi').scrollTop = 0; tieng('chuyen'); veChonDua(); };
+$('cdTabXe').onclick = () => { CD.tab = 'xe'; CD.loai = laMoto(xeCua(CD.xe)) ? 'moto' : 'oto'; $('cdLuoi').scrollTop = 0; tieng('chuyen'); veChonDua(); };
+$('cdVe').onclick = () => { tieng('chuyen'); vaoSanh(); };
+$('cdDua').onclick = () => {              // xe và nhân vật đã mở thì nhớ làm lựa chọn mặc định; đồ dùng thử chỉ có hiệu lực trong cuộc này
+  const o = Object.assign({}, CD.o, { nvId: CD.nv, xeId: CD.xe });
+  if (nvMo(nhanVatCua(CD.nv))) LUU.nhanVat = CD.nv; if (LUU.xe.includes(CD.xe)) LUU.xeDang = CD.xe; luuLai(); batDauDua(o);
+};
 document.querySelectorAll('.oMenu').forEach(b => b.onclick = () => { tieng('chuyen'); moMan(b.dataset.m); });
-$('nutDuaTiep').onclick = () => batDauDua({ duong: duongTiep(), cheDo: 'nghiep' });
+$('nutDuaTiep').onclick = () => moChonDua({ duong: duongTiep(), cheDo: 'nghiep' });
 
 // ---------- MÀN HÌNH CON ----------
 let manDang = '';
-const TEN_MAN = { duong: '🏁 Đường đua', thuthach: '🎯 Thử thách', garage: '🔧 Garage', taydua: '👤 Tay đua', nhiemvu: '📜 Nhiệm vụ & Huy chương', thanhtich: '🏆 Thành tích', caidat: '⚙️ Cài đặt' };
+const TEN_MAN = { duong: '🏁 Đường đua', thuthach: '🎯 Thử thách', garage: '🔧 Garage', taydua: '🐾 Bộ sưu tập', nhiemvu: '📜 Nhiệm vụ & Huy chương', thanhtich: '🏆 Thành tích', caidat: '⚙️ Cài đặt' };
 function moMan(ten) {
   manDang = ten; hienLop(['man']); $('man').classList.toggle('hep', ten === 'garage' || ten === 'taydua');
   $('manTieuDe').textContent = TEN_MAN[ten]; $('manXu').textContent = dinhDangSo(LUU.xu); $('manND').scrollTop = 0;
-  if (ten !== 'garage') dungXemTruoc(LUU.xeDang);
+  if (ten === 'taydua') { if (!nvChon) nvChon = LUU.nhanVat; dungXemNhanVat(nvChon); } else if (ten !== 'garage') dungXemTruoc(LUU.xeDang);
   ({ duong: veManDuong, thuthach: veManThuThach, garage: veManGarage, taydua: veManTayDua, nhiemvu: veManNhiemVu, thanhtich: veManThanhTich, caidat: veManCaiDat })[ten]();
 }
 $('manVe').onclick = () => { tieng('chuyen'); vaoSanh(); };
@@ -2073,7 +2661,7 @@ function veManDuong() {
       '<small>' + (t.tot ? '⏱ Kỷ lục ' + dinhDangGio(t.tot) + ' · ' : '') + '🎁 Quà bí mật ' + qua + '/3' + (t.dua ? ' · đã đua ' + t.dua + ' lần' : '') + '</small>' +
       '<div class="chan"><small>' + (mo ? 'Thưởng hạng 1: ' + XU_HANG[0] + ' xu' : 'Thắng chặng ' + i + ' để mở') + '</small>' + (mo ? '<button class="nutNho dang" data-i="' + i + '">▶ Đua</button>' : '') + '</div></div>';
   }).join('') + '</div>';
-  ganKho(veManDuong); nd.querySelectorAll('[data-i]').forEach(b => b.onclick = () => batDauDua({ duong: +b.dataset.i, cheDo: 'nghiep' }));
+  ganKho(veManDuong); nd.querySelectorAll('[data-i]').forEach(b => b.onclick = () => moChonDua({ duong: +b.dataset.i, cheDo: 'nghiep' }));
 }
 function gioiHan(t) { return DAI_DUONG / t.muc; }
 function veManThuThach() {
@@ -2084,7 +2672,7 @@ function veManThuThach() {
     return '<div class="the' + (mo ? '' : ' khoa') + (s.xong ? ' xong' : '') + '"><span class="goc">' + (s.xong ? '🏅' : mo ? '' : '🔒') + '</span><div class="dau"><span class="ic">' + d.icon + '</span><b>' + t.ten + '</b></div><small>' + mt + '</small><small>Đường: ' + d.ten + ' · Thưởng ' + t.thuong + ' xu</small>' +
       '<div class="chan"><small>' + (s.xong ? '✔ Đã hoàn thành (chơi lại được 20% thưởng)' : mo ? 'Đã mở' : 'Thắng chặng ' + (t.duong + 1) + ' để mở') + '</small>' + (mo ? '<button class="nutNho dang" data-i="' + i + '">▶ Bắt đầu</button>' : '') + '</div></div>';
   }).join('') + '</div>';
-  nd.querySelectorAll('[data-i]').forEach(b => b.onclick = () => batDauDua({ thuThach: THU_THACH[+b.dataset.i], cheDo: 'thuthach' }));
+  nd.querySelectorAll('[data-i]').forEach(b => b.onclick = () => moChonDua({ thuThach: THU_THACH[+b.dataset.i], cheDo: 'thuthach' }));
 }
 let gChon = LUU.xeDang;
 let xnMua = null;
@@ -2115,13 +2703,32 @@ function veManGarage() {
     $('manXu').textContent = dinhDangSo(LUU.xu); veManGarage();
   };
 }
-function veManTayDua() {
-  const nd = $('manND');
-  nd.innerHTML = '<div class="moTa" style="margin-top:0">Chọn tay đua của bạn. Năm bạn còn lại sẽ là đối thủ máy, mỗi người một tính cách.</div><div class="luoiThe" style="grid-template-columns:1fr;margin-top:calc(var(--u)*.8)">' + NHAN_VAT.map(n => {
-    const dang = LUU.nhanVat === n.id;
-    return '<div class="the' + (dang ? ' dang' : '') + '"><div class="dau"><span class="avatar" style="background:' + hexCss(n.mau) + '">' + n.ten[0] + '</span><div><b>' + n.ten + ' — ' + n.hinh + '</b><small> · ' + n.mt + '</small></div></div><small>Khi bạn chọn: <b style="font-size:inherit;color:#ffe9a0">' + n.loi + '</b> · Xe riêng khi làm đối thủ: ' + XE[n.xe].ten + '</small><div class="chan"><small></small><button class="nutNho' + (dang ? '' : ' dang') + '" data-n="' + n.id + '">' + (dang ? '✔ Đang chọn' : 'Chọn') + '</button></div></div>';
-  }).join('') + '</div>';
-  nd.querySelectorAll('[data-n]').forEach(b => b.onclick = () => { LUU.nhanVat = b.dataset.n; luuLai(); tieng('mua'); dungXemTruoc(LUU.xeDang); veManTayDua(); });
+let nvChon = null;
+function veManTayDua() {                // BỘ SƯU TẬP 30 NHÂN VẬT: bấm một ô để xem, nhân vật đã mở thì chọn làm đại diện
+  const nd = $('manND'); if (!nvChon) nvChon = LUU.nhanVat;
+  const n = nhanVatCua(nvChon), mo = nvMo(n), dai = LUU.nhanVat === n.id, soMo = NHAN_VAT.filter(nvMo).length, cuon = nd.scrollTop;
+  let khoa = ''; if (!mo) { const [a, b] = tienDoMo(n); khoa = '<div class="nvKhoa">🔒 <b>Cách mở khóa:</b> ' + n.mo.mt + ' <small>(' + dinhDangSo(Math.min(a, b)) + '/' + dinhDangSo(b) + ')</small><div class="thanh"><i style="width:' + Math.round(Math.min(1, a / b) * 100) + '%"></i></div></div>'; }
+  nd.innerHTML = '<div class="nvBanner">30 NHÂN VẬT ĐẶC BIỆT · 30 KỸ NĂNG ĐỘC QUYỀN</div><div class="moTa" style="margin-top:0">Đã mở <b>' + soMo + '/' + NHAN_VAT.length + '</b> nhân vật · mỗi cuộc đua bạn gặp 6 đối thủ ngẫu nhiên trong bộ sưu tập này</div>' +
+    '<div class="nvCt' + (mo ? '' : ' khoa') + '"><div class="nvDau"><span class="nvAva" style="background:' + hexCss(n.mau) + '">' + n.ic + '</span><div><b>' + n.ten + (dai ? ' ⭐' : '') + '</b><small>' + n.hinh + ' · ' + n.mt + '</small></div></div>' +
+    '<p class="nvTs">“' + n.tieuSu + '”</p><div class="nvDong"><span>Cá tính</span><b>' + n.caTinh + '</b><span>Phong cách lái</span><b>' + n.phongCach + '</b><span>Khi bạn chọn</span><em>' + n.loi + '</em><span>Xe riêng</span><b>' + (XE[n.xe] || XE[0]).ten + '</b></div><div class="nvKy"><b>' + n.ky.ic + ' ' + n.ky.ten + '</b> · hồi chiêu ' + n.ky.cd + ' giây<small>' + n.ky.mt + '</small></div>' + khoa +
+    '<div>' + (mo ? (dai ? '<button class="nutLon xam" disabled>⭐ Đang đại diện cho bạn</button>' : '<button class="nutLon vang" id="nvChonNut">⭐ Chọn làm đại diện</button>') : '<button class="nutLon xam" disabled>🔒 Chưa mở khóa</button>') + '</div></div>' +
+    '<div class="nvLuoi">' + NHAN_VAT.map(c => { const m = nvMo(c); return '<button class="nvO' + (m ? '' : ' khoa') + (c.id === nvChon ? ' chon' : '') + '" data-nv="' + c.id + '" title="' + c.ten + '"><span class="goc">' + (LUU.nhanVat === c.id ? '⭐' : m ? '' : '🔒') + '</span><i style="background:' + hexCss(c.mau) + '">' + c.ic + '</i><span>' + c.ten + '</span><small>' + c.ky.ic + ' ' + c.ky.ten + '</small></button>'; }).join('') + '</div>';
+  nd.scrollTop = cuon;
+  nd.querySelectorAll('[data-nv]').forEach(b => b.onclick = () => { nvChon = b.dataset.nv; tieng('chuyen'); dungXemNhanVat(nvChon); veManTayDua(); });
+  const nut = $('nvChonNut'); if (nut) nut.onclick = () => { LUU.nhanVat = n.id; luuLai(); tieng('mua'); DV.bao('⭐ ' + n.ten + ' đại diện cho bạn!', 1600); veManTayDua(); };
+}
+// ---------- hiệu ứng mở khóa nhân vật mới ----------
+const HANG_MK = [];
+function hienMoKhoa(ds) { for (const n of ds) HANG_MK.push(n); if (!$('moKhoa').classList.contains('hien')) moTiepMK(); }
+function moTiepMK() {
+  const el = $('moKhoa'), n = HANG_MK.shift(); if (!n) { el.classList.remove('hien'); return; }
+  $('mkAva').textContent = n.ic; $('mkAva').style.background = hexCss(n.mau); $('mkTen').textContent = n.ten; $('mkHinh').textContent = n.hinh + ' · ' + n.caTinh;
+  $('mkTieuSu').textContent = n.tieuSu; $('mkLoi').textContent = '✨ ' + n.loi;
+  const mau = ['#ffd23a', '#ff5a8a', '#3af0ff', '#7aff7a', '#c05aff', '#ff9a2a'];
+  $('mkPhao').innerHTML = Array.from({ length: 46 }, (_, i) => '<i style="left:' + (Math.random() * 100).toFixed(1) + '%;background:' + mau[i % 6] + ';animation-delay:' + (Math.random() * 1.5).toFixed(2) + 's;animation-duration:' + (2.2 + Math.random() * 1.8).toFixed(2) + 's"></i>').join('');
+  el.classList.remove('hien'); void el.offsetWidth; el.classList.add('hien'); tieng('thang'); setTimeout(() => tieng('huy'), 600); rung(90);
+  $('mkChon').onclick = () => { LUU.nhanVat = n.id; luuLai(); tieng('mua'); DV.bao('⭐ ' + n.ten + ' giờ đại diện cho bạn!', 1800); moTiepMK(); if ($('sanh').classList.contains('hien')) veSanh(); };
+  $('mkOk').onclick = () => { tieng('chuyen'); moTiepMK(); };
 }
 function veManNhiemVu() {
   const h = demHuyChuong();
@@ -2146,7 +2753,7 @@ function veManCaiDat() {
     '<div class="dongCaiDat"><span>🦶 Ga tự động<br><small class="moTa">Xe tự chạy tới, chỉ cần lái (hợp với điện thoại)</small></span>' + bt('cdGa', DV.gaTuDong() ? 'Bật' : 'Tắt', DV.gaTuDong()) + '</div>' +
     '<div class="dongCaiDat"><span>🎥 Camera</span>' + bt('cdCam', LUU.camXa ? 'Xa' : 'Gần', LUU.camXa) + '</div>' +
     '<div class="dongCaiDat"><span>🤖 Mức khó của máy</span><div class="hangNut">' + Object.keys(DO_KHO).map(k => '<button class="nutNho' + (LUU.kho === k ? ' bat' : '') + '" data-kho="' + k + '">' + DO_KHO[k].ten + '</button>').join('') + '</div></div>' +
-    '<div class="dongCaiDat chiPhim"><span>⌨️ Phím</span><small class="moTa">← → lái · ↑ ga · ↓ phanh/lùi · Cách: drift · Shift/N: Nitro · E: dùng kỹ năng · R: đặt lại · C: camera · M: âm thanh · Esc: tạm dừng</small></div>' +
+    '<div class="dongCaiDat chiPhim"><span>⌨️ Phím</span><small class="moTa">← → lái · ↑ ga · ↓ phanh/lùi · Cách: drift · Shift/N: Nitro · E: dùng kỹ năng · Q: kỹ năng độc quyền · R: đặt lại · C: camera · M: âm thanh · Esc: tạm dừng</small></div>' +
     '<div class="dongCaiDat"><span>🗑️ Xóa toàn bộ tiến trình</span>' + bt('cdXoa', xacNhanXoa ? 'Bấm lần nữa để xóa thật' : 'Xóa dữ liệu', false) + '</div>' +
     '<div class="moTa">Game không có quảng cáo, không bán vật phẩm bằng tiền thật, không bắt đăng nhập mỗi ngày. Dữ liệu chỉ lưu trên máy này.</div>';
   nd.querySelectorAll('[data-dh]').forEach(b => b.onclick = () => { LUU.doHoa = b.dataset.dh; luuLai(); apDoHoa(); lamMoiKhuc(); capNhatKhuc(quanhS(-40), 99); tieng('chuyen'); veManCaiDat(); });
@@ -2185,15 +2792,16 @@ DV.hienKetQua = () => {
   const q = CUOC.ketQua, t = CUOC.thuThach; hienLop(['ketQua']); dungBucVinh();
   $('kqTieuDe').textContent = t ? (q.thuThachOK ? '🏅 Thử thách hoàn thành!' : 'Chưa đạt thử thách') : q.hang === 1 ? '🏆 Vô địch!' : q.hang <= 3 ? '🎉 Lên bục hạng ' + q.hang + '!' : 'Về đích hạng ' + q.hang;
   $('kqHuy').textContent = (q.huy ? HUY_IC[q.huy] + ' ' : '') + (t ? '' : sao(q.hang === 1 ? 3 : q.hang <= 3 ? 2 : q.hang <= 5 ? 1 : 0));
-  $('kqBang').innerHTML = CUOC.xepHang.map((k, i) => '<tr class="' + (k.nguoi ? 'toi' : '') + '"><td>' + (i + 1) + '</td><td><i style="background:' + hexCss(k.mau) + '"></i>' + (k.nguoi ? 'BẠN (' + nhanVatCua(LUU.nhanVat).ten + ')' : (k.boss ? '👑 ' : '') + k.ten) + '</td><td>' + (k.xong ? dinhDangGio(k.tgXong) : 'Còn ' + (Math.max(0, DD.L - k.tot) / 1000).toFixed(1) + ' km') + '</td><td>💰 ' + k.xu + '</td></tr>').join('');
+  $('kqBang').innerHTML = CUOC.xepHang.map((k, i) => '<tr class="' + (k.nguoi ? 'toi' : '') + '"><td>' + (i + 1) + '</td><td><i style="background:' + hexCss(k.mau) + '"></i>' + (k.nguoi ? 'BẠN (' + k.nv.ten + ')' : (k.boss ? '👑 ' : '') + k.ten) + '</td><td>' + (k.xong ? dinhDangGio(k.tgXong) : 'Còn ' + (Math.max(0, DD.L - k.tot) / 1000).toFixed(1) + ' km') + '</td><td>💰 ' + k.xu + '</td></tr>').join('');
   const k = XE_DUA[0];
   $('kqThuong').innerHTML = 'Xu nhặt: <b>' + q.xuNhat + '</b> (combo cao nhất ' + k.comboMax + ') · Thưởng: <b>' + dinhDangSo(q.thuong) + '</b> · Đang có <b>' + dinhDangSo(LUU.xu) + '</b> xu<br><small class="moTa">⚡ ' + Math.round(k.vMax) + ' km/h · 🛫 ' + k.nhay + ' lần bay · 🌀 drift ' + (k.driftQuang / 1000).toFixed(1) + ' km' + (q.kyLuc ? ' · 🏅 Kỷ lục mới!' : '') + '</small>';
   $('kqMoi').innerHTML = q.moi.map(m => '<div>' + m + '</div>').join('') + q.nhiemVu.map(n => '<div>📜 Hoàn thành nhiệm vụ: ' + n + '</div>').join('');
   const sau = DUONG[CUOC.duong + 1], coTiep = !t && sau && duongMo(CUOC.duong + 1);
   $('kqTiep').style.display = coTiep ? '' : 'none'; if (coTiep) $('kqTiep').textContent = '▶ ' + sau.ten;
   kiemTraNghiMat();
+  if (q.nvMoi && q.nvMoi.length) setTimeout(() => hienMoKhoa(q.nvMoi), 1300);
 };
-$('kqLai').onclick = () => batDauDua(cauHinhCuoi); $('kqSanh').onclick = () => thoatCuoc(); $('kqTiep').onclick = () => batDauDua({ duong: CUOC.duong + 1, cheDo: 'nghiep' });
+$('kqLai').onclick = () => batDauDua(cauHinhCuoi); $('kqSanh').onclick = () => thoatCuoc(); $('kqTiep').onclick = () => batDauDua({ duong: CUOC.duong + 1, cheDo: 'nghiep', nvId: (cauHinhCuoi || {}).nvId, xeId: (cauHinhCuoi || {}).xeId });   // đường tiếp: giữ nguyên lựa chọn
 
 // ---------- NGHỈ MẮT ----------
 let nghiHen = 0;
@@ -2250,6 +2858,8 @@ function capNhatHUD(dt) {
   const pn = (k.nitro / NITRO_MAX * 100).toFixed(0), mauN = k.nitDang ? '#ffb02a' : '#3af0ff'; if (chuCu.pn !== pn + mauN) { chuCu.pn = pn + mauN; $('nitroVong').style.background = 'conic-gradient(' + mauN + ' ' + pn + '%,rgba(255,255,255,.12) ' + pn + '%)'; $('tNitro').style.background = 'conic-gradient(rgba(58,168,255,.85) ' + pn + '%,rgba(13,27,69,.55) ' + pn + '%)'; }
   $('nitroTron').classList.toggle('dang', k.nitDang); denXuatPhat();
   const ic = k.khienT > 0 ? '🛡️' : k.kyNang ? KY_NANG[k.kyNang].icon : '?'; datChu('knIcon', ic); datChu('tKyNang', k.kyNang ? KY_NANG[k.kyNang].icon : '❔'); $('oKyNang').classList.toggle('co', !!k.kyNang);
+  { const ky = k.nv && k.nv.ky; if (ky) { const san = !(k.tkCho > 0), pn = san ? 100 : Math.round((1 - k.tkCho / ky.cd) * 100), kh = (san ? 'S' : 'C') + pn; datChu('tkIcon', ky.ic); datChu('tTKic', ky.ic); datChu('tkTen', san ? 'Q · SẴN SÀNG' : Math.ceil(k.tkCho) + ' s');
+      if (chuCu.tk !== kh) { chuCu.tk = kh; const nen = 'conic-gradient(' + (san ? '#ffd23a' : '#3af0ff') + ' ' + pn + '%,rgba(255,255,255,.14) ' + pn + '%)'; $('oTK').style.background = nen; $('tTK').style.background = nen; $('oTK').classList.toggle('san', san); $('tTK').classList.toggle('giu', san); } } }
   const dk = $('driftKhung').children; for (let i = 0; i < 3; i++) dk[i].className = k.drift && k.driftMoc > i ? 'c' + (i + 1) : '';
   const hg = Math.cos(gocChenh(Math.atan2(k.tx, k.tz), k.yaw)); CUOC.nguocT = CUOC.tt === 'dua' && hg < -0.3 && k.vf > 3 ? (CUOC.nguocT || 0) + dt : 0; $('nguoc').style.display = CUOC.nguocT > 1.5 ? 'block' : 'none';
   $('dem').style.display = 'none';
@@ -2258,6 +2868,16 @@ function capNhatHUD(dt) {
 }
 
 // ---------- BỤC VINH QUANG: 3 xe dẫn đầu đứng trên bục, pháo giấy rơi ----------
+let BANGNV = null;                      // chế độ xem thử: xếp 30 nhân vật ngồi trên xe như bảng mẫu
+function dungBangNV(hang, nua) {
+  const sc = new THREE.Scene(); sc.background = new THREE.Color(0x8ac8ff); sc.environment = scene.environment;
+  sc.add(new THREE.HemisphereLight(0xffffff, 0x6a7a9a, 1.1)); const dl = new THREE.DirectionalLight(0xffffff, 1.6); dl.position.set(-20, 40, 30); sc.add(dl);
+  const nen = new THREE.Mesh(new THREE.PlaneGeometry(500, 500), new THREE.MeshStandardMaterial({ color: 0x5a6a8a, roughness: 1 })); nen.rotation.x = -Math.PI / 2; sc.add(nen);
+  (hang ? [hang - 1] : [0, 1, 2, 3, 4]).forEach((r, ri) => { for (let c = 0; c < 6; c++) { const n = NHAN_VAT[r * 6 + c], g = taoKart(XE[n.xe], n.mau, n.phu, null, { nvId: n.id, mauMu: n.mau }); g.position.set((c - 2.5) * 7.5, 0, hang ? 0 : -(4 - ri) * 9); sc.add(g); } });
+  const cam = new THREE.PerspectiveCamera(hang ? 26 : 40, innerWidth / innerHeight, 1, 800);
+  if (hang && nua) { const cx = (nua === 1 ? -1 : 1) * 3.75 * 2 + (nua === 1 ? 0 : 0); const x0 = nua === 1 ? -7.5 : 15 - 7.5 + 0; const xc = nua === 1 ? (-2.5 + -0.5 - 0.5 + 0.5) * 0 - 7.5 : 7.5; cam.position.set(xc, 5.2, 30); cam.lookAt(xc, 2.5, 0); } else if (hang) { cam.position.set(0, 7, 54); cam.lookAt(0, 2.6, 0); } else { cam.position.set(0, 21, 37); cam.lookAt(0, 1.6, -17); }
+  BANGNV = { sc, cam }; hienLop([]); $('sanh').classList.remove('hien'); const dt = $('dangTai'); if (dt) dt.remove();
+}
 const BUC = { sc: null, cam: new THREE.PerspectiveCamera(40, 1, 0.5, 400), giay: 0, phao: null, ds: [], nguoi: [], den: [] };
 function huyBucVinh() { if (!BUC.sc) return; BUC.sc.traverse(o => { if (o.geometry) o.geometry.dispose(); if (o.material) { const ms = Array.isArray(o.material) ? o.material : [o.material]; ms.forEach(m => { if (m.map && m.map !== texLop) m.map.dispose(); m.dispose(); }); } }); BUC.sc = null; BUC.nguoi = []; BUC.den = []; }
 function dungBucVinh() {
@@ -2333,8 +2953,8 @@ function datCamera(dt, t) {
     if (DV.rung > 0) { camera.position.x += ngauNhien(-1, 1) * DV.rung * 0.6; camera.position.y += ngauNhien(-1, 1) * DV.rung * 0.4; DV.rung = Math.max(0, DV.rung - dt * 1.8); }
     camera.lookAt(_nhin); theoNang(k.x, k.y, k.z);
   } else if (xemMesh) {
-    const p = xemMesh.position, ben = $('man').classList.contains('hep');
-    if (ben) { const a = xemMesh.rotation.y + 0.9; camera.position.set(p.x + Math.sin(a) * 7.5, p.y + 2.6, p.z + Math.cos(a) * 7.5); const r = new THREE.Vector3().subVectors(p, camera.position).cross(new THREE.Vector3(0, 1, 0)).normalize(); _nhin.copy(p).addScaledVector(r, 2.8); _nhin.y += 0.9; xemMesh.rotation.y += dt * 0.35; }
+    const p = xemMesh.position, ben = $('man').classList.contains('hep') || $('chonDua').classList.contains('hien');
+    if (ben) { const a = xemMesh.rotation.y + 0.9; const dc = xemXe == null ? 11.5 : 7.5; camera.position.set(p.x + Math.sin(a) * dc, p.y + (xemXe == null ? 3.4 : 2.6), p.z + Math.cos(a) * dc); const r = new THREE.Vector3().subVectors(p, camera.position).cross(new THREE.Vector3(0, 1, 0)).normalize(); _nhin.copy(p).addScaledVector(r, 2.8); _nhin.y += 0.9; xemMesh.rotation.y += dt * 0.35; }
     else { const a = t * 0.25; camera.position.set(p.x + Math.sin(a) * 9.5, p.y + 3.4, p.z + Math.cos(a) * 9.5); _nhin.set(p.x, p.y + 1, p.z); }
     camera.lookAt(_nhin); theoNang(p.x, p.y, p.z);
   }
@@ -2351,6 +2971,7 @@ let tCu = performance.now(), tg = 0, daNhacCham = false; const demCham = { t: 0,
 function vongLap(now) {
   requestAnimationFrame(vongLap);
   const dt = Math.min(0.05, Math.max(0, (now - tCu) / 1000)); tCu = now; tg += dt;
+  if (BANGNV) { veKhung(dt, false, BANGNV.sc, BANGNV.cam); return; }
   renderer.info.reset();
   if (CUOC.tt === 'dua' && LUU.doHoa !== 'nhe' && !CUOC.thu && !daNhacCham && document.visibilityState === 'visible') {   // máy chạy không nổi: điện thoại tự hạ đồ họa một bậc, máy tính thì gợi ý
     demCham.t += (now - (demCham.cu || now)) / 1000; demCham.cu = now; demCham.n++;
@@ -2381,7 +3002,10 @@ function vongLap(now) {
 renderer.info.autoReset = false;
 tatAm = !!LUU.tat; $('tdAm').textContent = '🔊 Âm thanh: ' + (tatAm ? 'Tắt' : 'Bật'); $('tdCam').textContent = '🎥 Camera: ' + (LUU.camXa ? 'Xa' : 'Gần');
 apDoHoa(); vaoSanh();
-if (!/[?&](xem|man)=/.test(location.search)) moChonLoai();      // mới vào game: hỏi chọn ô tô hay xe máy
+if (!/[?&](xem|man|bangnv|chon)=/.test(location.search)) { moChonLoai(); const moi = kiemTraMoNhanVat(); if (moi.length) { luuLai(); setTimeout(() => hienMoKhoa(moi), 900); } }
+{ const m = location.search.match(/[?&]chon=(nv|xe)/); if (m) { const nm = location.search.match(/[?&]nv=([a-z]+)/), xm = location.search.match(/[?&]xe=(x[0-9]+)/); moChonDua({ duong: 0, cheDo: 'nghiep' }); if (nm) CD.nv = nm[1]; if (xm) CD.xe = xm[1]; CD.tab = m[1]; CD.loai = laMoto(xeCua(CD.xe)) ? 'moto' : 'oto'; dungXemTruoc(CD.xe, CD.nv); veChonDua(); } }   // xem thử màn chọn (?chon=nv&nv=dragon&xe=x26)
+{ const m = location.search.match(/[?&]bangnv=(\d)/), u = location.search.match(/[?&]nua=(\d)/); if (m) dungBangNV(+m[1], u ? +u[1] : 0); }
+{ const m = location.search.match(/[?&]mk=([a-z]+)/); if (m) setTimeout(() => hienMoKhoa([nhanVatCua(m[1])]), 1200); }   // xem thử hiệu ứng mở khóa (?mk=rong)      // mới vào game: hỏi chọn ô tô hay xe máy
 setTimeout(() => { $('dangTai').style.opacity = 0; setTimeout(() => $('dangTai').remove(), 450); }, 50);
 requestAnimationFrame(vongLap);
 if (/[?&]xem=dua/.test(location.search)) {          // chế độ xem thử (?xem=dua&d=chặng&tua=giây&fps): xe của bạn tự chạy, không lưu dữ liệu
@@ -2394,7 +3018,7 @@ if (/[?&]xem=dua/.test(location.search)) {          // chế độ xem thử (?x
     let n = 0, t0 = performance.now(); (function dem() { n++; const t = performance.now(); if (t - t0 > 1000) { o.textContent = (n * 1000 / (t - t0)).toFixed(1) + ' khung/giây · ' + renderer.domElement.width + '×' + renderer.domElement.height + ' · ' + DH().ten + ' · ' + renderer.info.render.calls + ' lệnh vẽ'; n = 0; t0 = t; } requestAnimationFrame(dem); })();
   }
 }
-{ const xm = location.search.match(/[?&]xe=(x[0-9]+)/); if (xm) gChon = xm[1]; }
+{ const xm = location.search.match(/[?&]xe=(x[0-9]+)/); if (xm) gChon = xm[1]; const nm = location.search.match(/[?&]nv=([a-z]+)/); if (nm) { nvChon = nm[1]; } }
 { const m = location.search.match(/[?&]man=(\w+)/); if (m && TEN_MAN[m[1]] && !CUOC.thu) moMan(m[1]); }   // mở thẳng một màn hình (?man=garage) để xem nhanh
 window.__kart = { CUOC, XE_DUA, DD, LUU, DV, XU, VAT, DOC, QUA, KHUC_DA, batDauCuoc, batDauDua, capNhatCuoc, capNhatMotBuoc, tinhXepHang, ketThucCuoc, vaoSanh, moMan, datLaiTrenDuong, dungDuong, capNhatKhuc };
 </script>

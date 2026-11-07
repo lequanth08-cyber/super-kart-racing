@@ -36,7 +36,7 @@ function dieuKhienAI(k, dt) {
   if (A.tPU <= 0) {
     A.tPU = kh.phanUng * (0.6 + Math.random() * 0.8);
     const cong = doCong(k.s + 25 + v * 0.8);
-    let muon = A.lane * (1 - Math.min(1, Math.abs(cong) * 300)) - Math.sign(cong) * Math.min(1, Math.abs(cong) * 350) * (RONG_DUONG - 5);   // vào cua thì ôm phía trong
+    let muon = A.lane * (1 - Math.min(1, Math.abs(cong) * 300)) - Math.sign(cong) * Math.min(1, Math.abs(cong) * 350) * (RONG_DUONG - 5) * (P.om != null ? P.om : 1);   // vào cua thì ôm phía trong
     if ((P.axu || 0) > 0.5) {             // thích nhặt xu: đi theo đồng xu gần nhất phía trước
       const a = timDau(XU, k.s + 6), b = timDau(XU, k.s + 70); for (let i = a; i < b; i++) if (XU[i].on && XU[i].y < 3) { muon = XU[i].d; break; }
     }
@@ -64,13 +64,14 @@ function dieuKhienAI(k, dt) {
   const dy = gocChenh(Math.atan2(tx - k.x, tz - k.z), k.yaw);
   dk.lai = kep(-dy * 2.6 + A.lech, -1, 1);
   // ---- (3) ga/phanh theo cua phía trước; (4) drift ở cua gắt ----
-  const bam = k.tt.bam, congNay = Math.abs(doCong(k.s + 10)), duocDrift = v > DRIFT_V + 4 && (P.abam || 1) * (1.2 - sai * 0.4) > 0.9;
-  dk.drift = duocDrift && congNay > 1 / 420 && Math.abs(dk.lai) > 0.25;
+  const bam = k.tt.bam * (k.bBam > 0 ? 1.7 : 1), congNay = Math.abs(doCong(k.s + 10)), duocDrift = v > DRIFT_V + 4 && (P.abam || 1) * (1.2 - sai * 0.4) > 0.9;
+  const thich = P.drift != null ? P.drift : 0.4;   // tính cách drift: thích drift thì đánh lái nhẹ cũng drift và giữ tới hết cua; ít drift thì chỉ drift ở cua gắt
+  dk.drift = duocDrift && congNay > 1 / (90 + 330 * thich) && (Math.abs(dk.lai) > 0.6 - 0.5 * thich || (k.drift && thich >= 0.6 && congNay > 1 / 700));   // nhân vật thích drift thì drift cả cua nhẹ
   let vT = vMaxXe(k, k.nitDang);
   const tamPhanh = Math.min(420, v * v / (2 * GIA_TOC_PHANH) + 60);
   for (let dd = 8; dd <= tamPhanh; dd += 12) {
     const c = Math.abs(doCong(k.s + dd)); if (c < 1 / 2500) continue;
-    const vc = vToiDaCua(1 / c, bam, k.drift || dk.drift) * (0.95 + 0.04 * (1 - sai)), cho = Math.sqrt(vc * vc + 2 * GIA_TOC_PHANH * dd);
+    const vc = vToiDaCua(1 / c, bam, k.drift || dk.drift) * (0.95 + 0.04 * (1 - sai)) * (P.lieu || 1), cho = Math.sqrt(vc * vc + 2 * GIA_TOC_PHANH * dd);
     if (cho < vT) vT = cho;
   }
   if (Math.abs(A.off - k.d) > 9) vT = Math.min(vT, 62);       // đang đổi làn rất xa thì bớt ga cho kịp lái
@@ -83,8 +84,9 @@ function dieuKhienAI(k, dt) {
   if (A.nitT > 0) { A.nitT -= dt; dk.nitro = true; }
   else {
     dk.nitro = false; A.nitCho -= dt;
-    if (A.nitCho <= 0 && k.nitro > ((P.anitro || 0) > 1.2 ? 15 : 32) && v > 30) {
-      let thang = true; for (let dd = 20; dd <= 300; dd += 20) if (Math.abs(doCong(k.s + dd)) > 1 / 1500) { thang = false; break; }
+    const cuoi = P.nitroKieu === 'cuoi', choCuoi = cuoi && k.tot < DD.L * 0.7;   // 'cuoi': để dành Nitro cho 3 km nước rút
+    if (A.nitCho <= 0 && !choCuoi && k.nitro > ((P.anitro || 0) > 1.2 || cuoi ? 15 : 32) && v > 30) {
+      let thang = true; if (P.nitroKieu !== 'luc') for (let dd = 20; dd <= 300; dd += 20) if (Math.abs(doCong(k.s + dd)) > 1 / 1500) { thang = false; break; }
       if (thang && Math.random() < 0.6 * (P.anitro || 0.5) * (0.4 + kh.nitro)) A.nitT = 1.2 + Math.random() * 1.6;
       A.nitCho = ngauNhien(2, 5) / Math.max(0.3, (P.anitro || 0.5) * kh.nitro + 0.2);
     }
@@ -104,7 +106,7 @@ function tuyetChieuBoss(k, dt) {
   const A = k.ai; A.chieuT -= dt;
   if (A.canhT > 0) {
     A.canhT -= dt;
-    if (A.canhT <= 0) { for (const j of XE_DUA) { if (j === k) continue; const dT = k.tot - j.tot; if (dT > 0 && dT < 70 && Math.abs(j.d - k.d) < 18 && !j.bay && !j.xong) { if (j.khienT > 0) { j.khienT = 0; if (suKien) suKien('khienVo', j, 0); } else { j.chamT = 1.5; j.chamHe = 0.8; } } } if (suKien) suKien('sam', k, 0); }
+    if (A.canhT <= 0) { for (const j of XE_DUA) { if (j === k) continue; const dT = k.tot - j.tot; if (dT > 0 && dT < 70 && Math.abs(j.d - k.d) < 18 && !j.bay) trungChieu(j, 1.5, 0.8, 'boss', k); } if (suKien) suKien('sam', k, 0); }
     return;
   }
   if (A.chieuT <= 0) { const sau = XE_DUA.some(j => j !== k && k.tot - j.tot > 5 && k.tot - j.tot < 60); if (sau) { A.canhT = 1.0; A.chieuT = A.p.chieu + Math.random() * 6; if (suKien) suKien('canh', k, 0); } else A.chieuT = 2; }

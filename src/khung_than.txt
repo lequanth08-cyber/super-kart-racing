@@ -4,7 +4,7 @@
 
 <!-- SẢNH -->
 <div id="sanh" class="lop">
-  <div class="tieuDe"><h1>SUPER KART<br>RACING</h1><p>10 km · tới 500 km/h · 26 xe (6 xe máy) · 10 đường đua</p></div>
+  <div class="tieuDe"><h1>SUPER KART<br>RACING</h1><p>10 km · tới 500 km/h · 30 nhân vật · 30 kỹ năng độc quyền · 26 xe</p></div>
   <div id="hoSo" class="bang bam">
     <div class="hoSoDong"><span id="hsAvatar" class="avatar"></span><div><b id="hsTen"></b><small id="hsXe"></small></div><span class="xu">💰 <span id="hsXu">0</span></span></div>
     <div id="hsHuy"></div>
@@ -14,7 +14,7 @@
     <button class="oMenu" data-m="duong">🏁<b>Đường đua</b><small id="mDuong"></small></button>
     <button class="oMenu" data-m="thuthach">🎯<b>Thử thách</b><small id="mThuThach"></small></button>
     <button class="oMenu" data-m="garage">🔧<b>Garage</b><small id="mGarage"></small></button>
-    <button class="oMenu" data-m="taydua">👤<b>Tay đua</b><small id="mTayDua"></small></button>
+    <button class="oMenu" data-m="taydua">🐾<b>Nhân vật</b><small id="mTayDua"></small></button>
     <button class="oMenu" data-m="nhiemvu">📜<b>Nhiệm vụ</b><small id="mNhiemVu"></small></button>
     <button class="oMenu" data-m="thanhtich">🏆<b>Thành tích</b><small>Bảng cá nhân</small></button>
     <button class="oMenu" data-m="caidat">⚙️<b>Cài đặt</b><small id="mCaiDat"></small></button>
@@ -47,13 +47,14 @@
   <div id="hPhai"><div id="kmLon"><small>KM</small><b id="kmSo">0</b><span>/10</span></div><div id="bangXH"></div></div>
   <canvas id="banDo" width="240" height="240"></canvas>
   <div id="oKyNang" title="Kỹ năng (phím E)"><span id="knIcon">?</span><small>KỸ NĂNG · E</small></div>
+  <div id="oTK" title="Kỹ năng độc quyền của nhân vật (phím Q)"><span id="tkIcon">⚡</span><small id="tkTen"></small></div>
   <div id="dongHo"><div id="hTocDo">0<small>km/h</small></div><div id="nitroTron"><i id="nitroVong"></i><span>🔥</span><small>NITRO</small></div><div id="driftKhung"><i></i><i></i><i></i></div></div>
   <div id="combo"></div>
   <div id="nguoc">⚠️ Đi ngược chiều! Quay lại hoặc bấm ĐẶT LẠI</div>
   <div id="dem"></div>
   <div id="camUng">
     <div class="tNut" id="tTrai">◀</div><div class="tNut" id="tPhai">▶</div>
-    <div class="tNut" id="tGa">GA</div><div class="tNut" id="tPhanh">PHANH</div><div class="tNut" id="tDrift">DRIFT</div><div class="tNut" id="tNitro">🔥<br>NITRO</div><div class="tNut" id="tKyNang">❔</div><div class="tNut" id="tDat">↺<br>ĐẶT LẠI</div>
+    <div class="tNut" id="tGa">GA</div><div class="tNut" id="tPhanh">PHANH</div><div class="tNut" id="tDrift">DRIFT</div><div class="tNut" id="tNitro">🔥<br>NITRO</div><div class="tNut" id="tKyNang">❔</div><div class="tNut" id="tTK"><span id="tTKic">⚡</span></div><div class="tNut" id="tDat">↺<br>ĐẶT LẠI</div>
   </div>
 </div>
 
@@ -73,7 +74,7 @@
   <div class="hangNutGiua cot"><button class="nutLon vang" id="tdTiep">▶ Chơi tiếp</button><button class="nutLon xanh" id="tdLai">🔁 Đua lại từ đầu</button><button class="nutLon xam" id="tdSanh">🏠 Về sảnh</button></div>
   <div class="hangNutGiua"><button class="nutNho" id="tdAm">🔊 Âm thanh: Bật</button><button class="nutNho" id="tdCam">🎥 Camera: Gần</button></div>
   <p class="moTa chiCham">👆 Đè ◀ ▶ để lái (trượt ngón qua lại để đổi hướng) · xe tự chạy ga · giữ <b>DRIFT</b> khi vào cua rồi thả ra để phóng · <b>NITRO</b> tăng tốc · nút cầu vồng: dùng kỹ năng · <b>ĐẶT LẠI</b> khi xe kẹt · tắt "Ga tự động" trong Cài đặt nếu muốn tự bấm GA</p>
-  <p class="moTa chiPhim">⌨️ ← → lái · ↑ ga · ↓ phanh/lùi · <b>Cách</b> giữ để drift · <b>Shift</b> hoặc <b>N</b> Nitro · <b>E</b> dùng kỹ năng (lấy từ hộp quà cầu vồng) · <b>R</b> đặt lại xe · <b>C</b> đổi camera · <b>Esc</b> tạm dừng</p>
+  <p class="moTa chiPhim">⌨️ ← → lái · ↑ ga · ↓ phanh/lùi · <b>Cách</b> giữ để drift · <b>Shift</b> hoặc <b>N</b> Nitro · <b>E</b> dùng kỹ năng (lấy từ hộp quà cầu vồng) · <b>Q</b> kỹ năng độc quyền của nhân vật (có hồi chiêu) · <b>R</b> đặt lại xe · <b>C</b> đổi camera · <b>Esc</b> tạm dừng</p>
 </div></div></div>
 
 <!-- CÁCH CHƠI (hiện ở cuộc đua đầu tiên) -->
@@ -82,16 +83,38 @@
   <div class="hdLuoi chiPhim">
     <div><b>← →</b><span>Lái trái, phải</span></div><div><b>↑ / ↓</b><span>Ga · Phanh, lùi</span></div>
     <div><b>Cách</b><span>Giữ khi vào cua để drift, thả ra để phóng</span></div><div><b>Shift</b><span>Bật Nitro tăng tốc</span></div>
-    <div><b>E</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>R · Esc</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
+    <div><b>E</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>Q</b><span>Kỹ năng độc quyền của nhân vật (có hồi chiêu)</span></div><div><b>R · Esc</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
   </div>
   <div class="hdLuoi chiCham">
     <div><b>◀ ▶</b><span>Đè để lái, trượt ngón qua lại để đổi hướng</span></div><div><b>GA</b><span>Xe tự chạy ga sẵn, nút PHANH để chậm lại</span></div>
     <div><b>DRIFT</b><span>Giữ khi vào cua, thả ra để phóng</span></div><div><b>🔥</b><span>NITRO tăng tốc</span></div>
-    <div><b>❔</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>↺ · ⏸</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
+    <div><b>❔</b><span>Dùng kỹ năng lấy từ hộp quà cầu vồng</span></div><div><b>⚡</b><span>Kỹ năng độc quyền của nhân vật (nút có biểu tượng riêng, có hồi chiêu)</span></div><div><b>↺ · ⏸</b><span>Đặt lại xe khi kẹt · Tạm dừng</span></div>
   </div>
   <p class="moTa">Mẹo: nhặt xu, bay qua dốc, drift lâu để được phóng mạnh hơn. Mỗi km chui hầm sang một khung cảnh mới!</p>
   <button class="nutLon vang" id="hdXong">Đã hiểu, đua thôi! ▶</button>
 </div></div></div>
+
+<!-- CHỌN NHÂN VẬT VÀ XE TRƯỚC KHI ĐUA (hiện khi bấm Đua) -->
+<div id="chonDua" class="lop"><div id="cdKhung" class="bang bam">
+  <div class="cdDau"><button id="cdVe" class="nutVe" title="Về sảnh">◀ Về</button><h2 class="chu3d">Chọn nhân vật &amp; xe</h2></div>
+  <div class="cdTab"><button id="cdTabNv" class="nutNho bat">🐾 Nhân vật (30)</button><button id="cdTabXe" class="nutNho">🏎️ Xe (26)</button></div>
+  <div id="cdTin"></div>
+  <div id="cdLuoi"></div>
+  <button id="cdDua" class="nutLon vang">▶ BẮT ĐẦU ĐUA</button>
+</div></div>
+
+<!-- MỞ KHÓA NHÂN VẬT MỚI -->
+<div id="moKhoa" class="lop"><div class="giua">
+  <div class="mkTia"></div><div id="mkPhao"></div>
+  <div class="bang bam mkThe">
+    <div class="mkTieuDe">🔓 MỞ KHÓA NHÂN VẬT MỚI!</div>
+    <div class="mkAva" id="mkAva"></div>
+    <b id="mkTen"></b><small id="mkHinh"></small>
+    <p id="mkTieuSu" class="moTa"></p>
+    <div id="mkLoi"></div>
+    <div class="hangNutGiua"><button class="nutLon xanh" id="mkChon">⭐ Chọn làm đại diện</button><button class="nutLon vang" id="mkOk">Tuyệt vời!</button></div>
+  </div>
+</div></div>
 
 <!-- NGHỈ MẮT -->
 <div id="nghiMat" class="lop"><div class="giua"><div class="bang bam" style="width:min(90vw,calc(var(--u)*52))">
